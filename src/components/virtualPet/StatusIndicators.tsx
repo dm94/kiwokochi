@@ -9,20 +9,12 @@ interface StatusIndicatorsProps {
 const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
   const { stats } = gameState;
 
-  // Función para obtener el color según el valor
+  // Function to get color based on value
   const getStatusColor = (value: number): string => {
     if (value >= 70) return "#00ff00"; // Verde
     if (value >= 40) return "#ffff00"; // Amarillo
     if (value >= 20) return "#ff8800"; // Naranja
     return "#ff0000"; // Rojo
-  };
-
-  // Función para obtener el color de fondo de la barra
-  const getBarBackground = (value: number): string => {
-    if (value >= 70) return "#004400";
-    if (value >= 40) return "#444400";
-    if (value >= 20) return "#442200";
-    return "#440000";
   };
 
   const renderStatBar = (
@@ -67,7 +59,7 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
 
   return (
     <View>
-      {/* Título */}
+      {/* Title */}
       <Text
         fontSize={12}
         fontFamily="monospace"
@@ -114,7 +106,7 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
         )}
       </View>
 
-      {/* Información adicional */}
+      {/* Additional information */}
       <View
         marginTop={12}
         padding={6}
@@ -164,7 +156,7 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
         </View>
       </View>
 
-      {/* Alertas críticas */}
+      {/* Critical alerts */}
       {gameState.isAlive && (
         <View marginTop={8}>
           {stats.health < 20 && (

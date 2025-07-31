@@ -1,14 +1,14 @@
 import type { VirtualPetStats, VirtualPetMood, VirtualPetState } from '../types/pet-types';
 
-// Función para determinar el color de una barra de estadística
+// Function to determine the color of a stat bar
 export const getStatColor = (value: number): string => {
-  if (value >= 70) return '#4ade80'; // Verde
-  if (value >= 40) return '#fbbf24'; // Amarillo
-  if (value >= 20) return '#fb923c'; // Naranja
-  return '#ef4444'; // Rojo
+  if (value >= 70) return '#4ade80';
+  if (value >= 40) return '#fbbf24';
+  if (value >= 20) return '#fb923c';
+  return '#ef4444';
 };
 
-// Función para obtener el emoji correspondiente a cada estadística
+// Function to get the emoji corresponding to each stat
 export const getStatEmoji = (statType: keyof VirtualPetStats): string => {
   const emojiMap = {
     hunger: '🍎',
@@ -23,7 +23,7 @@ export const getStatEmoji = (statType: keyof VirtualPetStats): string => {
   return emojiMap[statType] || '❓';
 };
 
-// Función para obtener el emoji del estado de ánimo
+// Function to get mood emoji
 export const getMoodEmoji = (mood: VirtualPetMood): string => {
   const moodMap = {
     happy: '😊',
@@ -38,7 +38,7 @@ export const getMoodEmoji = (mood: VirtualPetMood): string => {
   return moodMap[mood] || '😐';
 };
 
-// Función para formatear el tiempo de edad
+// Function to format age time
 export const formatAge = (ageInHours: number): string => {
   if (ageInHours < 1) {
     const minutes = Math.floor(ageInHours * 60);
@@ -54,7 +54,7 @@ export const formatAge = (ageInHours: number): string => {
   }
 };
 
-// Función para formatear el peso
+// Function to format weight
 export const formatWeight = (weightInGrams: number): string => {
   if (weightInGrams >= 1000) {
     return `${(weightInGrams / 1000).toFixed(1)}kg`;
@@ -62,7 +62,7 @@ export const formatWeight = (weightInGrams: number): string => {
   return `${Math.round(weightInGrams)}g`;
 };
 
-// Función para calcular el nivel de cuidado general
+// Function to calculate overall care level
 export const calculateCareLevel = (stats: VirtualPetStats): number => {
   const { hunger, happiness, health, energy, cleanliness } = stats;
   return Math.round((hunger + happiness + health + energy + cleanliness) / 5);
@@ -72,7 +72,7 @@ export const needsUrgentCare = (stats: VirtualPetStats): boolean => {
   return stats.hunger < 20 || stats.health < 20 || stats.cleanliness < 20;
 };
 
-// Función para obtener mensajes de estado
+// Function to get status messages
 export const getStatusMessage = (state: VirtualPetState): string => {
   if (!state.isAlive) {
     return '💀 Tu Pet ha muerto...';
@@ -107,7 +107,7 @@ export const getStatusMessage = (state: VirtualPetState): string => {
   return '😊 Tu Pet está bien';
 };
 
-// Función para generar posición aleatoria dentro de los límites
+// Function to generate random position within bounds
 export const generateRandomPosition = (maxX: number = 200, maxY: number = 150): { x: number; y: number } => {
   const margin = 16; // Margen para evitar que el sprite se salga
   return {
@@ -116,14 +116,14 @@ export const generateRandomPosition = (maxX: number = 200, maxY: number = 150): 
   };
 };
 
-// Función para calcular la distancia entre dos puntos
+// Function to calculate distance between two points
 export const calculateDistance = (pos1: { x: number; y: number }, pos2: { x: number; y: number }): number => {
   const dx = pos1.x - pos2.x;
   const dy = pos1.y - pos2.y;
   return Math.sqrt(dx * dx + dy * dy);
 };
 
-// Función para interpolar entre dos posiciones (para animaciones suaves)
+// Function to interpolate between two positions (for smooth animations)
 export const interpolatePosition = (
   from: { x: number; y: number },
   to: { x: number; y: number },

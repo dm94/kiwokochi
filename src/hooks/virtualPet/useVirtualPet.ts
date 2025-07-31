@@ -19,15 +19,12 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
   const [isLoading, setIsLoading] = useState(true);
   const workerRef = useRef<Worker | null>(null);
 
-  // Inicializar el Web Worker
   useEffect(() => {
-    // Crear el worker
     workerRef.current = new Worker(
       new URL('../../workers/virtualpet.worker.ts', import.meta.url),
       { type: 'module' }
     );
 
-    // Configurar el listener para mensajes del worker
     workerRef.current.onmessage = (event) => {
       const { type, state } = event.data;
       
@@ -35,18 +32,15 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
         setGameState(state);
         setIsLoading(false);
         
-        // Auto-guardar el estado cada vez que se actualiza
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       }
     };
 
-    // Manejar errores del worker
     workerRef.current.onerror = (error) => {
       console.error('Error en el Web Worker:', error);
       setIsLoading(false);
     };
 
-    // Cleanup al desmontar
     return () => {
       if (workerRef.current) {
         workerRef.current.terminate();
@@ -54,7 +48,6 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     };
   }, []);
 
-  // Función para realizar acciones
   const performAction = useCallback((actionType: VirtualPetActionType) => {
     if (!workerRef.current) return;
 
@@ -69,11 +62,10 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     });
   }, []);
 
-  // Función para iniciar el juego
+  // Function to start the game
   const startGame = useCallback(() => {
     if (!workerRef.current) return;
 
-    // Intentar cargar estado guardado
     const savedState = loadSavedState();
     
     workerRef.current.postMessage({
@@ -82,7 +74,7 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     });
   }, []);
 
-  // Función para detener el juego
+  // Function to stop the game
   const stopGame = useCallback(() => {
     if (!workerRef.current) return;
 
@@ -91,11 +83,10 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     });
   }, []);
 
-  // Función para reiniciar el juego
+  // Function to restart the game
   const resetGame = useCallback(() => {
     if (!workerRef.current) return;
 
-    // Limpiar estado guardado
     localStorage.removeItem(STORAGE_KEY);
     
     workerRef.current.postMessage({
@@ -103,14 +94,14 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     });
   }, []);
 
-  // Función para guardar el juego
+  // Function to save the game
   const saveGame = useCallback(() => {
     if (gameState) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(gameState));
     }
   }, [gameState]);
 
-  // Función para cargar el juego
+  // Function to load the game
   const loadGame = useCallback(() => {
     const savedState = loadSavedState();
     if (savedState && workerRef.current) {
@@ -121,14 +112,14 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     }
   }, []);
 
-  // Función auxiliar para cargar estado guardado
+  // Helper function to load saved state
   const loadSavedState = (): VirtualPetState | null => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsedState = JSON.parse(saved) as VirtualPetState;
         
-        // Validar que el estado guardado no sea muy antiguo (más de 24 horas)
+        // Validate that saved state is not too old (more than 24 hours)
         const now = Date.now();
         const timeDiff = now - parsedState.lastUpdate;
         const hoursDiff = timeDiff / (1000 * 60 * 60);
@@ -149,7 +140,7 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     return null;
   };
 
-  // Auto-iniciar el juego cuando el worker esté listo
+  // Auto-start the game when worker is ready
   useEffect(() => {
     if (workerRef.current && isLoading) {
       startGame();

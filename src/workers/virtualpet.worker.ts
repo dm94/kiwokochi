@@ -24,20 +24,19 @@ let gameInterval: ReturnType<typeof setInterval> | null = null;
 const updateStats = (deltaTime: number): void => {
   const hoursPassed = deltaTime / (1000 * 60 * 60);
   
-  // Disminuir estadísticas con el tiempo
+  // Decrease stats over time
   gameState.stats.hunger = Math.max(0, gameState.stats.hunger - (hoursPassed * 10));
   gameState.stats.happiness = Math.max(0, gameState.stats.happiness - (hoursPassed * 5));
   gameState.stats.energy = Math.max(0, gameState.stats.energy - (hoursPassed * 8));
   gameState.stats.cleanliness = Math.max(0, gameState.stats.cleanliness - (hoursPassed * 3));
   
-  // Aumentar edad
   gameState.stats.age += hoursPassed;
   
-  // Actualizar salud basada en otras estadísticas
+  // Update health based on other stats
   const avgStats = (gameState.stats.hunger + gameState.stats.happiness + gameState.stats.energy + gameState.stats.cleanliness) / 4;
   gameState.stats.health = Math.min(100, Math.max(0, avgStats));
   
-  // Determinar estado de ánimo
+  // Determine mood state
   if (gameState.stats.health < 20) {
     gameState.mood = VirtualPetMood.SICK;
     gameState.animation = VirtualPetAnimation.SICK;
@@ -55,7 +54,7 @@ const updateStats = (deltaTime: number): void => {
     gameState.mood = VirtualPetMood.SAD;
   }
   
-  // Verificar si está vivo
+  // Check if alive
   if (gameState.stats.health <= 0) {
     gameState.isAlive = false;
     gameState.animation = VirtualPetAnimation.DEAD;
@@ -67,7 +66,7 @@ const updateStats = (deltaTime: number): void => {
 const updatePosition = (): void => {
   if (gameState.animation === VirtualPetAnimation.SLEEPING || gameState.animation === VirtualPetAnimation.DEAD) return;
   
-  // Movimiento aleatorio dentro de los límites (200x150px)
+  // Random movement within bounds (200x150px)
   const moveChance = Math.random();
   if (moveChance < 0.3) { // 30% de probabilidad de moverse
     const newX = Math.max(16, Math.min(184, gameState.position.x + (Math.random() - 0.5) * 40));
@@ -76,7 +75,7 @@ const updatePosition = (): void => {
     gameState.position = { x: newX, y: newY };
     gameState.animation = VirtualPetAnimation.WALKING;
     
-    // Volver a idle después de un tiempo
+    // Return to idle after some time
     setTimeout(() => {
       if (gameState.animation === VirtualPetAnimation.WALKING) {
         gameState.animation = VirtualPetAnimation.IDLE;
@@ -85,7 +84,7 @@ const updatePosition = (): void => {
   }
 };
 
-// Función para procesar acciones del usuario
+// Function to process user actions
 const processAction = (action: VirtualPetAction): void => {
   if (!gameState.isAlive) return;
   
@@ -116,7 +115,7 @@ const processAction = (action: VirtualPetAction): void => {
       break;
   }
   
-  // Volver a idle después de la acción
+  // Return to idle after action
   setTimeout(() => {
     if (gameState.animation !== VirtualPetAnimation.SLEEPING && gameState.animation !== VirtualPetAnimation.DEAD) {
       gameState.animation = VirtualPetAnimation.IDLE;
@@ -124,7 +123,7 @@ const processAction = (action: VirtualPetAction): void => {
   }, 2000);
 };
 
-// Función principal del game loop
+// Main game loop function
 const gameLoop = (): void => {
   const now = Date.now();
   const deltaTime = now - gameState.lastUpdate;
@@ -132,14 +131,12 @@ const gameLoop = (): void => {
   updateStats(deltaTime);
   updatePosition();
   
-  // Enviar estado actualizado al hilo principal
   self.postMessage({
     type: 'gameStateUpdate',
     state: gameState
   });
 };
 
-// Manejo de mensajes del hilo principal
 self.onmessage = (event) => {
   const { type, data } = event.data;
   
@@ -149,11 +146,9 @@ self.onmessage = (event) => {
         gameState = data.savedState;
       }
       
-      // Iniciar el game loop cada 30 segundos
       if (gameInterval) clearInterval(gameInterval);
       gameInterval = setInterval(gameLoop, 30000);
       
-      // Enviar estado inicial
       self.postMessage({
         type: 'gameStateUpdate',
         state: gameState
@@ -169,7 +164,7 @@ self.onmessage = (event) => {
       
     case 'performAction':
       processAction(data.action);
-      // Enviar estado actualizado inmediatamente
+
       self.postMessage({
         type: 'gameStateUpdate',
         state: gameState
@@ -193,5 +188,4 @@ self.onmessage = (event) => {
   }
 };
 
-// Exportar para TypeScript
 export {};

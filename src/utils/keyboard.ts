@@ -1,7 +1,7 @@
 import { useEffect, useCallback } from 'react';
 import type { GameSettings } from '../types/pet-types';
 
-// Configuración por defecto de las teclas
+// Default key configuration
 export const DEFAULT_KEY_BINDINGS = {
   feed: 'f',
   sleep: 's',
@@ -18,7 +18,7 @@ export const useKeyboardControls = (
   keyBindings: GameSettings['keyBindings'] = DEFAULT_KEY_BINDINGS
 ) => {
   const handleKeyPress = useCallback((event: KeyboardEvent) => {
-    // Prevenir acciones si el usuario está escribiendo en un input
+    // Prevent actions if user is typing in an input
     if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
       return;
     }
@@ -54,12 +54,12 @@ export const useKeyboardControls = (
   }, [handleKeyPress]);
 };
 
-// Función para validar si una tecla es válida
+// Function to validate if a key is valid
 export const isValidKey = (key: string): boolean => {
   return /^[a-zA-Z0-9]$/.test(key);
 };
 
-// Función para formatear el nombre de la tecla para mostrar
+// Function to format key name for display
 export const formatKeyName = (key: string): string => {
   return key.toUpperCase();
 };

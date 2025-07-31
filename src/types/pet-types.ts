@@ -1,4 +1,3 @@
-// Tipos para el estado del Tamagotchi
 export interface VirtualPetStats {
   hunger: number; // 0-100
   happiness: number; // 0-100
@@ -53,7 +52,7 @@ export interface VirtualPetAction {
 export interface GameSettings {
   soundEnabled: boolean;
   animationSpeed: number; // 0.5 - 2.0
-  updateInterval: number; // en segundos
+  updateInterval: number;
   keyBindings: {
     feed: string;
     sleep: string;
@@ -64,6 +63,6 @@ export interface GameSettings {
 
 export interface CareHistory {
   actions: VirtualPetAction[];
-  totalCareTime: number; // en minutos
+  totalCareTime: number;
   birthTime: number; // timestamp
 }

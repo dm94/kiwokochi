@@ -67,7 +67,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           boxShadow: "inset 0 2px 4px rgba(0,0,0,0.3)",
         }}
       >
-        {/* Navegación */}
+        {/* Navigation */}
         <View
           flexDirection="row"
           justifyContent="center"
@@ -279,7 +279,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
 
       {/* Panel de controles y estado */}
       <View flexDirection="row" gap={16}>
-        {/* Controles de acción */}
+        {/* Action controls */}
         <View flex={1}>
           <ActionControls gameState={gameState} onAction={onAction} />
         </View>

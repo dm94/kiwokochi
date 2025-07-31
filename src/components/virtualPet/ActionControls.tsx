@@ -11,7 +11,6 @@ const ActionControls: React.FC<ActionControlsProps> = ({
   gameState,
   onAction,
 }) => {
-  // Manejar controles de teclado
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (!gameState.isAlive) return;
@@ -40,7 +39,7 @@ const ActionControls: React.FC<ActionControlsProps> = ({
 
   return (
     <View>
-      {/* Título de controles */}
+      {/* Controls title */}
       <Text
         fontSize={12}
         fontFamily="monospace"
@@ -53,7 +52,7 @@ const ActionControls: React.FC<ActionControlsProps> = ({
         CONTROLS
       </Text>
 
-      {/* Botones de acción */}
+      {/* Action buttons */}
       <View flexDirection="row" gap={8} justifyContent="center">
         <View alignItems="center">
           <View
