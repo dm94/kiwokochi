@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import type { VirtualPetState, VirtualPetAction } from '../../types/pet-types';
+import type { VirtualPetState, VirtualPetAction, VirtualPetActionType } from '../../types/pet-types';
 
 interface UseVirtualPetReturn {
   gameState: VirtualPetState | null;
   isLoading: boolean;
-  performAction: (actionType: 'feed' | 'sleep' | 'clean' | 'play') => void;
+  performAction: (actionType: VirtualPetActionType) => void;
   startGame: () => void;
   stopGame: () => void;
   resetGame: () => void;
@@ -55,7 +55,7 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
   }, []);
 
   // Función para realizar acciones
-  const performAction = useCallback((actionType: 'feed' | 'sleep' | 'clean' | 'play') => {
+  const performAction = useCallback((actionType: VirtualPetActionType) => {
     if (!workerRef.current) return;
 
     const action: VirtualPetAction = {

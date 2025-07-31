@@ -18,26 +18,35 @@ export interface VirtualPetState {
   lastUpdate: number; // timestamp
 }
 
-export type VirtualPetAnimation = 
-  | 'idle'
-  | 'walking'
-  | 'eating'
-  | 'sleeping'
-  | 'playing'
-  | 'sick'
-  | 'dead';
+export enum VirtualPetAnimation {
+  IDLE = 'idle',
+  WALKING = 'walking',
+  EATING = 'eating',
+  SLEEPING = 'sleeping',
+  PLAYING = 'playing',
+  SICK = 'sick',
+  DEAD = 'dead'
+}
 
-export type VirtualPetMood = 
-  | 'happy'
-  | 'sad'
-  | 'angry'
-  | 'sick'
-  | 'sleeping'
-  | 'hungry'
-  | 'dirty';
+export enum VirtualPetMood {
+  HAPPY = 'happy',
+  SAD = 'sad',
+  ANGRY = 'angry',
+  SICK = 'sick',
+  SLEEPING = 'sleeping',
+  HUNGRY = 'hungry',
+  DIRTY = 'dirty'
+}
+
+export enum VirtualPetActionType {
+  FEED = 'feed',
+  SLEEP = 'sleep',
+  CLEAN = 'clean',
+  PLAY = 'play'
+}
 
 export interface VirtualPetAction {
-  type: 'feed' | 'sleep' | 'clean' | 'play';
+  type: VirtualPetActionType;
   timestamp: number;
 }
 

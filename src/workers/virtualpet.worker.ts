@@ -1,4 +1,5 @@
 import type { VirtualPetState, VirtualPetAction } from '../types/pet-types';
+import { VirtualPetAnimation, VirtualPetMood, VirtualPetActionType } from '../types/pet-types';
 
 const createInitialState = (): VirtualPetState => ({
   stats: {
@@ -11,8 +12,8 @@ const createInitialState = (): VirtualPetState => ({
     weight: 50
   },
   position: { x: 100, y: 75 },
-  animation: 'idle',
-  mood: 'happy',
+  animation: VirtualPetAnimation.IDLE,
+  mood: VirtualPetMood.HAPPY,
   isAlive: true,
   lastUpdate: Date.now()
 });
@@ -38,33 +39,33 @@ const updateStats = (deltaTime: number): void => {
   
   // Determinar estado de ánimo
   if (gameState.stats.health < 20) {
-    gameState.mood = 'sick';
-    gameState.animation = 'sick';
+    gameState.mood = VirtualPetMood.SICK;
+    gameState.animation = VirtualPetAnimation.SICK;
   } else if (gameState.stats.hunger < 30) {
-    gameState.mood = 'hungry';
+    gameState.mood = VirtualPetMood.HUNGRY;
   } else if (gameState.stats.cleanliness < 30) {
-    gameState.mood = 'dirty';
+    gameState.mood = VirtualPetMood.DIRTY;
   } else if (gameState.stats.energy < 30) {
-    gameState.mood = 'sleeping';
-    gameState.animation = 'sleeping';
+    gameState.mood = VirtualPetMood.SLEEPING;
+    gameState.animation = VirtualPetAnimation.SLEEPING;
   } else if (gameState.stats.happiness > 70) {
-    gameState.mood = 'happy';
-    gameState.animation = 'idle';
+    gameState.mood = VirtualPetMood.HAPPY;
+    gameState.animation = VirtualPetAnimation.IDLE;
   } else {
-    gameState.mood = 'sad';
+    gameState.mood = VirtualPetMood.SAD;
   }
   
   // Verificar si está vivo
   if (gameState.stats.health <= 0) {
     gameState.isAlive = false;
-    gameState.animation = 'dead';
+    gameState.animation = VirtualPetAnimation.DEAD;
   }
   
   gameState.lastUpdate = Date.now();
 };
 
 const updatePosition = (): void => {
-  if (gameState.animation === 'sleeping' || gameState.animation === 'dead') return;
+  if (gameState.animation === VirtualPetAnimation.SLEEPING || gameState.animation === VirtualPetAnimation.DEAD) return;
   
   // Movimiento aleatorio dentro de los límites (200x150px)
   const moveChance = Math.random();
@@ -73,12 +74,12 @@ const updatePosition = (): void => {
     const newY = Math.max(16, Math.min(134, gameState.position.y + (Math.random() - 0.5) * 40));
     
     gameState.position = { x: newX, y: newY };
-    gameState.animation = 'walking';
+    gameState.animation = VirtualPetAnimation.WALKING;
     
     // Volver a idle después de un tiempo
     setTimeout(() => {
-      if (gameState.animation === 'walking') {
-        gameState.animation = 'idle';
+      if (gameState.animation === VirtualPetAnimation.WALKING) {
+        gameState.animation = VirtualPetAnimation.IDLE;
       }
     }, 1000);
   }
@@ -89,36 +90,36 @@ const processAction = (action: VirtualPetAction): void => {
   if (!gameState.isAlive) return;
   
   switch (action.type) {
-    case 'feed':
+    case VirtualPetActionType.FEED:
       gameState.stats.hunger = Math.min(100, gameState.stats.hunger + 30);
       gameState.stats.happiness = Math.min(100, gameState.stats.happiness + 10);
       gameState.stats.weight += 2;
-      gameState.animation = 'eating';
+      gameState.animation = VirtualPetAnimation.EATING;
       break;
       
-    case 'sleep':
+    case VirtualPetActionType.SLEEP:
       gameState.stats.energy = Math.min(100, gameState.stats.energy + 40);
       gameState.stats.happiness = Math.min(100, gameState.stats.happiness + 5);
-      gameState.animation = 'sleeping';
+      gameState.animation = VirtualPetAnimation.SLEEPING;
       break;
       
-    case 'clean':
+    case VirtualPetActionType.CLEAN:
       gameState.stats.cleanliness = 100;
       gameState.stats.happiness = Math.min(100, gameState.stats.happiness + 15);
-      gameState.animation = 'idle';
+      gameState.animation = VirtualPetAnimation.IDLE;
       break;
       
-    case 'play':
+    case VirtualPetActionType.PLAY:
       gameState.stats.happiness = Math.min(100, gameState.stats.happiness + 25);
       gameState.stats.energy = Math.max(0, gameState.stats.energy - 10);
-      gameState.animation = 'playing';
+      gameState.animation = VirtualPetAnimation.PLAYING;
       break;
   }
   
   // Volver a idle después de la acción
   setTimeout(() => {
-    if (gameState.animation !== 'sleeping' && gameState.animation !== 'dead') {
-      gameState.animation = 'idle';
+    if (gameState.animation !== VirtualPetAnimation.SLEEPING && gameState.animation !== VirtualPetAnimation.DEAD) {
+      gameState.animation = VirtualPetAnimation.IDLE;
     }
   }, 2000);
 };
