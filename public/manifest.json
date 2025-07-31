@@ -1,7 +1,7 @@
 {
   "name": "Tama Web - Virtual Pet Game",
   "short_name": "Tama Web",
-  "description": "Take care of your virtual pet companion in this nostalgic Tamagotchi-style web game. Feed, clean, play and watch your digital pet grow.",
+  "description": "Take care of your virtual pet companion in this nostalgic console-style web game. Feed, clean, play and watch your digital pet grow.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f0f0f0",

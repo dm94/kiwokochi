@@ -58,7 +58,7 @@ export default function Home() {
     <>
       <SEO
         description={t("app.subtitle") + " - " + t("instructions.description")}
-        keywords="virtual pet, tamagotchi, digital pet, pet game, browser game, virtual companion, pet simulator, online pet, retro game, nostalgic game, mascota virtual, juego de mascotas"
+        keywords="virtual pet, digital pet, pet game, browser game, virtual companion, pet simulator, online pet, retro game, nostalgic game, mascota virtual, juego de mascotas"
       />
       <View
         flex={1}

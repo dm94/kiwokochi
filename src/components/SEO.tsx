@@ -30,7 +30,7 @@ const SEO: React.FC<SEOProps> = ({
   const metaDescription = description || defaultDescription;
   const metaKeywords =
     keywords ||
-    "virtual pet, tamagotchi, digital pet, pet game, browser game, virtual companion, pet simulator, online pet, retro game, nostalgic game";
+    "virtual pet, digital pet, pet game, browser game, virtual companion, pet simulator, online pet, retro game, nostalgic game";
 
   useEffect(() => {
     document.title = fullTitle;

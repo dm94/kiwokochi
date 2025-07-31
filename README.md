@@ -1,6 +1,6 @@
 # Tama Web 🐾
 
-> Your Virtual Pet Companion - A nostalgic Tamagotchi-style web game
+> Your Virtual Pet Companion - A nostalgic virtual pet style web game
 
 A modern virtual pet web application built with React, TypeScript, and Vite. Take care of your digital companion by feeding, cleaning, playing, and watching it grow!
 
@@ -19,6 +19,7 @@ A modern virtual pet web application built with React, TypeScript, and Vite. Tak
 This project includes comprehensive SEO optimizations:
 
 ### Meta Tags & Social Sharing
+
 - Complete Open Graph meta tags for Facebook sharing
 - Twitter Card meta tags for Twitter sharing
 - Structured data (JSON-LD) for search engines
@@ -26,6 +27,7 @@ This project includes comprehensive SEO optimizations:
 - Multi-language support with hreflang tags
 
 ### Performance & Technical SEO
+
 - Optimized bundle splitting and code minification
 - Proper caching headers for static assets
 - Sitemap.xml for search engine crawling
@@ -34,6 +36,7 @@ This project includes comprehensive SEO optimizations:
 - Security headers (CSP, XSS protection, etc.)
 
 ### Files Added for SEO
+
 - `public/sitemap.xml` - Site structure for search engines
 - `public/robots.txt` - Crawler instructions
 - `public/manifest.json` - PWA configuration
@@ -45,10 +48,12 @@ This project includes comprehensive SEO optimizations:
 ## 🛠️ Development
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - pnpm (recommended) or npm
 
 ### Installation
+
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/tamaweb.git
@@ -62,6 +67,7 @@ pnpm dev
 ```
 
 ### Build & Deploy
+
 ```bash
 # Build for production
 pnpm build
@@ -74,6 +80,7 @@ pnpm build:analyze
 ```
 
 ### SEO Testing
+
 ```bash
 # Validate SEO implementation
 pnpm seo:validate
@@ -85,7 +92,7 @@ pnpm lighthouse
 ## 🎮 How to Play
 
 1. **Feed your pet** (F key or Feed button) when hunger is low
-2. **Put it to sleep** (S key or Sleep button) when energy is low  
+2. **Put it to sleep** (S key or Sleep button) when energy is low
 3. **Clean your pet** (C key or Clean button) when cleanliness is low
 4. **Play with it** (P key or Play button) to increase happiness
 5. **Monitor the status bars** and respond to your pet's needs
@@ -98,6 +105,7 @@ Visit the live application: [https://tamaweb.vercel.app/](https://tamaweb.vercel
 ## 📱 Progressive Web App
 
 Tama Web can be installed as a PWA on your device:
+
 - **Desktop**: Click the install button in your browser's address bar
 - **Mobile**: Use "Add to Home Screen" option in your browser menu
 
