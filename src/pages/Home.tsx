@@ -39,7 +39,7 @@ export default function Home() {
             textTransform="uppercase"
             letterSpacing={2}
           >
-            {t('loading.pet')}
+            {t("loading.pet")}
           </Text>
           <Text
             fontSize={12}
@@ -47,7 +47,7 @@ export default function Home() {
             color="#666"
             textAlign="center"
           >
-            {t('loading.initializing')}
+            {t("loading.initializing")}
           </Text>
         </View>
       </View>
@@ -56,8 +56,8 @@ export default function Home() {
 
   return (
     <>
-      <SEO 
-        description={t('app.subtitle') + ' - ' + t('instructions.description')}
+      <SEO
+        description={t("app.subtitle") + " - " + t("instructions.description")}
         keywords="virtual pet, tamagotchi, digital pet, pet game, browser game, virtual companion, pet simulator, online pet, retro game, nostalgic game, mascota virtual, juego de mascotas"
       />
       <View
@@ -74,75 +74,48 @@ export default function Home() {
           backgroundPosition: "0 0, 30px 30px",
         }}
       >
-      <View alignItems="center" marginBottom={20}>
-        <Text
-          fontSize={24}
-          fontFamily="monospace"
-          color="#333"
-          textTransform="uppercase"
-          letterSpacing={3}
-          marginBottom={8}
-          style={{
-            textShadow: "2px 2px 0px #ccc",
-          }}
+        <VirtualPetDevice
+          gameState={gameState}
+          onAction={performAction}
+          onReset={resetGame}
+          onNavigate={setCurrentPage}
+          currentPage={currentPage}
+        />
+        <View
+          marginTop={20}
+          padding={16}
+          backgroundColor="rgba(255,255,255,0.8)"
+          borderWidth={1}
+          borderColor="#ccc"
+          borderRadius={8}
+          maxWidth={400}
+          margin="auto"
         >
-          {t('app.title')}
-        </Text>
-        <Text
-          fontSize={12}
-          fontFamily="monospace"
-          color="#666"
-          textAlign="center"
-        >
-          {t('app.subtitle')}
-        </Text>
-      </View>
+          <Text
+            fontSize={12}
+            fontFamily="monospace"
+            color="#333"
+            textAlign="center"
+            marginBottom={8}
+            textTransform="uppercase"
+          >
+            {t("instructions.title")}
+          </Text>
+          <Text
+            fontSize={10}
+            fontFamily="monospace"
+            color="#666"
+            textAlign="center"
+            lineHeight={14}
+          >
+            {t("instructions.description")}
+          </Text>
+        </View>
 
-      <VirtualPetDevice
-        gameState={gameState}
-        onAction={performAction}
-        onReset={resetGame}
-        onNavigate={setCurrentPage}
-        currentPage={currentPage}
-      />
-      <View
-        marginTop={20}
-        padding={16}
-        backgroundColor="rgba(255,255,255,0.8)"
-        borderWidth={1}
-        borderColor="#ccc"
-        borderRadius={8}
-        maxWidth={400}
-        margin="auto"
-      >
-        <Text
-          fontSize={12}
-          fontFamily="monospace"
-          color="#333"
-          textAlign="center"
-          marginBottom={8}
-          textTransform="uppercase"
-        >
-          {t('instructions.title')}
-        </Text>
-        <Text
-          fontSize={10}
-          fontFamily="monospace"
-          color="#666"
-          textAlign="center"
-          lineHeight={14}
-        >
-          {t('instructions.description')}
-        </Text>
+        <View marginTop={16} alignItems="center">
+          <LanguageSwitcher />
+        </View>
       </View>
-      
-      <View
-        marginTop={16}
-        alignItems="center"
-      >
-        <LanguageSwitcher />
-      </View>
-    </View>
     </>
   );
 }
