@@ -1,0 +1,199 @@
+import type { TamagotchiState, TamagotchiStats, TamagotchiAction } from '../types/tamagotchi';
+
+// Estado inicial del Tamagotchi
+const createInitialState = (): TamagotchiState => ({
+  stats: {
+    hunger: 80,
+    happiness: 80,
+    health: 100,
+    energy: 80,
+    cleanliness: 100,
+    age: 0,
+    weight: 50
+  },
+  position: { x: 100, y: 75 },
+  animation: 'idle',
+  mood: 'happy',
+  isAlive: true,
+  lastUpdate: Date.now()
+});
+
+let gameState: TamagotchiState = createInitialState();
+let gameInterval: ReturnType<typeof setInterval> | null = null;
+
+// Función para actualizar las estadísticas del Tamagotchi
+const updateStats = (deltaTime: number): void => {
+  const hoursPassed = deltaTime / (1000 * 60 * 60);
+  
+  // Disminuir estadísticas con el tiempo
+  gameState.stats.hunger = Math.max(0, gameState.stats.hunger - (hoursPassed * 10));
+  gameState.stats.happiness = Math.max(0, gameState.stats.happiness - (hoursPassed * 5));
+  gameState.stats.energy = Math.max(0, gameState.stats.energy - (hoursPassed * 8));
+  gameState.stats.cleanliness = Math.max(0, gameState.stats.cleanliness - (hoursPassed * 3));
+  
+  // Aumentar edad
+  gameState.stats.age += hoursPassed;
+  
+  // Actualizar salud basada en otras estadísticas
+  const avgStats = (gameState.stats.hunger + gameState.stats.happiness + gameState.stats.energy + gameState.stats.cleanliness) / 4;
+  gameState.stats.health = Math.min(100, Math.max(0, avgStats));
+  
+  // Determinar estado de ánimo
+  if (gameState.stats.health < 20) {
+    gameState.mood = 'sick';
+    gameState.animation = 'sick';
+  } else if (gameState.stats.hunger < 30) {
+    gameState.mood = 'hungry';
+  } else if (gameState.stats.cleanliness < 30) {
+    gameState.mood = 'dirty';
+  } else if (gameState.stats.energy < 30) {
+    gameState.mood = 'sleeping';
+    gameState.animation = 'sleeping';
+  } else if (gameState.stats.happiness > 70) {
+    gameState.mood = 'happy';
+    gameState.animation = 'idle';
+  } else {
+    gameState.mood = 'sad';
+  }
+  
+  // Verificar si está vivo
+  if (gameState.stats.health <= 0) {
+    gameState.isAlive = false;
+    gameState.animation = 'dead';
+  }
+  
+  gameState.lastUpdate = Date.now();
+};
+
+// Función para mover el Tamagotchi aleatoriamente
+const updatePosition = (): void => {
+  if (gameState.animation === 'sleeping' || gameState.animation === 'dead') return;
+  
+  // Movimiento aleatorio dentro de los límites (200x150px)
+  const moveChance = Math.random();
+  if (moveChance < 0.3) { // 30% de probabilidad de moverse
+    const newX = Math.max(16, Math.min(184, gameState.position.x + (Math.random() - 0.5) * 40));
+    const newY = Math.max(16, Math.min(134, gameState.position.y + (Math.random() - 0.5) * 40));
+    
+    gameState.position = { x: newX, y: newY };
+    gameState.animation = 'walking';
+    
+    // Volver a idle después de un tiempo
+    setTimeout(() => {
+      if (gameState.animation === 'walking') {
+        gameState.animation = 'idle';
+      }
+    }, 1000);
+  }
+};
+
+// Función para procesar acciones del usuario
+const processAction = (action: TamagotchiAction): void => {
+  if (!gameState.isAlive) return;
+  
+  switch (action.type) {
+    case 'feed':
+      gameState.stats.hunger = Math.min(100, gameState.stats.hunger + 30);
+      gameState.stats.happiness = Math.min(100, gameState.stats.happiness + 10);
+      gameState.stats.weight += 2;
+      gameState.animation = 'eating';
+      break;
+      
+    case 'sleep':
+      gameState.stats.energy = Math.min(100, gameState.stats.energy + 40);
+      gameState.stats.happiness = Math.min(100, gameState.stats.happiness + 5);
+      gameState.animation = 'sleeping';
+      break;
+      
+    case 'clean':
+      gameState.stats.cleanliness = 100;
+      gameState.stats.happiness = Math.min(100, gameState.stats.happiness + 15);
+      gameState.animation = 'idle';
+      break;
+      
+    case 'play':
+      gameState.stats.happiness = Math.min(100, gameState.stats.happiness + 25);
+      gameState.stats.energy = Math.max(0, gameState.stats.energy - 10);
+      gameState.animation = 'playing';
+      break;
+  }
+  
+  // Volver a idle después de la acción
+  setTimeout(() => {
+    if (gameState.animation !== 'sleeping' && gameState.animation !== 'dead') {
+      gameState.animation = 'idle';
+    }
+  }, 2000);
+};
+
+// Función principal del game loop
+const gameLoop = (): void => {
+  const now = Date.now();
+  const deltaTime = now - gameState.lastUpdate;
+  
+  updateStats(deltaTime);
+  updatePosition();
+  
+  // Enviar estado actualizado al hilo principal
+  self.postMessage({
+    type: 'gameStateUpdate',
+    state: gameState
+  });
+};
+
+// Manejo de mensajes del hilo principal
+self.onmessage = (event) => {
+  const { type, data } = event.data;
+  
+  switch (type) {
+    case 'startGame':
+      if (data?.savedState) {
+        gameState = data.savedState;
+      }
+      
+      // Iniciar el game loop cada 30 segundos
+      if (gameInterval) clearInterval(gameInterval);
+      gameInterval = setInterval(gameLoop, 30000);
+      
+      // Enviar estado inicial
+      self.postMessage({
+        type: 'gameStateUpdate',
+        state: gameState
+      });
+      break;
+      
+    case 'stopGame':
+      if (gameInterval) {
+        clearInterval(gameInterval);
+        gameInterval = null;
+      }
+      break;
+      
+    case 'performAction':
+      processAction(data.action);
+      // Enviar estado actualizado inmediatamente
+      self.postMessage({
+        type: 'gameStateUpdate',
+        state: gameState
+      });
+      break;
+      
+    case 'getState':
+      self.postMessage({
+        type: 'gameStateUpdate',
+        state: gameState
+      });
+      break;
+      
+    case 'resetGame':
+      gameState = createInitialState();
+      self.postMessage({
+        type: 'gameStateUpdate',
+        state: gameState
+      });
+      break;
+  }
+};
+
+// Exportar para TypeScript
+export {};
