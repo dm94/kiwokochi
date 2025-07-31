@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text } from "@tamagui/core";
 import type { VirtualPetState } from "../../types/pet-types";
+import { useTranslation } from "../../hooks/useTranslation";
 
 interface StatusIndicatorsProps {
   gameState: VirtualPetState;
@@ -8,6 +9,7 @@ interface StatusIndicatorsProps {
 
 const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
   const { stats } = gameState;
+  const { t } = useTranslation();
 
   // Function to get color based on value
   const getStatusColor = (value: number): string => {
@@ -68,35 +70,35 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
         textTransform="uppercase"
         letterSpacing={1}
       >
-        STATUS
+        {t('status.title')}
       </Text>
       <View gap={4}>
         {renderStatBar(
-          "Hunger",
+          t('status.hunger'),
           gameState.stats.hunger,
           100,
           getStatusColor((gameState.stats.hunger / 100) * 100)
         )}
         {renderStatBar(
-          "Happiness",
+          t('status.happiness'),
           gameState.stats.happiness,
           100,
           getStatusColor((gameState.stats.happiness / 100) * 100)
         )}
         {renderStatBar(
-          "Health",
+          t('status.health'),
           gameState.stats.health,
           100,
           getStatusColor((gameState.stats.health / 100) * 100)
         )}
         {renderStatBar(
-          "Energy",
+          t('status.energy'),
           gameState.stats.energy,
           100,
           getStatusColor((gameState.stats.energy / 100) * 100)
         )}
         {renderStatBar(
-          "Cleanliness",
+          t('status.cleanliness'),
           gameState.stats.cleanliness,
           100,
           getStatusColor((gameState.stats.cleanliness / 100) * 100)
@@ -168,7 +170,7 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
                 textAlign="center"
                 className="animate-pulse"
               >
-                ⚠️ CRITICAL HEALTH!
+                {t('status.criticalHealth')}
               </Text>
             </View>
           )}

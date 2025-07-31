@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { View, Text } from "@tamagui/core";
 import { VirtualPetActionType, VirtualPetState } from "../../types/pet-types";
+import { useTranslation } from "../../hooks/useTranslation";
 
 interface ActionControlsProps {
   gameState: VirtualPetState;
@@ -11,6 +12,7 @@ const ActionControls: React.FC<ActionControlsProps> = ({
   gameState,
   onAction,
 }) => {
+  const { t } = useTranslation();
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (!gameState.isAlive) return;
@@ -79,7 +81,7 @@ const ActionControls: React.FC<ActionControlsProps> = ({
               🍎
             </Text>
             <Text fontSize={8} color="#fff">
-              FEED
+              {t('actions.feed')}
             </Text>
           </View>
           <Text fontSize={8} fontFamily="monospace" color="#666" marginTop={2}>
@@ -115,7 +117,7 @@ const ActionControls: React.FC<ActionControlsProps> = ({
               😴
             </Text>
             <Text fontSize={8} color="#fff">
-              SLEEP
+              {t('actions.sleep')}
             </Text>
           </View>
           <Text fontSize={8} fontFamily="monospace" color="#666" marginTop={2}>
@@ -151,7 +153,7 @@ const ActionControls: React.FC<ActionControlsProps> = ({
               🧽
             </Text>
             <Text fontSize={8} color="#fff">
-              CLEAN
+              {t('actions.clean')}
             </Text>
           </View>
           <Text fontSize={8} fontFamily="monospace" color="#666" marginTop={2}>
@@ -187,7 +189,7 @@ const ActionControls: React.FC<ActionControlsProps> = ({
               🎮
             </Text>
             <Text fontSize={8} color="#fff">
-              PLAY
+              {t('actions.play')}
             </Text>
           </View>
           <Text fontSize={8} fontFamily="monospace" color="#666" marginTop={2}>

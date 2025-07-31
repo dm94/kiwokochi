@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { View, Text } from "@tamagui/core";
 import { useVirtualPet } from "../hooks/virtualPet/useVirtualPet";
 import VirtualPetDevice from "../components/virtualPet/VirtualPetDevice";
+import LanguageSwitcher from "../components/LanguageSwitcher";
+import { useTranslation } from "../hooks/useTranslation";
 import { NavigationPage } from "../types/pet-types";
 
 export default function Home() {
   const { gameState, isLoading, performAction, resetGame } = useVirtualPet();
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState<NavigationPage>(
     NavigationPage.MAIN
   );
@@ -35,7 +38,7 @@ export default function Home() {
             textTransform="uppercase"
             letterSpacing={2}
           >
-            Loading Pet...
+            {t('loading.pet')}
           </Text>
           <Text
             fontSize={12}
@@ -43,7 +46,7 @@ export default function Home() {
             color="#666"
             textAlign="center"
           >
-            Initializing virtual pet system
+            {t('loading.initializing')}
           </Text>
         </View>
       </View>
@@ -77,7 +80,7 @@ export default function Home() {
             textShadow: "2px 2px 0px #ccc",
           }}
         >
-          TAMA WEB
+          {t('app.title')}
         </Text>
         <Text
           fontSize={12}
@@ -85,7 +88,7 @@ export default function Home() {
           color="#666"
           textAlign="center"
         >
-          Your Virtual Pet Companion
+          {t('app.subtitle')}
         </Text>
       </View>
 
@@ -114,7 +117,7 @@ export default function Home() {
           marginBottom={8}
           textTransform="uppercase"
         >
-          How to Play
+          {t('instructions.title')}
         </Text>
         <Text
           fontSize={10}
@@ -123,10 +126,15 @@ export default function Home() {
           textAlign="center"
           lineHeight={14}
         >
-          Take care of your virtual pet by feeding, cleaning, and playing with
-          it. Use keyboard shortcuts (F, S, C, P) or click the buttons. Watch
-          the status bars and respond to your pet's needs!
+          {t('instructions.description')}
         </Text>
+      </View>
+      
+      <View
+        marginTop={16}
+        alignItems="center"
+      >
+        <LanguageSwitcher />
       </View>
     </View>
   );

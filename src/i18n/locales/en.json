@@ -1,0 +1,40 @@
+{
+  "app": {
+    "title": "TAMA WEB",
+    "subtitle": "Your Virtual Pet Companion"
+  },
+  "loading": {
+    "pet": "Loading Pet...",
+    "initializing": "Initializing virtual pet system"
+  },
+  "actions": {
+    "feed": "FEED",
+    "sleep": "SLEEP",
+    "clean": "CLEAN",
+    "play": "PLAY",
+    "reset": "🔄 RESET PET"
+  },
+  "status": {
+    "title": "STATUS",
+    "hunger": "Hunger",
+    "happiness": "Happiness",
+    "health": "Health",
+    "energy": "Energy",
+    "cleanliness": "Cleanliness",
+    "criticalHealth": "⚠️ CRITICAL HEALTH!",
+    "starving": "🍎 STARVING!"
+  },
+  "instructions": {
+    "title": "How to Play",
+    "description": "Take care of your virtual pet by feeding, cleaning, and playing with it. Use keyboard shortcuts (F, S, C, P) or click the buttons. Watch the status bars and respond to your pet's needs!",
+    "controls": "F = Feed | S = Sleep | C = Clean | P = Play",
+    "keyboardControls": "Keyboard Controls:"
+  },
+  "messages": {
+    "needsFood": "Your pet is hungry!",
+    "needsCleaning": "Your pet needs cleaning!",
+    "needsSleep": "Your pet is tired!",
+    "isHappy": "Your pet is very happy!",
+    "isDead": "Your pet has died. Take better care next time!"
+  }
+}

@@ -3,6 +3,7 @@ import { View, Text } from "@tamagui/core";
 import VirtualPet from "./VirtualPet";
 import ActionControls from "./ActionControls";
 import StatusIndicators from "./StatusIndicators";
+import { useTranslation } from "../../hooks/useTranslation";
 import type {
   VirtualPetActionType,
   VirtualPetState,
@@ -24,6 +25,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
   onNavigate,
   currentPage,
 }) => {
+  const { t } = useTranslation();
   return (
     <View
       maxWidth={400}
@@ -236,7 +238,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 }}
               >
                 <Text fontSize={10} fontFamily="monospace" color="#fff">
-                  🔄 RESET PET
+                  {t('actions.reset')}
                 </Text>
               </View>
 
@@ -253,7 +255,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   color="#666"
                   textAlign="center"
                 >
-                  Keyboard Controls:
+                  {t('instructions.keyboardControls')}
                 </Text>
                 <Text
                   fontSize={8}
@@ -261,7 +263,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   color="#333"
                   textAlign="center"
                 >
-                  F = Feed | S = Sleep | C = Clean | P = Play
+                  {t('instructions.controls')}
                 </Text>
               </View>
             </View>

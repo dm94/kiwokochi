@@ -1,0 +1,40 @@
+{
+  "app": {
+    "title": "TAMA WEB",
+    "subtitle": "Tu Mascota Virtual Compañera"
+  },
+  "loading": {
+    "pet": "Cargando Mascota...",
+    "initializing": "Inicializando sistema de mascota virtual"
+  },
+  "actions": {
+    "feed": "ALIMENTAR",
+    "sleep": "DORMIR",
+    "clean": "LIMPIAR",
+    "play": "JUGAR",
+    "reset": "🔄 REINICIAR MASCOTA"
+  },
+  "status": {
+    "title": "ESTADO",
+    "hunger": "Hambre",
+    "happiness": "Felicidad",
+    "health": "Salud",
+    "energy": "Energía",
+    "cleanliness": "Limpieza",
+    "criticalHealth": "⚠️ ¡SALUD CRÍTICA!",
+    "starving": "🍎 ¡HAMBRIENTO!"
+  },
+  "instructions": {
+    "title": "Cómo Jugar",
+    "description": "Cuida de tu mascota virtual alimentándola, limpiándola y jugando con ella. Usa los atajos de teclado (F, S, C, P) o haz clic en los botones. ¡Observa las barras de estado y responde a las necesidades de tu mascota!",
+    "controls": "F = Alimentar | S = Dormir | C = Limpiar | P = Jugar",
+    "keyboardControls": "Controles de Teclado:"
+  },
+  "messages": {
+    "needsFood": "¡Tu mascota tiene hambre!",
+    "needsCleaning": "¡Tu mascota necesita limpieza!",
+    "needsSleep": "¡Tu mascota está cansada!",
+    "isHappy": "¡Tu mascota está muy feliz!",
+    "isDead": "Tu mascota ha muerto. ¡Cuídala mejor la próxima vez!"
+  }
+}
