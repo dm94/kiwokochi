@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { View, Text } from "@tamagui/core";
 import { useVirtualPet } from "../hooks/virtualPet/useVirtualPet";
 import VirtualPetDevice from "../components/virtualPet/VirtualPetDevice";
+import { NavigationPage } from "../types/pet-types";
 
 export default function Home() {
   const { gameState, isLoading, performAction, resetGame } = useVirtualPet();
-  const [currentPage, setCurrentPage] = useState<"main" | "stats" | "settings">(
-    "main"
+  const [currentPage, setCurrentPage] = useState<NavigationPage>(
+    NavigationPage.MAIN
   );
 
   if (isLoading || !gameState) {

@@ -3,14 +3,18 @@ import { View, Text } from "@tamagui/core";
 import VirtualPet from "./VirtualPet";
 import ActionControls from "./ActionControls";
 import StatusIndicators from "./StatusIndicators";
-import type { VirtualPetState } from "../../types/pet-types";
+import type {
+  VirtualPetActionType,
+  VirtualPetState,
+} from "../../types/pet-types";
+import { NavigationPage } from "../../types/pet-types";
 
 interface VirtualPetDeviceProps {
   gameState: VirtualPetState;
-  onAction: (action: "feed" | "sleep" | "clean" | "play") => void;
+  onAction: (action: VirtualPetActionType) => void;
   onReset: () => void;
-  onNavigate: (page: "main" | "stats" | "settings") => void;
-  currentPage: "main" | "stats" | "settings";
+  onNavigate: (page: NavigationPage) => void;
+  currentPage: NavigationPage;
 }
 
 const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
@@ -58,18 +62,21 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           <View
             paddingHorizontal={12}
             paddingVertical={6}
-            backgroundColor={currentPage === "main" ? "#333" : "#ccc"}
+            backgroundColor={
+              currentPage === NavigationPage.MAIN ? "#333" : "#ccc"
+            }
             borderRadius={0}
             cursor="pointer"
-            onPress={() => onNavigate("main")}
+            onPress={() => onNavigate(NavigationPage.MAIN)}
             pressStyle={{
-              backgroundColor: currentPage === "main" ? "#555" : "#aaa",
+              backgroundColor:
+                currentPage === NavigationPage.MAIN ? "#555" : "#aaa",
             }}
           >
             <Text
               fontSize={8}
               fontFamily="monospace"
-              color={currentPage === "main" ? "#fff" : "#333"}
+              color={currentPage === NavigationPage.MAIN ? "#fff" : "#333"}
             >
               MAIN
             </Text>
@@ -77,18 +84,21 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           <View
             paddingHorizontal={12}
             paddingVertical={6}
-            backgroundColor={currentPage === "stats" ? "#333" : "#ccc"}
+            backgroundColor={
+              currentPage === NavigationPage.STATS ? "#333" : "#ccc"
+            }
             borderRadius={0}
             cursor="pointer"
-            onPress={() => onNavigate("stats")}
+            onPress={() => onNavigate(NavigationPage.STATS)}
             pressStyle={{
-              backgroundColor: currentPage === "stats" ? "#555" : "#aaa",
+              backgroundColor:
+                currentPage === NavigationPage.STATS ? "#555" : "#aaa",
             }}
           >
             <Text
               fontSize={8}
               fontFamily="monospace"
-              color={currentPage === "stats" ? "#fff" : "#333"}
+              color={currentPage === NavigationPage.STATS ? "#fff" : "#333"}
             >
               STATS
             </Text>
@@ -96,30 +106,33 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           <View
             paddingHorizontal={12}
             paddingVertical={6}
-            backgroundColor={currentPage === "settings" ? "#333" : "#ccc"}
+            backgroundColor={
+              currentPage === NavigationPage.SETTINGS ? "#333" : "#ccc"
+            }
             borderRadius={0}
             cursor="pointer"
-            onPress={() => onNavigate("settings")}
+            onPress={() => onNavigate(NavigationPage.SETTINGS)}
             pressStyle={{
-              backgroundColor: currentPage === "settings" ? "#555" : "#aaa",
+              backgroundColor:
+                currentPage === NavigationPage.SETTINGS ? "#555" : "#aaa",
             }}
           >
             <Text
               fontSize={8}
               fontFamily="monospace"
-              color={currentPage === "settings" ? "#fff" : "#333"}
+              color={currentPage === NavigationPage.SETTINGS ? "#fff" : "#333"}
             >
               SET
             </Text>
           </View>
         </View>
-        {currentPage === "main" && (
+        {currentPage === NavigationPage.MAIN && (
           <View alignItems="center">
             <VirtualPet gameState={gameState} />
           </View>
         )}
 
-        {currentPage === "stats" && (
+        {currentPage === NavigationPage.STATS && (
           <View alignItems="center">
             <Text
               fontSize={12}
@@ -198,7 +211,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           </View>
         )}
 
-        {currentPage === "settings" && (
+        {currentPage === NavigationPage.SETTINGS && (
           <View alignItems="center">
             <Text
               fontSize={12}

@@ -44,6 +44,12 @@ export enum VirtualPetActionType {
   PLAY = 'play'
 }
 
+export enum NavigationPage {
+  MAIN = 'main',
+  STATS = 'stats',
+  SETTINGS = 'settings'
+}
+
 export interface VirtualPetAction {
   type: VirtualPetActionType;
   timestamp: number;

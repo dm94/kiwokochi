@@ -1,6 +1,10 @@
 import React from "react";
 import { View, Text } from "@tamagui/core";
-import type { VirtualPetState } from "../../types/pet-types";
+import {
+  VirtualPetAnimation,
+  VirtualPetMood,
+  type VirtualPetState,
+} from "../../types/pet-types";
 
 interface VirtualPetProps {
   gameState: VirtualPetState;
@@ -14,27 +18,27 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
     if (!isAlive) return "💀";
 
     switch (animation) {
-      case "eating":
+      case VirtualPetAnimation.EATING:
         return "🍽️";
-      case "sleeping":
+      case VirtualPetAnimation.SLEEPING:
         return "😴";
-      case "playing":
+      case VirtualPetAnimation.PLAYING:
         return "🎮";
-      case "sick":
+      case VirtualPetAnimation.SICK:
         return "🤒";
-      case "dead":
+      case VirtualPetAnimation.DEAD:
         return "💀";
       default:
         switch (mood) {
-          case "happy":
+          case VirtualPetMood.HAPPY:
             return "😊";
-          case "sad":
+          case VirtualPetMood.SAD:
             return "😢";
-          case "angry":
+          case VirtualPetMood.ANGRY:
             return "😠";
-          case "hungry":
+          case VirtualPetMood.HUNGRY:
             return "🤤";
-          case "dirty":
+          case VirtualPetMood.DIRTY:
             return "🤢";
           default:
             return "🙂";
@@ -45,11 +49,11 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
   // Function to get animation class
   const getAnimationClass = () => {
     switch (animation) {
-      case "walking":
+      case VirtualPetAnimation.WALKING:
         return "animate-bounce";
-      case "eating":
+      case VirtualPetAnimation.EATING:
         return "animate-pulse";
-      case "playing":
+      case VirtualPetAnimation.PLAYING:
         return "animate-spin";
       default:
         return "";
