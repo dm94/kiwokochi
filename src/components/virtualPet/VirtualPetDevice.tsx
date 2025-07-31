@@ -3,12 +3,12 @@ import { View, Text } from "@tamagui/core";
 import VirtualPet from "./VirtualPet";
 import ActionControls from "./ActionControls";
 import StatusIndicators from "./StatusIndicators";
-import { useTranslation } from "../../hooks/useTranslation";
+import { useTranslation } from "@/hooks/useTranslation";
 import type {
   VirtualPetActionType,
   VirtualPetState,
-} from "../../types/pet-types";
-import { NavigationPage } from "../../types/pet-types";
+} from "@/types/pet-types";
+import { NavigationPage } from "@/types/pet-types";
 
 interface VirtualPetDeviceProps {
   gameState: VirtualPetState;

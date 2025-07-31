@@ -24,7 +24,6 @@ let gameInterval: ReturnType<typeof setInterval> | null = null;
 const updateStats = (deltaTime: number): void => {
   const hoursPassed = deltaTime / (1000 * 60 * 60);
   
-  // Decrease stats over time
   gameState.stats.hunger = Math.max(0, gameState.stats.hunger - (hoursPassed * 10));
   gameState.stats.happiness = Math.max(0, gameState.stats.happiness - (hoursPassed * 5));
   gameState.stats.energy = Math.max(0, gameState.stats.energy - (hoursPassed * 8));
@@ -32,11 +31,9 @@ const updateStats = (deltaTime: number): void => {
   
   gameState.stats.age += hoursPassed;
   
-  // Update health based on other stats
   const avgStats = (gameState.stats.hunger + gameState.stats.happiness + gameState.stats.energy + gameState.stats.cleanliness) / 4;
   gameState.stats.health = Math.min(100, Math.max(0, avgStats));
   
-  // Determine mood state
   if (gameState.stats.health < 20) {
     gameState.mood = VirtualPetMood.SICK;
     gameState.animation = VirtualPetAnimation.SICK;
@@ -54,7 +51,6 @@ const updateStats = (deltaTime: number): void => {
     gameState.mood = VirtualPetMood.SAD;
   }
   
-  // Check if alive
   if (gameState.stats.health <= 0) {
     gameState.isAlive = false;
     gameState.animation = VirtualPetAnimation.DEAD;
@@ -64,18 +60,16 @@ const updateStats = (deltaTime: number): void => {
 };
 
 const updatePosition = (): void => {
-  if (gameState.animation === VirtualPetAnimation.SLEEPING || gameState.animation === VirtualPetAnimation.DEAD) return;
+  if (gameState.animation === VirtualPetAnimation.SLEEPING || gameState.animation === VirtualPetAnimation.DEAD) {return;}
   
-  // Random movement within bounds (200x150px)
   const moveChance = Math.random();
-  if (moveChance < 0.3) { // 30% de probabilidad de moverse
+  if (moveChance < 0.3) {
     const newX = Math.max(16, Math.min(184, gameState.position.x + (Math.random() - 0.5) * 40));
     const newY = Math.max(16, Math.min(134, gameState.position.y + (Math.random() - 0.5) * 40));
     
     gameState.position = { x: newX, y: newY };
     gameState.animation = VirtualPetAnimation.WALKING;
     
-    // Return to idle after some time
     setTimeout(() => {
       if (gameState.animation === VirtualPetAnimation.WALKING) {
         gameState.animation = VirtualPetAnimation.IDLE;
@@ -84,9 +78,8 @@ const updatePosition = (): void => {
   }
 };
 
-// Function to process user actions
 const processAction = (action: VirtualPetAction): void => {
-  if (!gameState.isAlive) return;
+  if (!gameState.isAlive) {return;}
   
   switch (action.type) {
     case VirtualPetActionType.FEED:
@@ -115,7 +108,6 @@ const processAction = (action: VirtualPetAction): void => {
       break;
   }
   
-  // Return to idle after action
   setTimeout(() => {
     if (gameState.animation !== VirtualPetAnimation.SLEEPING && gameState.animation !== VirtualPetAnimation.DEAD) {
       gameState.animation = VirtualPetAnimation.IDLE;
@@ -123,7 +115,6 @@ const processAction = (action: VirtualPetAction): void => {
   }, 2000);
 };
 
-// Main game loop function
 const gameLoop = (): void => {
   const now = Date.now();
   const deltaTime = now - gameState.lastUpdate;

@@ -4,8 +4,8 @@ export interface VirtualPetStats {
   health: number; // 0-100
   energy: number; // 0-100
   cleanliness: number; // 0-100
-  age: number; // en horas
-  weight: number; // en gramos
+  age: number;
+  weight: number;
 }
 
 export interface VirtualPetState {

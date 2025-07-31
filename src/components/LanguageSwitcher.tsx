@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from '@tamagui/core';
-import { useTranslation } from '../hooks/useTranslation';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const LanguageSwitcher: React.FC = () => {
   const { changeLanguage, currentLanguage } = useTranslation();

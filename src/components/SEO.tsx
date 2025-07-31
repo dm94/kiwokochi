@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useTranslation } from "../hooks/useTranslation";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface SEOProps {
   title?: string;
@@ -33,10 +33,8 @@ const SEO: React.FC<SEOProps> = ({
     "virtual pet, tamagotchi, digital pet, pet game, browser game, virtual companion, pet simulator, online pet, retro game, nostalgic game";
 
   useEffect(() => {
-    // Update document title
     document.title = fullTitle;
 
-    // Update meta description
     const metaDescriptionTag = document.querySelector(
       'meta[name="description"]'
     );
@@ -44,13 +42,11 @@ const SEO: React.FC<SEOProps> = ({
       metaDescriptionTag.setAttribute("content", metaDescription);
     }
 
-    // Update meta keywords
     const metaKeywordsTag = document.querySelector('meta[name="keywords"]');
     if (metaKeywordsTag) {
       metaKeywordsTag.setAttribute("content", metaKeywords);
     }
 
-    // Update robots meta
     const robotsTag = document.querySelector('meta[name="robots"]');
     if (robotsTag) {
       robotsTag.setAttribute(
@@ -59,7 +55,6 @@ const SEO: React.FC<SEOProps> = ({
       );
     }
 
-    // Update Open Graph tags
     const ogTitleTag = document.querySelector('meta[property="og:title"]');
     if (ogTitleTag) {
       ogTitleTag.setAttribute("content", fullTitle);
@@ -87,7 +82,6 @@ const SEO: React.FC<SEOProps> = ({
       ogTypeTag.setAttribute("content", type);
     }
 
-    // Update Twitter Card tags
     const twitterTitleTag = document.querySelector(
       'meta[property="twitter:title"]'
     );
@@ -116,16 +110,13 @@ const SEO: React.FC<SEOProps> = ({
       twitterUrlTag.setAttribute("content", url);
     }
 
-    // Update canonical URL
     const canonicalTag = document.querySelector('link[rel="canonical"]');
     if (canonicalTag) {
       canonicalTag.setAttribute("href", url);
     }
 
-    // Update HTML lang attribute
     document.documentElement.lang = currentLanguage;
 
-    // Update Open Graph locale
     const ogLocaleTag = document.querySelector('meta[property="og:locale"]');
     if (ogLocaleTag) {
       const locale = currentLanguage === "es" ? "es_ES" : "en_US";

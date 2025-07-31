@@ -13,7 +13,6 @@ interface VirtualPetProps {
 const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
   const { position, animation, mood, isAlive } = gameState;
 
-  // Function to get emoji based on state
   const getPetEmoji = () => {
     if (!isAlive) return "💀";
 
@@ -46,7 +45,6 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
     }
   };
 
-  // Function to get animation class
   const getAnimationClass = () => {
     switch (animation) {
       case VirtualPetAnimation.WALKING:

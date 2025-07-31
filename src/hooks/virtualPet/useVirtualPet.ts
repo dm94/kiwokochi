@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import type { VirtualPetState, VirtualPetAction, VirtualPetActionType } from '../../types/pet-types';
+import type { VirtualPetState, VirtualPetAction, VirtualPetActionType } from '@/types/pet-types';
 
 interface UseVirtualPetReturn {
   gameState: VirtualPetState | null;
@@ -62,7 +62,6 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     });
   }, []);
 
-  // Function to start the game
   const startGame = useCallback(() => {
     if (!workerRef.current) return;
 
@@ -74,7 +73,6 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     });
   }, []);
 
-  // Function to stop the game
   const stopGame = useCallback(() => {
     if (!workerRef.current) return;
 
@@ -83,7 +81,6 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     });
   }, []);
 
-  // Function to restart the game
   const resetGame = useCallback(() => {
     if (!workerRef.current) return;
 
@@ -94,14 +91,12 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     });
   }, []);
 
-  // Function to save the game
   const saveGame = useCallback(() => {
     if (gameState) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(gameState));
     }
   }, [gameState]);
 
-  // Function to load the game
   const loadGame = useCallback(() => {
     const savedState = loadSavedState();
     if (savedState && workerRef.current) {
@@ -112,14 +107,12 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     }
   }, []);
 
-  // Helper function to load saved state
   const loadSavedState = (): VirtualPetState | null => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsedState = JSON.parse(saved) as VirtualPetState;
         
-        // Validate that saved state is not too old (more than 24 hours)
         const now = Date.now();
         const timeDiff = now - parsedState.lastUpdate;
         const hoursDiff = timeDiff / (1000 * 60 * 60);
@@ -140,7 +133,6 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
     return null;
   };
 
-  // Auto-start the game when worker is ready
   useEffect(() => {
     if (workerRef.current && isLoading) {
       startGame();

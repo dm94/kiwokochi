@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { View, Text } from "@tamagui/core";
-import { VirtualPetActionType, VirtualPetState } from "../../types/pet-types";
-import { useTranslation } from "../../hooks/useTranslation";
+import { VirtualPetActionType, VirtualPetState } from "@/types/pet-types";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface ActionControlsProps {
   gameState: VirtualPetState;

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "@tamagui/core";
-import type { VirtualPetState } from "../../types/pet-types";
-import { useTranslation } from "../../hooks/useTranslation";
+import type { VirtualPetState } from "@/types/pet-types";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface StatusIndicatorsProps {
   gameState: VirtualPetState;
@@ -11,12 +11,17 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
   const { stats } = gameState;
   const { t } = useTranslation();
 
-  // Function to get color based on value
   const getStatusColor = (value: number): string => {
-    if (value >= 70) return "#00ff00"; // Verde
-    if (value >= 40) return "#ffff00"; // Amarillo
-    if (value >= 20) return "#ff8800"; // Naranja
-    return "#ff0000"; // Rojo
+    if (value >= 70) {
+      return "#00ff00";
+    }
+    if (value >= 40) {
+      return "#ffff00";
+    }
+    if (value >= 20) {
+      return "#ff8800";
+    }
+    return "#ff0000";
   };
 
   const renderStatBar = (
@@ -70,35 +75,35 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
         textTransform="uppercase"
         letterSpacing={1}
       >
-        {t('status.title')}
+        {t("status.title")}
       </Text>
       <View gap={4}>
         {renderStatBar(
-          t('status.hunger'),
+          t("status.hunger"),
           gameState.stats.hunger,
           100,
           getStatusColor((gameState.stats.hunger / 100) * 100)
         )}
         {renderStatBar(
-          t('status.happiness'),
+          t("status.happiness"),
           gameState.stats.happiness,
           100,
           getStatusColor((gameState.stats.happiness / 100) * 100)
         )}
         {renderStatBar(
-          t('status.health'),
+          t("status.health"),
           gameState.stats.health,
           100,
           getStatusColor((gameState.stats.health / 100) * 100)
         )}
         {renderStatBar(
-          t('status.energy'),
+          t("status.energy"),
           gameState.stats.energy,
           100,
           getStatusColor((gameState.stats.energy / 100) * 100)
         )}
         {renderStatBar(
-          t('status.cleanliness'),
+          t("status.cleanliness"),
           gameState.stats.cleanliness,
           100,
           getStatusColor((gameState.stats.cleanliness / 100) * 100)
@@ -170,7 +175,7 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
                 textAlign="center"
                 className="animate-pulse"
               >
-                {t('status.criticalHealth')}
+                {t("status.criticalHealth")}
               </Text>
             </View>
           )}

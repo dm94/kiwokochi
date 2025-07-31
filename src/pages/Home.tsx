@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { View, Text } from "@tamagui/core";
-import { useVirtualPet } from "../hooks/virtualPet/useVirtualPet";
-import VirtualPetDevice from "../components/virtualPet/VirtualPetDevice";
-import LanguageSwitcher from "../components/LanguageSwitcher";
-import SEO from "../components/SEO";
-import { useTranslation } from "../hooks/useTranslation";
-import { NavigationPage } from "../types/pet-types";
+import { useVirtualPet } from "@/hooks/virtualPet/useVirtualPet";
+import VirtualPetDevice from "@/components/virtualPet/VirtualPetDevice";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import SEO from "@/components/SEO";
+import { useTranslation } from "@/hooks/useTranslation";
+import { NavigationPage } from "@/types/pet-types";
 
 export default function Home() {
   const { gameState, isLoading, performAction, resetGame } = useVirtualPet();

@@ -1,7 +1,6 @@
 import { useEffect, useCallback } from 'react';
-import type { GameSettings } from '../types/pet-types';
+import type { GameSettings } from '@/types/pet-types';
 
-// Default key configuration
 export const DEFAULT_KEY_BINDINGS = {
   feed: 'f',
   sleep: 's',
@@ -9,7 +8,6 @@ export const DEFAULT_KEY_BINDINGS = {
   play: 'p'
 };
 
-// Hook para manejar los controles de teclado
 export const useKeyboardControls = (
   onFeed: () => void,
   onSleep: () => void,
@@ -18,7 +16,6 @@ export const useKeyboardControls = (
   keyBindings: GameSettings['keyBindings'] = DEFAULT_KEY_BINDINGS
 ) => {
   const handleKeyPress = useCallback((event: KeyboardEvent) => {
-    // Prevent actions if user is typing in an input
     if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
       return;
     }
@@ -54,12 +51,10 @@ export const useKeyboardControls = (
   }, [handleKeyPress]);
 };
 
-// Function to validate if a key is valid
 export const isValidKey = (key: string): boolean => {
   return /^[a-zA-Z0-9]$/.test(key);
 };
 
-// Function to format key name for display
 export const formatKeyName = (key: string): string => {
   return key.toUpperCase();
 };
