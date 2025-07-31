@@ -38,24 +38,6 @@ const TamaWebDevice: React.FC<TamaWebDeviceProps> = ({
         `,
       }}
     >
-      {/* Header del dispositivo */}
-      <View alignItems="center" marginBottom={16}>
-        <Text
-          fontSize={16}
-          fontFamily="monospace"
-          color="#333"
-          textTransform="uppercase"
-          letterSpacing={2}
-          marginBottom={4}
-        >
-          TAMAWEB
-        </Text>
-        <Text fontSize={8} fontFamily="monospace" color="#666">
-          Virtual Pet Simulator
-        </Text>
-      </View>
-
-      {/* Pantalla principal */}
       <View
         backgroundColor="#f0f0f0"
         borderWidth={3}
@@ -67,7 +49,6 @@ const TamaWebDevice: React.FC<TamaWebDeviceProps> = ({
           boxShadow: "inset 0 2px 4px rgba(0,0,0,0.3)",
         }}
       >
-        {/* Navigation */}
         <View
           flexDirection="row"
           justifyContent="center"
@@ -133,7 +114,6 @@ const TamaWebDevice: React.FC<TamaWebDeviceProps> = ({
           </View>
         </View>
 
-        {/* Contenido de la pantalla */}
         {currentPage === "main" && (
           <View alignItems="center">
             <VirtualPet gameState={gameState} />
@@ -277,20 +257,16 @@ const TamaWebDevice: React.FC<TamaWebDeviceProps> = ({
         )}
       </View>
 
-      {/* Panel de controles y estado */}
       <View flexDirection="row" gap={16}>
-        {/* Action controls */}
         <View flex={1}>
           <ActionControls gameState={gameState} onAction={onAction} />
         </View>
 
-        {/* Indicadores de estado */}
         <View flex={1}>
           <StatusIndicators gameState={gameState} />
         </View>
       </View>
 
-      {/* Footer del dispositivo */}
       <View alignItems="center" marginTop={16}>
         <Text
           fontSize={6}

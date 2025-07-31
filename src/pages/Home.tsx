@@ -64,7 +64,6 @@ export default function Home() {
         backgroundPosition: "0 0, 30px 30px",
       }}
     >
-      {/* Header */}
       <View alignItems="center" marginBottom={20}>
         <Text
           fontSize={24}
@@ -96,8 +95,6 @@ export default function Home() {
         onNavigate={setCurrentPage}
         currentPage={currentPage}
       />
-
-      {/* Instrucciones */}
       <View
         marginTop={20}
         padding={16}

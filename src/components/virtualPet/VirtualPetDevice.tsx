@@ -38,7 +38,6 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
         `,
       }}
     >
-      {/* Header del dispositivo */}
       <View alignItems="center" marginBottom={16}>
         <Text
           fontSize={16}
@@ -55,7 +54,6 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
         </Text>
       </View>
 
-      {/* Pantalla principal */}
       <View
         backgroundColor="#f0f0f0"
         borderWidth={3}
@@ -67,7 +65,6 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           boxShadow: "inset 0 2px 4px rgba(0,0,0,0.3)",
         }}
       >
-        {/* Navigation */}
         <View
           flexDirection="row"
           justifyContent="center"
@@ -132,8 +129,6 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
             </Text>
           </View>
         </View>
-
-        {/* Contenido de la pantalla */}
         {currentPage === "main" && (
           <View alignItems="center">
             <VirtualPet gameState={gameState} />
@@ -276,30 +271,13 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           </View>
         )}
       </View>
-
-      {/* Panel de controles y estado */}
       <View flexDirection="row" gap={16}>
-        {/* Action controls */}
         <View flex={1}>
           <ActionControls gameState={gameState} onAction={onAction} />
         </View>
-
-        {/* Indicadores de estado */}
         <View flex={1}>
           <StatusIndicators gameState={gameState} />
         </View>
-      </View>
-
-      {/* Footer del dispositivo */}
-      <View alignItems="center" marginTop={16}>
-        <Text
-          fontSize={6}
-          fontFamily="monospace"
-          color="#999"
-          textAlign="center"
-        >
-          © 2024 TAMA WEB | VIRTUAL PET SIMULATOR
-        </Text>
       </View>
     </View>
   );

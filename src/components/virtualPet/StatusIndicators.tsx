@@ -59,7 +59,6 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
 
   return (
     <View>
-      {/* Title */}
       <Text
         fontSize={12}
         fontFamily="monospace"
@@ -71,8 +70,6 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
       >
         STATUS
       </Text>
-
-      {/* Grid de indicadores */}
       <View gap={4}>
         {renderStatBar(
           "Hunger",
@@ -105,8 +102,6 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
           getStatusColor((gameState.stats.cleanliness / 100) * 100)
         )}
       </View>
-
-      {/* Additional information */}
       <View
         marginTop={12}
         padding={6}
@@ -155,8 +150,6 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
           </Text>
         </View>
       </View>
-
-      {/* Critical alerts */}
       {gameState.isAlive && (
         <View marginTop={8}>
           {stats.health < 20 && (

@@ -67,7 +67,6 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
       borderRadius={4}
       overflow="hidden"
     >
-      {/* Fondo pixelado */}
       <View
         position="absolute"
         top={0}
@@ -84,7 +83,6 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
         }}
       />
 
-      {/* Mascota */}
       <View
         position="absolute"
         left={position.x - 16}
@@ -110,7 +108,6 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
         </Text>
       </View>
 
-      {/* Indicador de estado en la esquina */}
       {!isAlive && (
         <View
           position="absolute"
@@ -127,7 +124,6 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
         </View>
       )}
 
-      {/* Indicadores de necesidades urgentes */}
       {isAlive && (
         <View position="absolute" top={5} left={5} flexDirection="row" gap={2}>
           {gameState.stats.hunger < 30 && (

@@ -39,7 +39,6 @@ const ActionControls: React.FC<ActionControlsProps> = ({
 
   return (
     <View>
-      {/* Controls title */}
       <Text
         fontSize={12}
         fontFamily="monospace"
@@ -51,8 +50,6 @@ const ActionControls: React.FC<ActionControlsProps> = ({
       >
         CONTROLS
       </Text>
-
-      {/* Action buttons */}
       <View flexDirection="row" gap={8} justifyContent="center">
         <View alignItems="center">
           <View
@@ -183,7 +180,6 @@ const ActionControls: React.FC<ActionControlsProps> = ({
         </View>
       </View>
 
-      {/* Instrucciones */}
       <Text
         fontSize={8}
         fontFamily="monospace"
@@ -195,7 +191,6 @@ const ActionControls: React.FC<ActionControlsProps> = ({
         Use keyboard shortcuts or click buttons
       </Text>
 
-      {/* Estado de muerte */}
       {!gameState.isAlive && (
         <View
           marginTop={8}
