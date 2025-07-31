@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { View, Text } from "@tamagui/core";
-import type { VirtualPetState } from "../../types/pet-types";
+import { VirtualPetActionType, VirtualPetState } from "../../types/pet-types";
 
 interface ActionControlsProps {
   gameState: VirtualPetState;
-  onAction: (action: "feed" | "sleep" | "clean" | "play") => void;
+  onAction: (action: VirtualPetActionType) => void;
 }
 
 const ActionControls: React.FC<ActionControlsProps> = ({
@@ -19,16 +19,16 @@ const ActionControls: React.FC<ActionControlsProps> = ({
 
       switch (key) {
         case "f":
-          onAction("feed");
+          onAction(VirtualPetActionType.FEED);
           break;
         case "s":
-          onAction("sleep");
+          onAction(VirtualPetActionType.SLEEP);
           break;
         case "c":
-          onAction("clean");
+          onAction(VirtualPetActionType.CLEAN);
           break;
         case "p":
-          onAction("play");
+          onAction(VirtualPetActionType.PLAY);
           break;
       }
     };
@@ -62,7 +62,11 @@ const ActionControls: React.FC<ActionControlsProps> = ({
             justifyContent="center"
             opacity={gameState.isAlive ? 1 : 0.5}
             cursor={gameState.isAlive ? "pointer" : "not-allowed"}
-            onPress={gameState.isAlive ? () => onAction("feed") : undefined}
+            onPress={
+              gameState.isAlive
+                ? () => onAction(VirtualPetActionType.FEED)
+                : undefined
+            }
             pressStyle={{
               backgroundColor: "#555",
               transform: "translateY(1px)",
@@ -94,7 +98,11 @@ const ActionControls: React.FC<ActionControlsProps> = ({
             justifyContent="center"
             opacity={gameState.isAlive ? 1 : 0.5}
             cursor={gameState.isAlive ? "pointer" : "not-allowed"}
-            onPress={gameState.isAlive ? () => onAction("sleep") : undefined}
+            onPress={
+              gameState.isAlive
+                ? () => onAction(VirtualPetActionType.SLEEP)
+                : undefined
+            }
             pressStyle={{
               backgroundColor: "#555",
               transform: "translateY(1px)",
@@ -126,7 +134,11 @@ const ActionControls: React.FC<ActionControlsProps> = ({
             justifyContent="center"
             opacity={gameState.isAlive ? 1 : 0.5}
             cursor={gameState.isAlive ? "pointer" : "not-allowed"}
-            onPress={gameState.isAlive ? () => onAction("clean") : undefined}
+            onPress={
+              gameState.isAlive
+                ? () => onAction(VirtualPetActionType.CLEAN)
+                : undefined
+            }
             pressStyle={{
               backgroundColor: "#555",
               transform: "translateY(1px)",
@@ -158,7 +170,11 @@ const ActionControls: React.FC<ActionControlsProps> = ({
             justifyContent="center"
             opacity={gameState.isAlive ? 1 : 0.5}
             cursor={gameState.isAlive ? "pointer" : "not-allowed"}
-            onPress={gameState.isAlive ? () => onAction("play") : undefined}
+            onPress={
+              gameState.isAlive
+                ? () => onAction(VirtualPetActionType.PLAY)
+                : undefined
+            }
             pressStyle={{
               backgroundColor: "#555",
               transform: "translateY(1px)",
