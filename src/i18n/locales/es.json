@@ -12,7 +12,8 @@
     "sleep": "DORMIR",
     "clean": "LIMPIAR",
     "play": "JUGAR",
-    "reset": "🔄 REINICIAR MASCOTA"
+    "reset": "🔄 REINICIAR MASCOTA",
+    "set": "CONFIGURAR"
   },
   "status": {
     "title": "ESTADO",
@@ -25,7 +26,20 @@
     "weight": "PESO",
     "mood": "HUMOR",
     "criticalHealth": "⚠️ ¡SALUD CRÍTICA!",
-    "starving": "🍎 ¡HAMBRIENTO!"
+    "starving": "🍎 ¡HAMBRIENTO!",
+    "hungerShort": "HAMBRE",
+    "happyShort": "FELIZ",
+    "healthShort": "SALUD",
+    "energyShort": "ENERGÍA",
+    "cleanShort": "LIMPIO",
+    "ageShort": "EDAD",
+    "weightLabel": "PESO:",
+    "statusLabel": "ESTADO:",
+    "activityLabel": "ACTIVIDAD:",
+    "ageLabel": "EDAD:",
+    "dead": "MUERTO",
+    "stat": "ESTADO",
+    "settings": "CONFIGURACIÓN"
   },
   "instructions": {
     "title": "Cómo Jugar",

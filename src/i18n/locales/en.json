@@ -12,7 +12,8 @@
     "sleep": "SLEEP",
     "clean": "CLEAN",
     "play": "PLAY",
-    "reset": "🔄 RESET PET"
+    "reset": "🔄 RESET PET",
+    "set": "SET"
   },
   "status": {
     "title": "STATUS",
@@ -25,7 +26,20 @@
     "weight": "WEIGHT",
     "mood": "MOOD",
     "criticalHealth": "⚠️ CRITICAL HEALTH!",
-    "starving": "🍎 STARVING!"
+    "starving": "🍎 STARVING!",
+    "hungerShort": "HUNGER",
+    "happyShort": "HAPPY",
+    "healthShort": "HEALTH",
+    "energyShort": "ENERGY",
+    "cleanShort": "CLEAN",
+    "ageShort": "AGE",
+    "weightLabel": "WEIGHT:",
+    "statusLabel": "STATUS:",
+    "activityLabel": "ACTIVITY:",
+    "ageLabel": "AGE:",
+    "dead": "DEAD",
+    "stat": "STAT",
+    "settings": "SETTINGS"
   },
   "instructions": {
     "title": "How to Play",

@@ -121,7 +121,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
               >
                 <View alignItems="center">
                   <Text fontSize={7} fontFamily="monospace" color="#00AA00">
-                    HUNGER
+                    {t("status.hungerShort")}
                   </Text>
                   <View
                     width={30}
@@ -142,7 +142,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
 
                 <View alignItems="center">
                   <Text fontSize={7} fontFamily="monospace" color="#00AA00">
-                    HAPPY
+                    {t("status.happyShort")}
                   </Text>
                   <View
                     width={30}
@@ -163,7 +163,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
 
                 <View alignItems="center">
                   <Text fontSize={7} fontFamily="monospace" color="#00AA00">
-                    HEALTH
+                    {t("status.healthShort")}
                   </Text>
                   <View
                     width={30}
@@ -186,7 +186,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
               <View flexDirection="row" justifyContent="space-between">
                 <View alignItems="center">
                   <Text fontSize={7} fontFamily="monospace" color="#00AA00">
-                    ENERGY
+                    {t("status.energyShort")}
                   </Text>
                   <View
                     width={30}
@@ -207,7 +207,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
 
                 <View alignItems="center">
                   <Text fontSize={7} fontFamily="monospace" color="#00AA00">
-                    CLEAN
+                    {t("status.cleanShort")}
                   </Text>
                   <View
                     width={30}
@@ -228,7 +228,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
 
                 <View alignItems="center">
                   <Text fontSize={7} fontFamily="monospace" color="#00AA00">
-                    AGE
+                    {t("status.ageShort")}
                   </Text>
                   <Text fontSize={7} fontFamily="monospace" color="#00FF00">
                     {Math.floor(gameState.stats.age)}h
@@ -264,7 +264,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 marginBottom={6}
               >
                 <Text fontSize={9} fontFamily="monospace" color="#00AA00">
-                  AGE:
+                  {t("status.ageLabel")}
                 </Text>
                 <Text fontSize={9} fontFamily="monospace" color="#00FF00">
                   {Math.floor(gameState.stats.age)}h{" "}
@@ -277,7 +277,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 marginBottom={6}
               >
                 <Text fontSize={9} fontFamily="monospace" color="#00AA00">
-                  WEIGHT:
+                  {t("status.weightLabel")}
                 </Text>
                 <Text fontSize={9} fontFamily="monospace" color="#00FF00">
                   {Math.round(gameState.stats.weight)}g
@@ -289,7 +289,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 marginBottom={6}
               >
                 <Text fontSize={9} fontFamily="monospace" color="#00AA00">
-                  STATUS:
+                  {t("status.statusLabel")}
                 </Text>
                 <Text
                   fontSize={9}
@@ -297,12 +297,12 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   color="#00FF00"
                   textTransform="uppercase"
                 >
-                  {gameState.isAlive ? gameState.mood : "DEAD"}
+                  {gameState.isAlive ? gameState.mood : t("status.dead")}
                 </Text>
               </View>
               <View flexDirection="row" justifyContent="space-between">
                 <Text fontSize={9} fontFamily="monospace" color="#00AA00">
-                  ACTIVITY:
+                  {t("status.activityLabel")}
                 </Text>
                 <Text
                   fontSize={9}
@@ -328,7 +328,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
               textTransform="uppercase"
               letterSpacing={1}
             >
-              SETTINGS
+              {t("status.settings")}
             </Text>
             <View width="100%" gap={8} flex={1} justifyContent="center">
               <View
@@ -435,7 +435,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
               color="#FFE4B5"
               fontWeight="bold"
             >
-              STAT
+              {t("status.stat")}
             </Text>
           </View>
 
@@ -465,7 +465,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
               color="#FFE4B5"
               fontWeight="bold"
             >
-              SET
+              {t("actions.set")}
             </Text>
           </View>
         </View>
