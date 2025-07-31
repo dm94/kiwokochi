@@ -123,7 +123,7 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
           marginBottom={2}
         >
           <Text fontSize={8} fontFamily="monospace" color="#666">
-            AGE:
+            {t("status.age")}:
           </Text>
           <Text fontSize={8} fontFamily="monospace" color="#333">
             {Math.round(stats.age)}h
@@ -136,7 +136,7 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
           marginBottom={2}
         >
           <Text fontSize={8} fontFamily="monospace" color="#666">
-            WEIGHT:
+            {t("status.weight")}:
           </Text>
           <Text fontSize={8} fontFamily="monospace" color="#333">
             {Math.round(stats.weight)}g
@@ -145,7 +145,7 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
 
         <View flexDirection="row" justifyContent="space-between">
           <Text fontSize={8} fontFamily="monospace" color="#666">
-            MOOD:
+            {t("status.mood")}:
           </Text>
           <Text
             fontSize={8}
@@ -196,7 +196,7 @@ const StatusIndicators: React.FC<StatusIndicatorsProps> = ({ gameState }) => {
                 textAlign="center"
                 className="animate-bounce"
               >
-                🍎 STARVING!
+                {t("status.starving")}
               </Text>
             </View>
           )}

@@ -21,6 +21,9 @@
     "health": "Salud",
     "energy": "Energía",
     "cleanliness": "Limpieza",
+    "age": "EDAD",
+    "weight": "PESO",
+    "mood": "HUMOR",
     "criticalHealth": "⚠️ ¡SALUD CRÍTICA!",
     "starving": "🍎 ¡HAMBRIENTO!"
   },

@@ -21,6 +21,9 @@
     "health": "Health",
     "energy": "Energy",
     "cleanliness": "Cleanliness",
+    "age": "AGE",
+    "weight": "WEIGHT",
+    "mood": "MOOD",
     "criticalHealth": "⚠️ CRITICAL HEALTH!",
     "starving": "🍎 STARVING!"
   },
