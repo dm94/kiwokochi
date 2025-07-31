@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tamaweb.vercel.app/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow crawling of development files
+Disallow: /src/
+Disallow: /*.map$
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Allow crawling of important assets
+Allow: /favicon.svg
+Allow: /og-image.png
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.svg$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$

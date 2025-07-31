@@ -1,0 +1,67 @@
+{
+  "name": "Tama Web - Virtual Pet Game",
+  "short_name": "Tama Web",
+  "description": "Take care of your virtual pet companion in this nostalgic Tamagotchi-style web game. Feed, clean, play and watch your digital pet grow.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0f0f0",
+  "theme_color": "#333333",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.svg",
+      "sizes": "1200x630",
+      "type": "image/svg+xml",
+      "form_factor": "wide",
+      "label": "Tama Web Virtual Pet Game"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Feed Pet",
+      "short_name": "Feed",
+      "description": "Feed your virtual pet",
+      "url": "/?action=feed",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Play with Pet",
+      "short_name": "Play",
+      "description": "Play with your virtual pet",
+      "url": "/?action=play",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

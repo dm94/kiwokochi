@@ -3,6 +3,7 @@ import { View, Text } from "@tamagui/core";
 import { useVirtualPet } from "../hooks/virtualPet/useVirtualPet";
 import VirtualPetDevice from "../components/virtualPet/VirtualPetDevice";
 import LanguageSwitcher from "../components/LanguageSwitcher";
+import SEO from "../components/SEO";
 import { useTranslation } from "../hooks/useTranslation";
 import { NavigationPage } from "../types/pet-types";
 
@@ -54,20 +55,25 @@ export default function Home() {
   }
 
   return (
-    <View
-      flex={1}
-      backgroundColor="#f0f0f0"
-      minHeight="100vh"
-      padding={20}
-      style={{
-        backgroundImage: `
-          radial-gradient(circle at 20px 20px, #e8e8e8 2px, transparent 0),
-          radial-gradient(circle at 40px 40px, #e0e0e0 1px, transparent 0)
-        `,
-        backgroundSize: "60px 60px",
-        backgroundPosition: "0 0, 30px 30px",
-      }}
-    >
+    <>
+      <SEO 
+        description={t('app.subtitle') + ' - ' + t('instructions.description')}
+        keywords="virtual pet, tamagotchi, digital pet, pet game, browser game, virtual companion, pet simulator, online pet, retro game, nostalgic game, mascota virtual, juego de mascotas"
+      />
+      <View
+        flex={1}
+        backgroundColor="#f0f0f0"
+        minHeight="100vh"
+        padding={20}
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 20px 20px, #e8e8e8 2px, transparent 0),
+            radial-gradient(circle at 40px 40px, #e0e0e0 1px, transparent 0)
+          `,
+          backgroundSize: "60px 60px",
+          backgroundPosition: "0 0, 30px 30px",
+        }}
+      >
       <View alignItems="center" marginBottom={20}>
         <Text
           fontSize={24}
@@ -137,5 +143,6 @@ export default function Home() {
         <LanguageSwitcher />
       </View>
     </View>
+    </>
   );
 }
