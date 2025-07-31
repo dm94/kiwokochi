@@ -39,7 +39,8 @@
     "ageLabel": "EDAD:",
     "dead": "MUERTO",
     "stat": "ESTADO",
-    "settings": "CONFIGURACIÓN"
+    "settings": "CONFIGURACIÓN",
+    "detailedStats": "ESTADÍSTICAS DETALLADAS"
   },
   "instructions": {
     "title": "Cómo Jugar",

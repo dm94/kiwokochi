@@ -255,7 +255,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
               textTransform="uppercase"
               letterSpacing={1}
             >
-              DETAILED STATS
+              {t('status.detailedStats')}
             </Text>
             <View
               backgroundColor="transparent"

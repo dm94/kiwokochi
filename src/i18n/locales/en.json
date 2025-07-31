@@ -39,7 +39,8 @@
     "ageLabel": "AGE:",
     "dead": "DEAD",
     "stat": "STAT",
-    "settings": "SETTINGS"
+    "settings": "SETTINGS",
+    "detailedStats": "DETAILED STATS"
   },
   "instructions": {
     "title": "How to Play",
