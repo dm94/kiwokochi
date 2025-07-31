@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { View, Text } from "@tamagui/core";
-import { useTamagotchi } from "../hooks/tamagotchi/useTamagotchi";
-import TamagotchiDevice from "../components/tamagotchi/TamagotchiDevice";
+import { useVirtualPet } from "../hooks/virtualPet/useVirtualPet";
+import VirtualPetDevice from "../components/virtualPet/VirtualPetDevice";
 
 export default function Home() {
-  const { gameState, isLoading, performAction, resetGame } = useTamagotchi();
+  const { gameState, isLoading, performAction, resetGame } = useVirtualPet();
   const [currentPage, setCurrentPage] = useState<"main" | "stats" | "settings">(
     "main"
   );
@@ -34,7 +34,7 @@ export default function Home() {
             textTransform="uppercase"
             letterSpacing={2}
           >
-            Loading Tamagotchi...
+            Loading Pet...
           </Text>
           <Text
             fontSize={12}
@@ -89,8 +89,7 @@ export default function Home() {
         </Text>
       </View>
 
-      {/* Dispositivo Tamagotchi */}
-      <TamagotchiDevice
+      <VirtualPetDevice
         gameState={gameState}
         onAction={performAction}
         onReset={resetGame}

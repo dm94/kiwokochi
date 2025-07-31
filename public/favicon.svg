@@ -2,7 +2,7 @@
   <!-- Background circle -->
   <circle cx="16" cy="16" r="15" fill="#FFE066" stroke="#FF6B6B" stroke-width="2"/>
   
-  <!-- Tamagotchi body -->
+  <!-- TamaWeb body -->
   <ellipse cx="16" cy="18" rx="10" ry="8" fill="#FF9F43"/>
   
   <!-- Eyes -->

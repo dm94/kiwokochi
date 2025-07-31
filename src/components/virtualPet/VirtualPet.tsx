@@ -1,43 +1,43 @@
-import React from 'react';
-import { View, Text } from '@tamagui/core';
-import type { TamagotchiState } from '../../types/tamagotchi';
+import React from "react";
+import { View, Text } from "@tamagui/core";
+import type { VirtualPetState } from "../../types/pet-types";
 
-interface TamagotchiPetProps {
-  gameState: TamagotchiState;
+interface VirtualPetProps {
+  gameState: VirtualPetState;
 }
 
-const TamagotchiPet: React.FC<TamagotchiPetProps> = ({ gameState }) => {
+const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
   const { position, animation, mood, isAlive } = gameState;
 
   // Función para obtener el emoji según el estado
   const getPetEmoji = () => {
-    if (!isAlive) return '💀';
-    
+    if (!isAlive) return "💀";
+
     switch (animation) {
-      case 'eating':
-        return '🍽️';
-      case 'sleeping':
-        return '😴';
-      case 'playing':
-        return '🎮';
-      case 'sick':
-        return '🤒';
-      case 'dead':
-        return '💀';
+      case "eating":
+        return "🍽️";
+      case "sleeping":
+        return "😴";
+      case "playing":
+        return "🎮";
+      case "sick":
+        return "🤒";
+      case "dead":
+        return "💀";
       default:
         switch (mood) {
-          case 'happy':
-            return '😊';
-          case 'sad':
-            return '😢';
-          case 'angry':
-            return '😠';
-          case 'hungry':
-            return '🤤';
-          case 'dirty':
-            return '🤢';
+          case "happy":
+            return "😊";
+          case "sad":
+            return "😢";
+          case "angry":
+            return "😠";
+          case "hungry":
+            return "🤤";
+          case "dirty":
+            return "🤢";
           default:
-            return '🙂';
+            return "🙂";
         }
     }
   };
@@ -45,14 +45,14 @@ const TamagotchiPet: React.FC<TamagotchiPetProps> = ({ gameState }) => {
   // Función para obtener la clase de animación
   const getAnimationClass = () => {
     switch (animation) {
-      case 'walking':
-        return 'animate-bounce';
-      case 'eating':
-        return 'animate-pulse';
-      case 'playing':
-        return 'animate-spin';
+      case "walking":
+        return "animate-bounce";
+      case "eating":
+        return "animate-pulse";
+      case "playing":
+        return "animate-spin";
       default:
-        return '';
+        return "";
     }
   };
 
@@ -79,11 +79,11 @@ const TamagotchiPet: React.FC<TamagotchiPetProps> = ({ gameState }) => {
             radial-gradient(circle at 1px 1px, #ddd 1px, transparent 0),
             radial-gradient(circle at 3px 3px, #eee 1px, transparent 0)
           `,
-          backgroundSize: '4px 4px',
-          backgroundPosition: '0 0, 2px 2px'
+          backgroundSize: "4px 4px",
+          backgroundPosition: "0 0, 2px 2px",
         }}
       />
-      
+
       {/* Mascota */}
       <View
         position="absolute"
@@ -95,21 +95,21 @@ const TamagotchiPet: React.FC<TamagotchiPetProps> = ({ gameState }) => {
         justifyContent="center"
         className={getAnimationClass()}
         style={{
-          transition: 'left 0.5s ease-in-out, top 0.5s ease-in-out',
-          filter: isAlive ? 'none' : 'grayscale(100%)'
+          transition: "left 0.5s ease-in-out, top 0.5s ease-in-out",
+          filter: isAlive ? "none" : "grayscale(100%)",
         }}
       >
         <Text
           fontSize={24}
           style={{
-            textShadow: '1px 1px 0px #000',
-            filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.5))'
+            textShadow: "1px 1px 0px #000",
+            filter: "drop-shadow(0 0 2px rgba(0,0,0,0.5))",
           }}
         >
           {getPetEmoji()}
         </Text>
       </View>
-      
+
       {/* Indicador de estado en la esquina */}
       {!isAlive && (
         <View
@@ -126,18 +126,24 @@ const TamagotchiPet: React.FC<TamagotchiPetProps> = ({ gameState }) => {
           </Text>
         </View>
       )}
-      
+
       {/* Indicadores de necesidades urgentes */}
       {isAlive && (
         <View position="absolute" top={5} left={5} flexDirection="row" gap={2}>
           {gameState.stats.hunger < 30 && (
-            <Text fontSize={12} className="animate-bounce">🍎</Text>
+            <Text fontSize={12} className="animate-bounce">
+              🍎
+            </Text>
           )}
           {gameState.stats.energy < 30 && (
-            <Text fontSize={12} className="animate-pulse">😴</Text>
+            <Text fontSize={12} className="animate-pulse">
+              😴
+            </Text>
           )}
           {gameState.stats.cleanliness < 30 && (
-            <Text fontSize={12} className="animate-bounce">🧽</Text>
+            <Text fontSize={12} className="animate-bounce">
+              🧽
+            </Text>
           )}
         </View>
       )}
@@ -145,4 +151,4 @@ const TamagotchiPet: React.FC<TamagotchiPetProps> = ({ gameState }) => {
   );
 };
 
-export default TamagotchiPet;
+export default VirtualPet;

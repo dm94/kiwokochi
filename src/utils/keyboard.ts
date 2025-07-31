@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import type { GameSettings } from '../types/tamagotchi';
+import type { GameSettings } from '../types/pet-types';
 
 // Configuración por defecto de las teclas
 export const DEFAULT_KEY_BINDINGS = {

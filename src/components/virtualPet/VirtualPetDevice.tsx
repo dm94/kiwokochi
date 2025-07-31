@@ -1,24 +1,24 @@
-import React from 'react';
-import { View, Text } from '@tamagui/core';
-import TamagotchiPet from './TamagotchiPet';
-import ActionControls from './ActionControls';
-import StatusIndicators from './StatusIndicators';
-import type { TamagotchiState } from '../../types/tamagotchi';
+import React from "react";
+import { View, Text } from "@tamagui/core";
+import VirtualPet from "./VirtualPet";
+import ActionControls from "./ActionControls";
+import StatusIndicators from "./StatusIndicators";
+import type { VirtualPetState } from "../../types/pet-types";
 
-interface TamagotchiDeviceProps {
-  gameState: TamagotchiState;
-  onAction: (action: 'feed' | 'sleep' | 'clean' | 'play') => void;
+interface VirtualPetDeviceProps {
+  gameState: VirtualPetState;
+  onAction: (action: "feed" | "sleep" | "clean" | "play") => void;
   onReset: () => void;
-  onNavigate: (page: 'main' | 'stats' | 'settings') => void;
-  currentPage: 'main' | 'stats' | 'settings';
+  onNavigate: (page: "main" | "stats" | "settings") => void;
+  currentPage: "main" | "stats" | "settings";
 }
 
-const TamagotchiDevice: React.FC<TamagotchiDeviceProps> = ({
+const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
   gameState,
   onAction,
   onReset,
   onNavigate,
-  currentPage
+  currentPage,
 }) => {
   return (
     <View
@@ -35,7 +35,7 @@ const TamagotchiDevice: React.FC<TamagotchiDeviceProps> = ({
           inset 0 0 0 4px #999,
           0 8px 16px rgba(0,0,0,0.3),
           0 4px 8px rgba(0,0,0,0.2)
-        `
+        `,
       }}
     >
       {/* Header del dispositivo */}
@@ -48,17 +48,13 @@ const TamagotchiDevice: React.FC<TamagotchiDeviceProps> = ({
           letterSpacing={2}
           marginBottom={4}
         >
-          TAMAGOTCHI
+          TamaWeb
         </Text>
-        <Text
-          fontSize={8}
-          fontFamily="monospace"
-          color="#666"
-        >
+        <Text fontSize={8} fontFamily="monospace" color="#666">
           Virtual Pet Simulator
         </Text>
       </View>
-      
+
       {/* Pantalla principal */}
       <View
         backgroundColor="#f0f0f0"
@@ -68,26 +64,31 @@ const TamagotchiDevice: React.FC<TamagotchiDeviceProps> = ({
         padding={12}
         marginBottom={16}
         style={{
-          boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3)'
+          boxShadow: "inset 0 2px 4px rgba(0,0,0,0.3)",
         }}
       >
         {/* Navegación */}
-        <View flexDirection="row" justifyContent="center" gap={4} marginBottom={12}>
+        <View
+          flexDirection="row"
+          justifyContent="center"
+          gap={4}
+          marginBottom={12}
+        >
           <View
             paddingHorizontal={12}
             paddingVertical={6}
-            backgroundColor={currentPage === 'main' ? '#333' : '#ccc'}
+            backgroundColor={currentPage === "main" ? "#333" : "#ccc"}
             borderRadius={0}
             cursor="pointer"
-            onPress={() => onNavigate('main')}
+            onPress={() => onNavigate("main")}
             pressStyle={{
-              backgroundColor: currentPage === 'main' ? '#555' : '#aaa'
+              backgroundColor: currentPage === "main" ? "#555" : "#aaa",
             }}
           >
             <Text
               fontSize={8}
               fontFamily="monospace"
-              color={currentPage === 'main' ? '#fff' : '#333'}
+              color={currentPage === "main" ? "#fff" : "#333"}
             >
               MAIN
             </Text>
@@ -95,18 +96,18 @@ const TamagotchiDevice: React.FC<TamagotchiDeviceProps> = ({
           <View
             paddingHorizontal={12}
             paddingVertical={6}
-            backgroundColor={currentPage === 'stats' ? '#333' : '#ccc'}
+            backgroundColor={currentPage === "stats" ? "#333" : "#ccc"}
             borderRadius={0}
             cursor="pointer"
-            onPress={() => onNavigate('stats')}
+            onPress={() => onNavigate("stats")}
             pressStyle={{
-              backgroundColor: currentPage === 'stats' ? '#555' : '#aaa'
+              backgroundColor: currentPage === "stats" ? "#555" : "#aaa",
             }}
           >
             <Text
               fontSize={8}
               fontFamily="monospace"
-              color={currentPage === 'stats' ? '#fff' : '#333'}
+              color={currentPage === "stats" ? "#fff" : "#333"}
             >
               STATS
             </Text>
@@ -114,32 +115,32 @@ const TamagotchiDevice: React.FC<TamagotchiDeviceProps> = ({
           <View
             paddingHorizontal={12}
             paddingVertical={6}
-            backgroundColor={currentPage === 'settings' ? '#333' : '#ccc'}
+            backgroundColor={currentPage === "settings" ? "#333" : "#ccc"}
             borderRadius={0}
             cursor="pointer"
-            onPress={() => onNavigate('settings')}
+            onPress={() => onNavigate("settings")}
             pressStyle={{
-              backgroundColor: currentPage === 'settings' ? '#555' : '#aaa'
+              backgroundColor: currentPage === "settings" ? "#555" : "#aaa",
             }}
           >
             <Text
               fontSize={8}
               fontFamily="monospace"
-              color={currentPage === 'settings' ? '#fff' : '#333'}
+              color={currentPage === "settings" ? "#fff" : "#333"}
             >
               SET
             </Text>
           </View>
         </View>
-        
+
         {/* Contenido de la pantalla */}
-        {currentPage === 'main' && (
+        {currentPage === "main" && (
           <View alignItems="center">
-            <TamagotchiPet gameState={gameState} />
+            <VirtualPet gameState={gameState} />
           </View>
         )}
-        
-        {currentPage === 'stats' && (
+
+        {currentPage === "stats" && (
           <View alignItems="center">
             <Text
               fontSize={12}
@@ -159,35 +160,66 @@ const TamagotchiDevice: React.FC<TamagotchiDeviceProps> = ({
               borderRadius={4}
               width="100%"
             >
-              <View flexDirection="row" justifyContent="space-between" marginBottom={4}>
-                <Text fontSize={10} fontFamily="monospace" color="#666">AGE:</Text>
+              <View
+                flexDirection="row"
+                justifyContent="space-between"
+                marginBottom={4}
+              >
+                <Text fontSize={10} fontFamily="monospace" color="#666">
+                  AGE:
+                </Text>
                 <Text fontSize={10} fontFamily="monospace" color="#333">
-                  {Math.floor(gameState.stats.age)}h {Math.floor((gameState.stats.age % 1) * 60)}m
+                  {Math.floor(gameState.stats.age)}h{" "}
+                  {Math.floor((gameState.stats.age % 1) * 60)}m
                 </Text>
               </View>
-              <View flexDirection="row" justifyContent="space-between" marginBottom={4}>
-                <Text fontSize={10} fontFamily="monospace" color="#666">WEIGHT:</Text>
+              <View
+                flexDirection="row"
+                justifyContent="space-between"
+                marginBottom={4}
+              >
+                <Text fontSize={10} fontFamily="monospace" color="#666">
+                  WEIGHT:
+                </Text>
                 <Text fontSize={10} fontFamily="monospace" color="#333">
                   {Math.round(gameState.stats.weight)}g
                 </Text>
               </View>
-              <View flexDirection="row" justifyContent="space-between" marginBottom={4}>
-                <Text fontSize={10} fontFamily="monospace" color="#666">STATUS:</Text>
-                <Text fontSize={10} fontFamily="monospace" color="#333" textTransform="uppercase">
-                  {gameState.isAlive ? gameState.mood : 'DEAD'}
+              <View
+                flexDirection="row"
+                justifyContent="space-between"
+                marginBottom={4}
+              >
+                <Text fontSize={10} fontFamily="monospace" color="#666">
+                  STATUS:
+                </Text>
+                <Text
+                  fontSize={10}
+                  fontFamily="monospace"
+                  color="#333"
+                  textTransform="uppercase"
+                >
+                  {gameState.isAlive ? gameState.mood : "DEAD"}
                 </Text>
               </View>
               <View flexDirection="row" justifyContent="space-between">
-                <Text fontSize={10} fontFamily="monospace" color="#666">ACTIVITY:</Text>
-                <Text fontSize={10} fontFamily="monospace" color="#333" textTransform="uppercase">
+                <Text fontSize={10} fontFamily="monospace" color="#666">
+                  ACTIVITY:
+                </Text>
+                <Text
+                  fontSize={10}
+                  fontFamily="monospace"
+                  color="#333"
+                  textTransform="uppercase"
+                >
                   {gameState.animation}
                 </Text>
               </View>
             </View>
           </View>
         )}
-        
-        {currentPage === 'settings' && (
+
+        {currentPage === "settings" && (
           <View alignItems="center">
             <Text
               fontSize={12}
@@ -208,18 +240,14 @@ const TamagotchiDevice: React.FC<TamagotchiDeviceProps> = ({
                 alignItems="center"
                 onPress={onReset}
                 pressStyle={{
-                  backgroundColor: '#cc3333'
+                  backgroundColor: "#cc3333",
                 }}
               >
-                <Text
-                  fontSize={10}
-                  fontFamily="monospace"
-                  color="#fff"
-                >
-                  🔄 RESET TAMAGOTCHI
+                <Text fontSize={10} fontFamily="monospace" color="#fff">
+                  🔄 RESET PET
                 </Text>
               </View>
-              
+
               <View
                 backgroundColor="#fff"
                 padding={8}
@@ -227,10 +255,20 @@ const TamagotchiDevice: React.FC<TamagotchiDeviceProps> = ({
                 borderColor="#ccc"
                 borderRadius={4}
               >
-                <Text fontSize={8} fontFamily="monospace" color="#666" textAlign="center">
+                <Text
+                  fontSize={8}
+                  fontFamily="monospace"
+                  color="#666"
+                  textAlign="center"
+                >
                   Keyboard Controls:
                 </Text>
-                <Text fontSize={8} fontFamily="monospace" color="#333" textAlign="center">
+                <Text
+                  fontSize={8}
+                  fontFamily="monospace"
+                  color="#333"
+                  textAlign="center"
+                >
                   F = Feed | S = Sleep | C = Clean | P = Play
                 </Text>
               </View>
@@ -238,20 +276,20 @@ const TamagotchiDevice: React.FC<TamagotchiDeviceProps> = ({
           </View>
         )}
       </View>
-      
+
       {/* Panel de controles y estado */}
       <View flexDirection="row" gap={16}>
         {/* Controles de acción */}
         <View flex={1}>
           <ActionControls gameState={gameState} onAction={onAction} />
         </View>
-        
+
         {/* Indicadores de estado */}
         <View flex={1}>
           <StatusIndicators gameState={gameState} />
         </View>
       </View>
-      
+
       {/* Footer del dispositivo */}
       <View alignItems="center" marginTop={16}>
         <Text
@@ -267,4 +305,4 @@ const TamagotchiDevice: React.FC<TamagotchiDeviceProps> = ({
   );
 };
 
-export default TamagotchiDevice;
+export default VirtualPetDevice;

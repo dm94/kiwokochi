@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import type { TamagotchiState, TamagotchiAction, GameSettings } from '../../types/tamagotchi';
+import type { VirtualPetState, VirtualPetAction } from '../../types/pet-types';
 
-interface UseTamagotchiReturn {
-  gameState: TamagotchiState | null;
+interface UseVirtualPetReturn {
+  gameState: VirtualPetState | null;
   isLoading: boolean;
   performAction: (actionType: 'feed' | 'sleep' | 'clean' | 'play') => void;
   startGame: () => void;
@@ -12,10 +12,10 @@ interface UseTamagotchiReturn {
   loadGame: () => void;
 }
 
-const STORAGE_KEY = 'tamagotchi-save';
+const STORAGE_KEY = 'virtualpet-save';
 
-export const useTamagotchi = (): UseTamagotchiReturn => {
-  const [gameState, setGameState] = useState<TamagotchiState | null>(null);
+export const useVirtualPet = (): UseVirtualPetReturn => {
+  const [gameState, setGameState] = useState<VirtualPetState | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const workerRef = useRef<Worker | null>(null);
 
@@ -23,7 +23,7 @@ export const useTamagotchi = (): UseTamagotchiReturn => {
   useEffect(() => {
     // Crear el worker
     workerRef.current = new Worker(
-      new URL('../../workers/tamagotchi.worker.ts', import.meta.url),
+      new URL('../../workers/virtualpet.worker.ts', import.meta.url),
       { type: 'module' }
     );
 
@@ -58,7 +58,7 @@ export const useTamagotchi = (): UseTamagotchiReturn => {
   const performAction = useCallback((actionType: 'feed' | 'sleep' | 'clean' | 'play') => {
     if (!workerRef.current) return;
 
-    const action: TamagotchiAction = {
+    const action: VirtualPetAction = {
       type: actionType,
       timestamp: Date.now()
     };
@@ -122,11 +122,11 @@ export const useTamagotchi = (): UseTamagotchiReturn => {
   }, []);
 
   // Función auxiliar para cargar estado guardado
-  const loadSavedState = (): TamagotchiState | null => {
+  const loadSavedState = (): VirtualPetState | null => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
-        const parsedState = JSON.parse(saved) as TamagotchiState;
+        const parsedState = JSON.parse(saved) as VirtualPetState;
         
         // Validar que el estado guardado no sea muy antiguo (más de 24 horas)
         const now = Date.now();
@@ -134,7 +134,6 @@ export const useTamagotchi = (): UseTamagotchiReturn => {
         const hoursDiff = timeDiff / (1000 * 60 * 60);
         
         if (hoursDiff > 24) {
-          // Si han pasado más de 24 horas, el Tamagotchi probablemente esté muerto
           console.log('Estado guardado muy antiguo, iniciando nuevo juego');
           localStorage.removeItem(STORAGE_KEY);
           return null;

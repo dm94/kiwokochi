@@ -5,7 +5,6 @@ const tamaguiConfig = createTamagui({
   ...config,
   themes: {
     ...config.themes,
-    // Tema personalizado para el estilo retro del Tamagotchi
     retro: {
       background: '#f0f0f0',
       backgroundHover: '#e0e0e0',

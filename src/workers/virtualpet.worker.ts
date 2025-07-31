@@ -1,7 +1,6 @@
-import type { TamagotchiState, TamagotchiStats, TamagotchiAction } from '../types/tamagotchi';
+import type { VirtualPetState, VirtualPetAction } from '../types/pet-types';
 
-// Estado inicial del Tamagotchi
-const createInitialState = (): TamagotchiState => ({
+const createInitialState = (): VirtualPetState => ({
   stats: {
     hunger: 80,
     happiness: 80,
@@ -18,10 +17,9 @@ const createInitialState = (): TamagotchiState => ({
   lastUpdate: Date.now()
 });
 
-let gameState: TamagotchiState = createInitialState();
+let gameState: VirtualPetState = createInitialState();
 let gameInterval: ReturnType<typeof setInterval> | null = null;
 
-// Función para actualizar las estadísticas del Tamagotchi
 const updateStats = (deltaTime: number): void => {
   const hoursPassed = deltaTime / (1000 * 60 * 60);
   
@@ -65,7 +63,6 @@ const updateStats = (deltaTime: number): void => {
   gameState.lastUpdate = Date.now();
 };
 
-// Función para mover el Tamagotchi aleatoriamente
 const updatePosition = (): void => {
   if (gameState.animation === 'sleeping' || gameState.animation === 'dead') return;
   
@@ -88,7 +85,7 @@ const updatePosition = (): void => {
 };
 
 // Función para procesar acciones del usuario
-const processAction = (action: TamagotchiAction): void => {
+const processAction = (action: VirtualPetAction): void => {
   if (!gameState.isAlive) return;
   
   switch (action.type) {

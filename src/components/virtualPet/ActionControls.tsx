@@ -1,41 +1,42 @@
-import React, { useEffect } from 'react';
-import { View, Text } from '@tamagui/core';
-import type { TamagotchiState } from '../../types/tamagotchi';
+import React, { useEffect } from "react";
+import { View, Text } from "@tamagui/core";
+import type { VirtualPetState } from "../../types/pet-types";
 
 interface ActionControlsProps {
-  gameState: TamagotchiState;
-  onAction: (action: 'feed' | 'sleep' | 'clean' | 'play') => void;
+  gameState: VirtualPetState;
+  onAction: (action: "feed" | "sleep" | "clean" | "play") => void;
 }
 
-const ActionControls: React.FC<ActionControlsProps> = ({ gameState, onAction }) => {
+const ActionControls: React.FC<ActionControlsProps> = ({
+  gameState,
+  onAction,
+}) => {
   // Manejar controles de teclado
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (!gameState.isAlive) return;
-      
+
       const key = event.key.toLowerCase();
-      
+
       switch (key) {
-        case 'f':
-          onAction('feed');
+        case "f":
+          onAction("feed");
           break;
-        case 's':
-          onAction('sleep');
+        case "s":
+          onAction("sleep");
           break;
-        case 'c':
-          onAction('clean');
+        case "c":
+          onAction("clean");
           break;
-        case 'p':
-          onAction('play');
+        case "p":
+          onAction("play");
           break;
       }
     };
 
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
   }, [gameState.isAlive, onAction]);
-
-
 
   return (
     <View>
@@ -51,122 +52,138 @@ const ActionControls: React.FC<ActionControlsProps> = ({ gameState, onAction }) 
       >
         CONTROLS
       </Text>
-      
+
       {/* Botones de acción */}
       <View flexDirection="row" gap={8} justifyContent="center">
         <View alignItems="center">
           <View
             width={60}
             height={40}
-            backgroundColor={gameState.isAlive ? '#333' : '#666'}
+            backgroundColor={gameState.isAlive ? "#333" : "#666"}
             borderWidth={2}
             borderColor="#000"
             alignItems="center"
             justifyContent="center"
             opacity={gameState.isAlive ? 1 : 0.5}
-            cursor={gameState.isAlive ? 'pointer' : 'not-allowed'}
-            onPress={gameState.isAlive ? () => onAction('feed') : undefined}
+            cursor={gameState.isAlive ? "pointer" : "not-allowed"}
+            onPress={gameState.isAlive ? () => onAction("feed") : undefined}
             pressStyle={{
-              backgroundColor: '#555',
-              transform: 'translateY(1px)'
+              backgroundColor: "#555",
+              transform: "translateY(1px)",
             }}
             hoverStyle={{
-              backgroundColor: gameState.isAlive ? '#444' : '#666'
+              backgroundColor: gameState.isAlive ? "#444" : "#666",
             }}
           >
-            <Text fontSize={16} marginBottom={-2}>🍎</Text>
-            <Text fontSize={8} color="#fff">FEED</Text>
+            <Text fontSize={16} marginBottom={-2}>
+              🍎
+            </Text>
+            <Text fontSize={8} color="#fff">
+              FEED
+            </Text>
           </View>
           <Text fontSize={8} fontFamily="monospace" color="#666" marginTop={2}>
             (F)
           </Text>
         </View>
-        
+
         <View alignItems="center">
           <View
             width={60}
             height={40}
-            backgroundColor={gameState.isAlive ? '#333' : '#666'}
+            backgroundColor={gameState.isAlive ? "#333" : "#666"}
             borderWidth={2}
             borderColor="#000"
             alignItems="center"
             justifyContent="center"
             opacity={gameState.isAlive ? 1 : 0.5}
-            cursor={gameState.isAlive ? 'pointer' : 'not-allowed'}
-            onPress={gameState.isAlive ? () => onAction('sleep') : undefined}
+            cursor={gameState.isAlive ? "pointer" : "not-allowed"}
+            onPress={gameState.isAlive ? () => onAction("sleep") : undefined}
             pressStyle={{
-              backgroundColor: '#555',
-              transform: 'translateY(1px)'
+              backgroundColor: "#555",
+              transform: "translateY(1px)",
             }}
             hoverStyle={{
-              backgroundColor: gameState.isAlive ? '#444' : '#666'
+              backgroundColor: gameState.isAlive ? "#444" : "#666",
             }}
           >
-            <Text fontSize={16} marginBottom={-2}>😴</Text>
-            <Text fontSize={8} color="#fff">SLEEP</Text>
+            <Text fontSize={16} marginBottom={-2}>
+              😴
+            </Text>
+            <Text fontSize={8} color="#fff">
+              SLEEP
+            </Text>
           </View>
           <Text fontSize={8} fontFamily="monospace" color="#666" marginTop={2}>
             (S)
           </Text>
         </View>
-        
+
         <View alignItems="center">
           <View
             width={60}
             height={40}
-            backgroundColor={gameState.isAlive ? '#333' : '#666'}
+            backgroundColor={gameState.isAlive ? "#333" : "#666"}
             borderWidth={2}
             borderColor="#000"
             alignItems="center"
             justifyContent="center"
             opacity={gameState.isAlive ? 1 : 0.5}
-            cursor={gameState.isAlive ? 'pointer' : 'not-allowed'}
-            onPress={gameState.isAlive ? () => onAction('clean') : undefined}
+            cursor={gameState.isAlive ? "pointer" : "not-allowed"}
+            onPress={gameState.isAlive ? () => onAction("clean") : undefined}
             pressStyle={{
-              backgroundColor: '#555',
-              transform: 'translateY(1px)'
+              backgroundColor: "#555",
+              transform: "translateY(1px)",
             }}
             hoverStyle={{
-              backgroundColor: gameState.isAlive ? '#444' : '#666'
+              backgroundColor: gameState.isAlive ? "#444" : "#666",
             }}
           >
-            <Text fontSize={16} marginBottom={-2}>🧽</Text>
-            <Text fontSize={8} color="#fff">CLEAN</Text>
+            <Text fontSize={16} marginBottom={-2}>
+              🧽
+            </Text>
+            <Text fontSize={8} color="#fff">
+              CLEAN
+            </Text>
           </View>
           <Text fontSize={8} fontFamily="monospace" color="#666" marginTop={2}>
             (C)
           </Text>
         </View>
-        
+
         <View alignItems="center">
           <View
             width={60}
             height={40}
-            backgroundColor={gameState.isAlive ? '#333' : '#666'}
+            backgroundColor={gameState.isAlive ? "#333" : "#666"}
             borderWidth={2}
             borderColor="#000"
             alignItems="center"
             justifyContent="center"
             opacity={gameState.isAlive ? 1 : 0.5}
-            cursor={gameState.isAlive ? 'pointer' : 'not-allowed'}
-            onPress={gameState.isAlive ? () => onAction('play') : undefined}
+            cursor={gameState.isAlive ? "pointer" : "not-allowed"}
+            onPress={gameState.isAlive ? () => onAction("play") : undefined}
             pressStyle={{
-              backgroundColor: '#555',
-              transform: 'translateY(1px)'
+              backgroundColor: "#555",
+              transform: "translateY(1px)",
             }}
             hoverStyle={{
-              backgroundColor: gameState.isAlive ? '#444' : '#666'
+              backgroundColor: gameState.isAlive ? "#444" : "#666",
             }}
           >
-            <Text fontSize={16} marginBottom={-2}>🎮</Text>
-            <Text fontSize={8} color="#fff">PLAY</Text>
+            <Text fontSize={16} marginBottom={-2}>
+              🎮
+            </Text>
+            <Text fontSize={8} color="#fff">
+              PLAY
+            </Text>
           </View>
           <Text fontSize={8} fontFamily="monospace" color="#666" marginTop={2}>
             (P)
           </Text>
         </View>
       </View>
-      
+
       {/* Instrucciones */}
       <Text
         fontSize={8}
@@ -178,7 +195,7 @@ const ActionControls: React.FC<ActionControlsProps> = ({ gameState, onAction }) 
       >
         Use keyboard shortcuts or click buttons
       </Text>
-      
+
       {/* Estado de muerte */}
       {!gameState.isAlive && (
         <View
@@ -196,7 +213,7 @@ const ActionControls: React.FC<ActionControlsProps> = ({ gameState, onAction }) 
             textAlign="center"
             textTransform="uppercase"
           >
-            Your Tamagotchi has died!
+            Your Pet has died!
           </Text>
         </View>
       )}

@@ -1,4 +1,4 @@
-import type { TamagotchiStats, TamagotchiMood, TamagotchiState } from '../types/tamagotchi';
+import type { VirtualPetStats, VirtualPetMood, VirtualPetState } from '../types/pet-types';
 
 // Función para determinar el color de una barra de estadística
 export const getStatColor = (value: number): string => {
@@ -9,7 +9,7 @@ export const getStatColor = (value: number): string => {
 };
 
 // Función para obtener el emoji correspondiente a cada estadística
-export const getStatEmoji = (statType: keyof TamagotchiStats): string => {
+export const getStatEmoji = (statType: keyof VirtualPetStats): string => {
   const emojiMap = {
     hunger: '🍎',
     happiness: '😊',
@@ -24,7 +24,7 @@ export const getStatEmoji = (statType: keyof TamagotchiStats): string => {
 };
 
 // Función para obtener el emoji del estado de ánimo
-export const getMoodEmoji = (mood: TamagotchiMood): string => {
+export const getMoodEmoji = (mood: VirtualPetMood): string => {
   const moodMap = {
     happy: '😊',
     sad: '😢',
@@ -63,49 +63,48 @@ export const formatWeight = (weightInGrams: number): string => {
 };
 
 // Función para calcular el nivel de cuidado general
-export const calculateCareLevel = (stats: TamagotchiStats): number => {
+export const calculateCareLevel = (stats: VirtualPetStats): number => {
   const { hunger, happiness, health, energy, cleanliness } = stats;
   return Math.round((hunger + happiness + health + energy + cleanliness) / 5);
 };
 
-// Función para determinar si el Tamagotchi necesita atención urgente
-export const needsUrgentCare = (stats: TamagotchiStats): boolean => {
+export const needsUrgentCare = (stats: VirtualPetStats): boolean => {
   return stats.hunger < 20 || stats.health < 20 || stats.cleanliness < 20;
 };
 
 // Función para obtener mensajes de estado
-export const getStatusMessage = (state: TamagotchiState): string => {
+export const getStatusMessage = (state: VirtualPetState): string => {
   if (!state.isAlive) {
-    return '💀 Tu Tamagotchi ha muerto...';
+    return '💀 Tu Pet ha muerto...';
   }
   
   const { stats, mood } = state;
   
   if (stats.health < 20) {
-    return '🚨 ¡Tu Tamagotchi está muy enfermo!';
+    return '🚨 ¡Tu Pet está muy enfermo!';
   }
   
   if (stats.hunger < 20) {
-    return '🍽️ ¡Tu Tamagotchi tiene mucha hambre!';
+    return '🍽️ ¡Tu Pet tiene mucha hambre!';
   }
   
   if (stats.cleanliness < 20) {
-    return '🧽 ¡Tu Tamagotchi necesita ser limpiado!';
+    return '🧽 ¡Tu Pet necesita ser limpiado!';
   }
   
   if (stats.energy < 20) {
-    return '😴 Tu Tamagotchi está muy cansado';
+    return '😴 Tu Pet está muy cansado';
   }
   
   if (mood === 'happy' && stats.happiness > 80) {
-    return '🎉 ¡Tu Tamagotchi está muy feliz!';
+    return '🎉 ¡Tu Pet está muy feliz!';
   }
   
   if (mood === 'sad') {
-    return '😢 Tu Tamagotchi está triste';
+    return '😢 Tu Pet está triste';
   }
   
-  return '😊 Tu Tamagotchi está bien';
+  return '😊 Tu Pet está bien';
 };
 
 // Función para generar posición aleatoria dentro de los límites

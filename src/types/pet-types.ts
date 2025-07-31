@@ -1,5 +1,5 @@
 // Tipos para el estado del Tamagotchi
-export interface TamagotchiStats {
+export interface VirtualPetStats {
   hunger: number; // 0-100
   happiness: number; // 0-100
   health: number; // 0-100
@@ -9,16 +9,16 @@ export interface TamagotchiStats {
   weight: number; // en gramos
 }
 
-export interface TamagotchiState {
-  stats: TamagotchiStats;
+export interface VirtualPetState {
+  stats: VirtualPetStats;
   position: { x: number; y: number };
-  animation: TamagotchiAnimation;
-  mood: TamagotchiMood;
+  animation: VirtualPetAnimation;
+  mood: VirtualPetMood;
   isAlive: boolean;
   lastUpdate: number; // timestamp
 }
 
-export type TamagotchiAnimation = 
+export type VirtualPetAnimation = 
   | 'idle'
   | 'walking'
   | 'eating'
@@ -27,7 +27,7 @@ export type TamagotchiAnimation =
   | 'sick'
   | 'dead';
 
-export type TamagotchiMood = 
+export type VirtualPetMood = 
   | 'happy'
   | 'sad'
   | 'angry'
@@ -36,7 +36,7 @@ export type TamagotchiMood =
   | 'hungry'
   | 'dirty';
 
-export interface TamagotchiAction {
+export interface VirtualPetAction {
   type: 'feed' | 'sleep' | 'clean' | 'play';
   timestamp: number;
 }
@@ -54,7 +54,7 @@ export interface GameSettings {
 }
 
 export interface CareHistory {
-  actions: TamagotchiAction[];
+  actions: VirtualPetAction[];
   totalCareTime: number; // en minutos
   birthTime: number; // timestamp
 }
