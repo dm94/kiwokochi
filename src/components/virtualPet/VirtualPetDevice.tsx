@@ -38,22 +38,6 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
         `,
       }}
     >
-      <View alignItems="center" marginBottom={16}>
-        <Text
-          fontSize={16}
-          fontFamily="monospace"
-          color="#333"
-          textTransform="uppercase"
-          letterSpacing={2}
-          marginBottom={4}
-        >
-          TamaWeb
-        </Text>
-        <Text fontSize={8} fontFamily="monospace" color="#666">
-          Virtual Pet Simulator
-        </Text>
-      </View>
-
       <View
         backgroundColor="#f0f0f0"
         borderWidth={3}
