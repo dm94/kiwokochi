@@ -116,8 +116,9 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
             <View width="100%" marginTop={8}>
               <View
                 flexDirection="row"
-                justifyContent="space-between"
+                justifyContent="space-evenly"
                 marginBottom={4}
+                paddingHorizontal={10}
               >
                 <View alignItems="center">
                   <Text fontSize={7} fontFamily="monospace" color="#00AA00">
@@ -183,7 +184,11 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 </View>
               </View>
 
-              <View flexDirection="row" justifyContent="space-between">
+              <View
+                flexDirection="row"
+                justifyContent="space-around"
+                paddingHorizontal={20}
+              >
                 <View alignItems="center">
                   <Text fontSize={7} fontFamily="monospace" color="#00AA00">
                     {t("status.energyShort")}
@@ -470,10 +475,10 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
             </Text>
           </View>
         </View>
-        <View 
-          flexDirection="row" 
-          justifyContent="space-between" 
-          paddingHorizontal={20}
+        <View
+          flexDirection="row"
+          justifyContent="space-between"
+          paddingHorizontal={10}
           width="100%"
         >
           <View
