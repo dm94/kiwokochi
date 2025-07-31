@@ -375,9 +375,10 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
       <View alignItems="center" marginTop={15}>
         <View
           flexDirection="row"
-          justifyContent="center"
-          gap={40}
+          justifyContent="space-evenly"
+          paddingHorizontal={30}
           marginBottom={20}
+          width="100%"
         >
           <View
             width={50}
@@ -469,7 +470,12 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
             </Text>
           </View>
         </View>
-        <View flexDirection="row" justifyContent="center" gap={20}>
+        <View 
+          flexDirection="row" 
+          justifyContent="space-between" 
+          paddingHorizontal={20}
+          width="100%"
+        >
           <View
             width={60}
             height={40}
