@@ -44,7 +44,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
         background: "linear-gradient(145deg, #FFE4B5, #DEB887)",
       }}
     >
-      <View alignItems="center" marginTop={15}>
+      <View alignItems="center" marginTop={10}>
         <Text
           fontSize={12}
           fontFamily="monospace"
@@ -63,15 +63,15 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
         />
       </View>
       <View
-        marginTop={15}
+        marginTop={10}
         marginHorizontal={20}
         backgroundColor="#2F4F2F"
         borderWidth={4}
         borderColor="#000"
         borderRadius={12}
-        padding={16}
-        marginBottom={20}
-        height={200}
+        padding={10}
+        marginBottom={10}
+        height={240}
         style={{
           boxShadow: "inset 0 4px 8px rgba(0,0,0,0.6)",
           background: "linear-gradient(145deg, #2F4F2F, #1C3A1C)",
@@ -81,7 +81,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           flexDirection="row"
           justifyContent="center"
           gap={8}
-          marginBottom={8}
+          marginBottom={20}
         >
           <View
             width={8}
@@ -113,130 +113,249 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
             <View flex={1} justifyContent="center">
               <VirtualPet gameState={gameState} />
             </View>
-            <View width="100%" marginTop={8}>
+            <View width="100%" marginTop={25} gap={3}>
               <View
                 flexDirection="row"
-                justifyContent="space-evenly"
-                marginBottom={4}
-                paddingHorizontal={10}
+                justifyContent="space-between"
+                paddingHorizontal={12}
+                gap={3}
               >
-                <View alignItems="center">
-                  <Text fontSize={7} fontFamily="monospace" color="#00AA00">
+                <View alignItems="center" flex={1}>
+                  <Text
+                    fontSize={6}
+                    fontFamily="monospace"
+                    color="#00AA00"
+                    marginBottom={1}
+                  >
                     {t("status.hungerShort")}
                   </Text>
                   <View
-                    width={30}
+                    width="100%"
                     height={4}
                     backgroundColor="#004400"
                     borderRadius={2}
+                    borderWidth={1}
+                    borderColor="#002200"
                   >
                     <View
                       width={`${gameState.stats.hunger}%`}
                       height="100%"
                       backgroundColor={
-                        gameState.stats.hunger > 30 ? "#00FF00" : "#FF0000"
+                        gameState.stats.hunger > 50
+                          ? "#00FF00"
+                          : gameState.stats.hunger > 25
+                          ? "#FFFF00"
+                          : "#FF0000"
                       }
-                      borderRadius={2}
+                      borderRadius={1}
                     />
                   </View>
+                  <Text
+                    fontSize={5}
+                    fontFamily="monospace"
+                    color="#00FF00"
+                    marginTop={1}
+                  >
+                    {Math.round(gameState.stats.hunger)}%
+                  </Text>
                 </View>
 
-                <View alignItems="center">
-                  <Text fontSize={7} fontFamily="monospace" color="#00AA00">
+                <View alignItems="center" flex={1}>
+                  <Text
+                    fontSize={6}
+                    fontFamily="monospace"
+                    color="#00AA00"
+                    marginBottom={1}
+                  >
                     {t("status.happyShort")}
                   </Text>
                   <View
-                    width={30}
+                    width="100%"
                     height={4}
                     backgroundColor="#004400"
                     borderRadius={2}
+                    borderWidth={1}
+                    borderColor="#002200"
                   >
                     <View
                       width={`${gameState.stats.happiness}%`}
                       height="100%"
                       backgroundColor={
-                        gameState.stats.happiness > 30 ? "#00FF00" : "#FF0000"
+                        gameState.stats.happiness > 50
+                          ? "#00FF00"
+                          : gameState.stats.happiness > 25
+                          ? "#FFFF00"
+                          : "#FF0000"
                       }
-                      borderRadius={2}
+                      borderRadius={1}
                     />
                   </View>
+                  <Text
+                    fontSize={5}
+                    fontFamily="monospace"
+                    color="#00FF00"
+                    marginTop={1}
+                  >
+                    {Math.round(gameState.stats.happiness)}%
+                  </Text>
                 </View>
 
-                <View alignItems="center">
-                  <Text fontSize={7} fontFamily="monospace" color="#00AA00">
+                <View alignItems="center" flex={1}>
+                  <Text
+                    fontSize={6}
+                    fontFamily="monospace"
+                    color="#00AA00"
+                    marginBottom={1}
+                  >
                     {t("status.healthShort")}
                   </Text>
                   <View
-                    width={30}
+                    width="100%"
                     height={4}
                     backgroundColor="#004400"
                     borderRadius={2}
+                    borderWidth={1}
+                    borderColor="#002200"
                   >
                     <View
                       width={`${gameState.stats.health}%`}
                       height="100%"
                       backgroundColor={
-                        gameState.stats.health > 30 ? "#00FF00" : "#FF0000"
+                        gameState.stats.health > 50
+                          ? "#00FF00"
+                          : gameState.stats.health > 25
+                          ? "#FFFF00"
+                          : "#FF0000"
                       }
-                      borderRadius={2}
+                      borderRadius={1}
                     />
                   </View>
+                  <Text
+                    fontSize={5}
+                    fontFamily="monospace"
+                    color="#00FF00"
+                    marginTop={1}
+                  >
+                    {Math.round(gameState.stats.health)}%
+                  </Text>
                 </View>
               </View>
-
               <View
                 flexDirection="row"
-                justifyContent="space-around"
-                paddingHorizontal={20}
+                justifyContent="space-between"
+                paddingHorizontal={12}
+                gap={3}
               >
-                <View alignItems="center">
-                  <Text fontSize={7} fontFamily="monospace" color="#00AA00">
+                <View alignItems="center" flex={1}>
+                  <Text
+                    fontSize={6}
+                    fontFamily="monospace"
+                    color="#00AA00"
+                    marginBottom={1}
+                  >
                     {t("status.energyShort")}
                   </Text>
                   <View
-                    width={30}
+                    width="100%"
                     height={4}
                     backgroundColor="#004400"
                     borderRadius={2}
+                    borderWidth={1}
+                    borderColor="#002200"
                   >
                     <View
                       width={`${gameState.stats.energy}%`}
                       height="100%"
                       backgroundColor={
-                        gameState.stats.energy > 30 ? "#00FF00" : "#FF0000"
+                        gameState.stats.energy > 50
+                          ? "#00FF00"
+                          : gameState.stats.energy > 25
+                          ? "#FFFF00"
+                          : "#FF0000"
                       }
-                      borderRadius={2}
+                      borderRadius={1}
                     />
                   </View>
+                  <Text
+                    fontSize={5}
+                    fontFamily="monospace"
+                    color="#00FF00"
+                    marginTop={1}
+                  >
+                    {Math.round(gameState.stats.energy)}%
+                  </Text>
                 </View>
 
-                <View alignItems="center">
-                  <Text fontSize={7} fontFamily="monospace" color="#00AA00">
+                <View alignItems="center" flex={1}>
+                  <Text
+                    fontSize={6}
+                    fontFamily="monospace"
+                    color="#00AA00"
+                    marginBottom={1}
+                  >
                     {t("status.cleanShort")}
                   </Text>
                   <View
-                    width={30}
+                    width="100%"
                     height={4}
                     backgroundColor="#004400"
                     borderRadius={2}
+                    borderWidth={1}
+                    borderColor="#002200"
                   >
                     <View
                       width={`${gameState.stats.cleanliness}%`}
                       height="100%"
                       backgroundColor={
-                        gameState.stats.cleanliness > 30 ? "#00FF00" : "#FF0000"
+                        gameState.stats.cleanliness > 50
+                          ? "#00FF00"
+                          : gameState.stats.cleanliness > 25
+                          ? "#FFFF00"
+                          : "#FF0000"
                       }
-                      borderRadius={2}
+                      borderRadius={1}
                     />
                   </View>
+                  <Text
+                    fontSize={5}
+                    fontFamily="monospace"
+                    color="#00FF00"
+                    marginTop={1}
+                  >
+                    {Math.round(gameState.stats.cleanliness)}%
+                  </Text>
                 </View>
 
-                <View alignItems="center">
-                  <Text fontSize={7} fontFamily="monospace" color="#00AA00">
+                <View alignItems="center" flex={1}>
+                  <Text
+                    fontSize={6}
+                    fontFamily="monospace"
+                    color="#00AA00"
+                    marginBottom={1}
+                  >
                     {t("status.ageShort")}
                   </Text>
-                  <Text fontSize={7} fontFamily="monospace" color="#00FF00">
-                    {Math.floor(gameState.stats.age)}h
+                  <View
+                    width="100%"
+                    height={4}
+                    backgroundColor="#004400"
+                    borderRadius={2}
+                    borderWidth={1}
+                    borderColor="#002200"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <Text fontSize={5} fontFamily="monospace" color="#00FF00">
+                      {Math.floor(gameState.stats.age)}h
+                    </Text>
+                  </View>
+                  <Text
+                    fontSize={5}
+                    fontFamily="monospace"
+                    color="#00AA00"
+                    marginTop={1}
+                  >
+                    AGE
                   </Text>
                 </View>
               </View>

@@ -64,7 +64,8 @@ export default function Home() {
         flex={1}
         backgroundColor="#f0f0f0"
         minHeight="100vh"
-        padding={20}
+        padding={10}
+        gap={10}
         style={{
           backgroundImage: `
             radial-gradient(circle at 20px 20px, #e8e8e8 2px, transparent 0),
@@ -82,7 +83,6 @@ export default function Home() {
           currentPage={currentPage}
         />
         <View
-          marginTop={20}
           padding={16}
           backgroundColor="rgba(255,255,255,0.8)"
           borderWidth={1}
@@ -112,7 +112,7 @@ export default function Home() {
           </Text>
         </View>
 
-        <View marginTop={16} alignItems="center">
+        <View alignItems="center">
           <LanguageSwitcher />
         </View>
       </View>
