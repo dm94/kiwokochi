@@ -15,8 +15,8 @@ const SEO: React.FC<SEOProps> = ({
   title,
   description,
   keywords,
-  image = "https://tamaweb.vercel.app/og-image.svg",
-  url = "https://tamaweb.vercel.app/",
+  image = "https://kiwokochi.vercel.app/og-image.svg",
+  url = "https://kiwokochi.vercel.app/",
   type = "website",
   noIndex = false,
 }) => {
