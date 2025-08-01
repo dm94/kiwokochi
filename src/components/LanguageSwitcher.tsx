@@ -15,15 +15,15 @@ const LanguageSwitcher: React.FC = () => {
       gap={8}
       alignItems="center"
       padding={8}
-      backgroundColor="rgba(255,255,255,0.9)"
+      backgroundColor="var(--bg-overlay)"
       borderRadius={8}
       borderWidth={1}
-      borderColor="#ccc"
+      borderColor="var(--border-secondary)"
     >
       <Text
         fontSize={10}
         fontFamily="monospace"
-        color="#666"
+        color="var(--text-secondary)"
         textTransform="uppercase"
         marginRight={4}
       >
@@ -33,14 +33,14 @@ const LanguageSwitcher: React.FC = () => {
         onPress={() => handleLanguageChange('en')}
         padding={4}
         paddingHorizontal={8}
-        backgroundColor={currentLanguage === 'en' ? '#333' : 'transparent'}
+        backgroundColor={currentLanguage === 'en' ? 'var(--text-primary)' : 'transparent'}
         borderRadius={4}
         cursor="pointer"
       >
         <Text
           fontSize={10}
           fontFamily="monospace"
-          color={currentLanguage === 'en' ? '#fff' : '#333'}
+          color={currentLanguage === 'en' ? 'var(--text-white)' : 'var(--text-primary)'}
           textTransform="uppercase"
         >
           EN
@@ -50,14 +50,14 @@ const LanguageSwitcher: React.FC = () => {
         onPress={() => handleLanguageChange('es')}
         padding={4}
         paddingHorizontal={8}
-        backgroundColor={currentLanguage === 'es' ? '#333' : 'transparent'}
+        backgroundColor={currentLanguage === 'es' ? 'var(--text-primary)' : 'transparent'}
         borderRadius={4}
         cursor="pointer"
       >
         <Text
           fontSize={10}
           fontFamily="monospace"
-          color={currentLanguage === 'es' ? '#fff' : '#333'}
+          color={currentLanguage === 'es' ? 'var(--text-white)' : 'var(--text-primary)'}
           textTransform="uppercase"
         >
           ES

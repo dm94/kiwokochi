@@ -1,10 +1,10 @@
 import type { VirtualPetStats, VirtualPetMood, VirtualPetState } from '@/types/pet-types';
 
 export const getStatColor = (value: number): string => {
-  if (value >= 70) return '#4ade80';
-  if (value >= 40) return '#fbbf24';
-  if (value >= 20) return '#fb923c';
-  return '#ef4444';
+  if (value >= 70) return 'var(--status-good)';
+  if (value >= 40) return 'var(--status-medium)';
+  if (value >= 20) return 'var(--status-medium)';
+  return 'var(--status-bad)';
 };
 
 export const getStatEmoji = (statType: keyof VirtualPetStats): string => {

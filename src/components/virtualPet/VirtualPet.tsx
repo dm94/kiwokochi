@@ -41,9 +41,9 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
       position="relative"
       width={200}
       height={150}
-      backgroundColor="#f0f0f0"
+      backgroundColor="var(--bg-primary)"
       borderWidth={2}
-      borderColor="#333"
+      borderColor="var(--border-primary)"
       borderRadius={4}
       overflow="hidden"
     >
@@ -55,8 +55,8 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
         bottom={0}
         style={{
           backgroundImage: `
-            radial-gradient(circle at 1px 1px, #ddd 1px, transparent 0),
-            radial-gradient(circle at 3px 3px, #eee 1px, transparent 0)
+            radial-gradient(circle at 1px 1px, var(--bg-pattern-3) 1px, transparent 0),
+            radial-gradient(circle at 3px 3px, var(--bg-pattern-4) 1px, transparent 0)
           `,
           backgroundSize: "4px 4px",
           backgroundPosition: "0 0, 2px 2px",
@@ -85,12 +85,12 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
           position="absolute"
           top={5}
           right={5}
-          backgroundColor="#ff0000"
+          backgroundColor="var(--dead-indicator)"
           paddingHorizontal={6}
           paddingVertical={2}
           borderRadius={2}
         >
-          <Text fontSize={8} color="white" fontFamily="monospace">
+          <Text fontSize={8} color="var(--text-white)" fontFamily="monospace">
             RIP
           </Text>
         </View>
