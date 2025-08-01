@@ -1,62 +1,62 @@
-import React from 'react';
-import { VirtualPetAnimation, VirtualPetMood } from '../../types/pet-types';
+import React from "react";
+import { VirtualPetAnimation, VirtualPetMood } from "../../types/pet-types";
 
-interface TamagotchiSVGProps {
+interface PetSVGProps {
   animation: VirtualPetAnimation;
   mood: VirtualPetMood;
   isAlive: boolean;
   size?: number;
 }
 
-const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
+const PetSVG: React.FC<PetSVGProps> = ({
   animation,
   mood,
   isAlive,
-  size = 32
+  size = 32,
 }) => {
   const getBodyColor = (): string => {
-    if (!isAlive) return '#666666';
-    
+    if (!isAlive) return "#666666";
+
     switch (mood) {
       case VirtualPetMood.HAPPY:
-        return '#FFE135';
+        return "#FFE135";
       case VirtualPetMood.SAD:
-        return '#6BB6FF';
+        return "#6BB6FF";
       case VirtualPetMood.ANGRY:
-        return '#FF4757';
+        return "#FF4757";
       case VirtualPetMood.SICK:
-        return '#7BED9F';
+        return "#7BED9F";
       case VirtualPetMood.HUNGRY:
-        return '#FF9F43';
+        return "#FF9F43";
       case VirtualPetMood.DIRTY:
-        return '#A0522D';
+        return "#A0522D";
       case VirtualPetMood.SLEEPING:
-        return '#C44569';
+        return "#C44569";
       default:
-        return '#FFE135';
+        return "#FFE135";
     }
   };
 
   const getBodyShade = (): string => {
-    if (!isAlive) return '#444444';
-    
+    if (!isAlive) return "#444444";
+
     switch (mood) {
       case VirtualPetMood.HAPPY:
-        return '#E6C200';
+        return "#E6C200";
       case VirtualPetMood.SAD:
-        return '#5A9BD4';
+        return "#5A9BD4";
       case VirtualPetMood.ANGRY:
-        return '#E63946';
+        return "#E63946";
       case VirtualPetMood.SICK:
-        return '#70C085';
+        return "#70C085";
       case VirtualPetMood.HUNGRY:
-        return '#E6842A';
+        return "#E6842A";
       case VirtualPetMood.DIRTY:
-        return '#8B4513';
+        return "#8B4513";
       case VirtualPetMood.SLEEPING:
-        return '#A8385D';
+        return "#A8385D";
       default:
-        return '#E6C200';
+        return "#E6C200";
     }
   };
 
@@ -75,12 +75,25 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
       );
     }
 
-    if (animation === VirtualPetAnimation.SLEEPING || mood === VirtualPetMood.SLEEPING) {
+    if (
+      animation === VirtualPetAnimation.SLEEPING ||
+      mood === VirtualPetMood.SLEEPING
+    ) {
       return (
         <>
           {/* Closed eyes */}
-          <path d="M8 10 Q10 8 12 10" stroke="#000" strokeWidth="1.5" fill="none" />
-          <path d="M20 10 Q22 8 24 10" stroke="#000" strokeWidth="1.5" fill="none" />
+          <path
+            d="M8 10 Q10 8 12 10"
+            stroke="#000"
+            strokeWidth="1.5"
+            fill="none"
+          />
+          <path
+            d="M20 10 Q22 8 24 10"
+            stroke="#000"
+            strokeWidth="1.5"
+            fill="none"
+          />
         </>
       );
     }
@@ -89,15 +102,41 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
       return (
         <>
           {/* Angry eyes */}
-          <ellipse cx="10" cy="10" rx="2.5" ry="2" fill="#FFF" stroke="#000" strokeWidth="0.8" />
-          <ellipse cx="22" cy="10" rx="2.5" ry="2" fill="#FFF" stroke="#000" strokeWidth="0.8" />
+          <ellipse
+            cx="10"
+            cy="10"
+            rx="2.5"
+            ry="2"
+            fill="#FFF"
+            stroke="#000"
+            strokeWidth="0.8"
+          />
+          <ellipse
+            cx="22"
+            cy="10"
+            rx="2.5"
+            ry="2"
+            fill="#FFF"
+            stroke="#000"
+            strokeWidth="0.8"
+          />
           <circle cx="10" cy="10" r="1.5" fill="#FF0000" />
           <circle cx="22" cy="10" r="1.5" fill="#FF0000" />
           <circle cx="9.5" cy="9" r="0.4" fill="#FFF" />
           <circle cx="21.5" cy="9" r="0.4" fill="#FFF" />
           {/* Angry eyebrows */}
-          <path d="M6 6 L14 8" stroke="#000" strokeWidth="2" strokeLinecap="round" />
-          <path d="M26 6 L18 8" stroke="#000" strokeWidth="2" strokeLinecap="round" />
+          <path
+            d="M6 6 L14 8"
+            stroke="#000"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M26 6 L18 8"
+            stroke="#000"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
         </>
       );
     }
@@ -106,18 +145,60 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
       return (
         <>
           {/* Sad eyes */}
-          <ellipse cx="10" cy="10" rx="2.5" ry="2" fill="#FFF" stroke="#000" strokeWidth="0.8" />
-          <ellipse cx="22" cy="10" rx="2.5" ry="2" fill="#FFF" stroke="#000" strokeWidth="0.8" />
+          <ellipse
+            cx="10"
+            cy="10"
+            rx="2.5"
+            ry="2"
+            fill="#FFF"
+            stroke="#000"
+            strokeWidth="0.8"
+          />
+          <ellipse
+            cx="22"
+            cy="10"
+            rx="2.5"
+            ry="2"
+            fill="#FFF"
+            stroke="#000"
+            strokeWidth="0.8"
+          />
           <circle cx="10" cy="10" r="1.5" fill="#000" />
           <circle cx="22" cy="10" r="1.5" fill="#000" />
           <circle cx="9.5" cy="9" r="0.4" fill="#FFF" />
           <circle cx="21.5" cy="9" r="0.4" fill="#FFF" />
           {/* Sad eyebrows */}
-          <path d="M6 8 Q10 6 14 8" stroke="#000" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-          <path d="M18 8 Q22 6 26 8" stroke="#000" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+          <path
+            d="M6 8 Q10 6 14 8"
+            stroke="#000"
+            strokeWidth="1.5"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path
+            d="M18 8 Q22 6 26 8"
+            stroke="#000"
+            strokeWidth="1.5"
+            fill="none"
+            strokeLinecap="round"
+          />
           {/* Tears */}
-          <ellipse cx="8" cy="12" rx="0.8" ry="1.5" fill="#87CEEB" opacity="0.8" />
-          <ellipse cx="24" cy="12" rx="0.8" ry="1.5" fill="#87CEEB" opacity="0.8" />
+          <ellipse
+            cx="8"
+            cy="12"
+            rx="0.8"
+            ry="1.5"
+            fill="#87CEEB"
+            opacity="0.8"
+          />
+          <ellipse
+            cx="24"
+            cy="12"
+            rx="0.8"
+            ry="1.5"
+            fill="#87CEEB"
+            opacity="0.8"
+          />
         </>
       );
     }
@@ -126,19 +207,35 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
     return (
       <>
         {/* Eye whites */}
-        <ellipse cx="10" cy="10" rx="2.5" ry="2" fill="#FFF" stroke="#000" strokeWidth="0.8" />
-        <ellipse cx="22" cy="10" rx="2.5" ry="2" fill="#FFF" stroke="#000" strokeWidth="0.8" />
-        
+        <ellipse
+          cx="10"
+          cy="10"
+          rx="2.5"
+          ry="2"
+          fill="#FFF"
+          stroke="#000"
+          strokeWidth="0.8"
+        />
+        <ellipse
+          cx="22"
+          cy="10"
+          rx="2.5"
+          ry="2"
+          fill="#FFF"
+          stroke="#000"
+          strokeWidth="0.8"
+        />
+
         {/* Pupils */}
         <circle cx="10" cy="10" r="1.5" fill="#000" />
         <circle cx="22" cy="10" r="1.5" fill="#000" />
-        
+
         {/* Eye highlights */}
         <circle cx="9.5" cy="9" r="0.6" fill="#FFF" />
         <circle cx="21.5" cy="9" r="0.6" fill="#FFF" />
         <circle cx="9" cy="9.5" r="0.3" fill="#FFF" />
         <circle cx="21" cy="9.5" r="0.3" fill="#FFF" />
-        
+
         {mood === VirtualPetMood.HAPPY && (
           <>
             {/* Extra sparkle for happy */}
@@ -152,36 +249,73 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
 
   const getMouthState = () => {
     if (!isAlive) {
-      return <path d="M12 18 Q16 22 20 18" stroke="#000" strokeWidth="1.5" fill="none" />;
+      return (
+        <path
+          d="M12 18 Q16 22 20 18"
+          stroke="#000"
+          strokeWidth="1.5"
+          fill="none"
+        />
+      );
     }
 
     if (animation === VirtualPetAnimation.EATING) {
       return (
         <>
-          <circle cx="16" cy="18" r="3" fill="none" stroke="#000" strokeWidth="1.5" />
+          <circle
+            cx="16"
+            cy="18"
+            r="3"
+            fill="none"
+            stroke="#000"
+            strokeWidth="1.5"
+          />
           <circle cx="16" cy="18" r="1" fill="#8B4513" />
         </>
       );
     }
 
-    if (animation === VirtualPetAnimation.SLEEPING || mood === VirtualPetMood.SLEEPING) {
+    if (
+      animation === VirtualPetAnimation.SLEEPING ||
+      mood === VirtualPetMood.SLEEPING
+    ) {
       return (
         <>
           <ellipse cx="16" cy="18" rx="2" ry="1" fill="#000" />
           {/* Z's for sleeping */}
-          <text x="24" y="8" fontSize="4" fill="#666">Z</text>
-          <text x="26" y="6" fontSize="3" fill="#999">z</text>
-          <text x="28" y="4" fontSize="2" fill="#CCC">z</text>
+          <text x="24" y="8" fontSize="4" fill="#666">
+            Z
+          </text>
+          <text x="26" y="6" fontSize="3" fill="#999">
+            z
+          </text>
+          <text x="28" y="4" fontSize="2" fill="#CCC">
+            z
+          </text>
         </>
       );
     }
 
     if (mood === VirtualPetMood.HAPPY) {
-      return <path d="M12 16 Q16 20 20 16" stroke="#000" strokeWidth="1.5" fill="none" />;
+      return (
+        <path
+          d="M12 16 Q16 20 20 16"
+          stroke="#000"
+          strokeWidth="1.5"
+          fill="none"
+        />
+      );
     }
 
     if (mood === VirtualPetMood.SAD) {
-      return <path d="M12 20 Q16 16 20 20" stroke="#000" strokeWidth="1.5" fill="none" />;
+      return (
+        <path
+          d="M12 20 Q16 16 20 20"
+          stroke="#000"
+          strokeWidth="1.5"
+          fill="none"
+        />
+      );
     }
 
     if (mood === VirtualPetMood.ANGRY) {
@@ -191,8 +325,20 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
     if (mood === VirtualPetMood.HUNGRY) {
       return (
         <>
-          <circle cx="16" cy="18" r="2" fill="none" stroke="#000" strokeWidth="1.5" />
-          <path d="M14 18 Q16 20 18 18" stroke="#FF69B4" strokeWidth="1" fill="none" />
+          <circle
+            cx="16"
+            cy="18"
+            r="2"
+            fill="none"
+            stroke="#000"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M14 18 Q16 20 18 18"
+            stroke="#FF69B4"
+            strokeWidth="1"
+            fill="none"
+          />
         </>
       );
     }
@@ -200,7 +346,12 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
     if (mood === VirtualPetMood.SICK) {
       return (
         <>
-          <path d="M12 18 Q16 22 20 18" stroke="#90EE90" strokeWidth="1.5" fill="none" />
+          <path
+            d="M12 18 Q16 22 20 18"
+            stroke="#90EE90"
+            strokeWidth="1.5"
+            fill="none"
+          />
           <circle cx="11" cy="16" r="1" fill="#90EE90" opacity="0.7" />
         </>
       );
@@ -243,7 +394,13 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
             <circle cx="14" cy="18" r="0.6" />
           </g>
           {/* Stink lines */}
-          <g stroke="#8B4513" strokeWidth="1" fill="none" opacity="0.5" className="animate-pulse">
+          <g
+            stroke="#8B4513"
+            strokeWidth="1"
+            fill="none"
+            opacity="0.5"
+            className="animate-pulse"
+          >
             <path d="M10 6 Q12 4 10 2" />
             <path d="M22 6 Q24 4 22 2" />
             <path d="M16 4 Q18 2 16 0" />
@@ -256,7 +413,13 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
       return (
         <>
           {/* Sick swirls */}
-          <g stroke="#90EE90" strokeWidth="1.5" fill="none" opacity="0.6" className="animate-spin">
+          <g
+            stroke="#90EE90"
+            strokeWidth="1.5"
+            fill="none"
+            opacity="0.6"
+            className="animate-spin"
+          >
             <circle cx="8" cy="8" r="2" strokeDasharray="3,2" />
             <circle cx="24" cy="8" r="1.5" strokeDasharray="2,1" />
           </g>
@@ -283,13 +446,13 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
   const getAnimationClass = (): string => {
     switch (animation) {
       case VirtualPetAnimation.WALKING:
-        return 'animate-bounce';
+        return "animate-bounce";
       case VirtualPetAnimation.EATING:
-        return 'animate-pulse';
+        return "animate-pulse";
       case VirtualPetAnimation.PLAYING:
-        return 'animate-spin';
+        return "animate-spin";
       default:
-        return '';
+        return "";
     }
   };
 
@@ -300,8 +463,8 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
         height={size}
         viewBox="0 0 32 32"
         style={{
-          filter: isAlive ? 'none' : 'grayscale(100%) brightness(0.7)',
-          transition: 'all 0.3s ease-in-out'
+          filter: isAlive ? "none" : "grayscale(100%) brightness(0.7)",
+          transition: "all 0.3s ease-in-out",
         }}
       >
         <defs>
@@ -321,16 +484,10 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
             <feDropShadow dx="1" dy="1" stdDeviation="1" floodOpacity="0.3" />
           </filter>
         </defs>
-        
+
         {/* Body shadow */}
-        <ellipse
-          cx="17"
-          cy="21"
-          rx="12"
-          ry="10"
-          fill="#00000020"
-        />
-        
+        <ellipse cx="17" cy="21" rx="12" ry="10" fill="#00000020" />
+
         {/* Body */}
         <ellipse
           cx="16"
@@ -342,15 +499,10 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
           strokeWidth="1.2"
           filter="url(#shadow)"
         />
-        
+
         {/* Head shadow */}
-        <circle
-          cx="17"
-          cy="13"
-          r="8"
-          fill="#00000020"
-        />
-        
+        <circle cx="17" cy="13" r="8" fill="#00000020" />
+
         {/* Head */}
         <circle
           cx="16"
@@ -361,57 +513,65 @@ const TamagotchiSVG: React.FC<TamagotchiSVGProps> = ({
           strokeWidth="1.2"
           filter="url(#shadow)"
         />
-        
+
         {/* Head highlight */}
-        <ellipse
-          cx="13"
-          cy="9"
-          rx="3"
-          ry="2"
-          fill="#FFFFFF40"
-        />
-        
+        <ellipse cx="13" cy="9" rx="3" ry="2" fill="#FFFFFF40" />
+
         {/* Body highlight */}
-        <ellipse
-          cx="13"
-          cy="17"
-          rx="4"
-          ry="3"
-          fill="#FFFFFF30"
-        />
-        
+        <ellipse cx="13" cy="17" rx="4" ry="3" fill="#FFFFFF30" />
+
         {/* Eyes */}
         {getEyeState()}
-        
+
         {/* Mouth */}
         {getMouthState()}
-        
+
         {/* Special effects */}
         {getSpecialEffects()}
-        
+
         {/* Cheeks for happy mood */}
         {mood === VirtualPetMood.HAPPY && isAlive && (
           <>
-            <ellipse cx="6" cy="14" rx="2.5" ry="2" fill="#FF69B4" opacity="0.4" />
-            <ellipse cx="26" cy="14" rx="2.5" ry="2" fill="#FF69B4" opacity="0.4" />
-            <ellipse cx="6" cy="13" rx="1.5" ry="1" fill="#FFB6C1" opacity="0.6" />
-            <ellipse cx="26" cy="13" rx="1.5" ry="1" fill="#FFB6C1" opacity="0.6" />
+            <ellipse
+              cx="6"
+              cy="14"
+              rx="2.5"
+              ry="2"
+              fill="#FF69B4"
+              opacity="0.4"
+            />
+            <ellipse
+              cx="26"
+              cy="14"
+              rx="2.5"
+              ry="2"
+              fill="#FF69B4"
+              opacity="0.4"
+            />
+            <ellipse
+              cx="6"
+              cy="13"
+              rx="1.5"
+              ry="1"
+              fill="#FFB6C1"
+              opacity="0.6"
+            />
+            <ellipse
+              cx="26"
+              cy="13"
+              rx="1.5"
+              ry="1"
+              fill="#FFB6C1"
+              opacity="0.6"
+            />
           </>
         )}
-        
+
         {/* Belly spot */}
-        {isAlive && (
-          <ellipse
-            cx="16"
-            cy="22"
-            rx="6"
-            ry="4"
-            fill="#FFFFFF20"
-          />
-        )}
+        {isAlive && <ellipse cx="16" cy="22" rx="6" ry="4" fill="#FFFFFF20" />}
       </svg>
     </div>
   );
 };
 
-export default TamagotchiSVG;
+export default PetSVG;

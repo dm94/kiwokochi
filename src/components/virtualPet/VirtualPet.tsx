@@ -4,7 +4,7 @@ import {
   VirtualPetAnimation,
   type VirtualPetState,
 } from "../../types/pet-types";
-import TamagotchiSVG from "./TamagotchiSVG";
+import PetSVG from "./PetSVG";
 
 interface VirtualPetProps {
   gameState: VirtualPetState;
@@ -67,12 +67,7 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
           filter: isAlive ? "none" : "grayscale(100%)",
         }}
       >
-        <TamagotchiSVG
-          animation={animation}
-          mood={mood}
-          isAlive={isAlive}
-          size={32}
-        />
+        <PetSVG animation={animation} mood={mood} isAlive={isAlive} size={32} />
       </View>
 
       {!isAlive && (
