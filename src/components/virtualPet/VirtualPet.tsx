@@ -2,9 +2,9 @@ import React from "react";
 import { View, Text } from "@tamagui/core";
 import {
   VirtualPetAnimation,
-  VirtualPetMood,
   type VirtualPetState,
 } from "../../types/pet-types";
+import TamagotchiSVG from "./TamagotchiSVG";
 
 interface VirtualPetProps {
   gameState: VirtualPetState;
@@ -12,38 +12,6 @@ interface VirtualPetProps {
 
 const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
   const { position, animation, mood, isAlive } = gameState;
-
-  const getPetEmoji = () => {
-    if (!isAlive) return "💀";
-
-    switch (animation) {
-      case VirtualPetAnimation.EATING:
-        return "🍽️";
-      case VirtualPetAnimation.SLEEPING:
-        return "😴";
-      case VirtualPetAnimation.PLAYING:
-        return "🎮";
-      case VirtualPetAnimation.SICK:
-        return "🤒";
-      case VirtualPetAnimation.DEAD:
-        return "💀";
-      default:
-        switch (mood) {
-          case VirtualPetMood.HAPPY:
-            return "😊";
-          case VirtualPetMood.SAD:
-            return "😢";
-          case VirtualPetMood.ANGRY:
-            return "😠";
-          case VirtualPetMood.HUNGRY:
-            return "🤤";
-          case VirtualPetMood.DIRTY:
-            return "🤢";
-          default:
-            return "🙂";
-        }
-    }
-  };
 
   const getAnimationClass = () => {
     switch (animation) {
@@ -99,15 +67,12 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
           filter: isAlive ? "none" : "grayscale(100%)",
         }}
       >
-        <Text
-          fontSize={24}
-          style={{
-            textShadow: "1px 1px 0px #000",
-            filter: "drop-shadow(0 0 2px rgba(0,0,0,0.5))",
-          }}
-        >
-          {getPetEmoji()}
-        </Text>
+        <TamagotchiSVG
+          animation={animation}
+          mood={mood}
+          isAlive={isAlive}
+          size={32}
+        />
       </View>
 
       {!isAlive && (
