@@ -172,10 +172,10 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   <View
                     width="100%"
                     height={4}
-                    backgroundColor="#004400"
+                    backgroundColor="var(--status-bg)"
                     borderRadius={2}
                     borderWidth={1}
-                    borderColor="#002200"
+                    borderColor="var(--status-border)"
                   >
                     <View
                       width={`${gameState.stats.happiness}%`}
@@ -204,7 +204,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   <Text
                     fontSize={6}
                     fontFamily="monospace"
-                    color="#00AA00"
+                    color="var(--status-text)"
                     marginBottom={1}
                   >
                     {t("status.healthShort")}
@@ -212,10 +212,10 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   <View
                     width="100%"
                     height={4}
-                    backgroundColor="#004400"
+                    backgroundColor="var(--status-bg)"
                     borderRadius={2}
                     borderWidth={1}
-                    borderColor="#002200"
+                    borderColor="var(--status-border)"
                   >
                     <View
                       width={`${gameState.stats.health}%`}
@@ -250,7 +250,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   <Text
                     fontSize={6}
                     fontFamily="monospace"
-                    color="#00AA00"
+                    color="var(--status-text)"
                     marginBottom={1}
                   >
                     {t("status.energyShort")}
@@ -279,7 +279,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   <Text
                     fontSize={5}
                     fontFamily="monospace"
-                    color="#00FF00"
+                    color="var(--status-text-bright)"
                     marginTop={1}
                   >
                     {Math.round(gameState.stats.energy)}%
@@ -345,14 +345,14 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                     justifyContent="center"
                     alignItems="center"
                   >
-                    <Text fontSize={5} fontFamily="monospace" color="#00FF00">
+                    <Text fontSize={5} fontFamily="monospace" color="var(--status-text-bright)">
                       {Math.floor(gameState.stats.age)}h
                     </Text>
                   </View>
                   <Text
                     fontSize={5}
                     fontFamily="monospace"
-                    color="#00AA00"
+                    color="var(--status-text)"
                     marginTop={1}
                   >
                     AGE
@@ -368,7 +368,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
             <Text
               fontSize={10}
               fontFamily="monospace"
-              color="#00FF00"
+              color="var(--status-text-bright)"
               textAlign="center"
               marginBottom={8}
               textTransform="uppercase"
@@ -400,7 +400,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 justifyContent="space-between"
                 marginBottom={6}
               >
-                <Text fontSize={9} fontFamily="monospace" color="#00AA00">
+                <Text fontSize={9} fontFamily="monospace" color="var(--status-text)">
                   {t("status.weightLabel")}
                 </Text>
                 <Text fontSize={9} fontFamily="monospace" color="var(--status-text-bright)">
@@ -412,26 +412,26 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 justifyContent="space-between"
                 marginBottom={6}
               >
-                <Text fontSize={9} fontFamily="monospace" color="#00AA00">
+                <Text fontSize={9} fontFamily="monospace" color="var(--status-text)">
                   {t("status.statusLabel")}
                 </Text>
                 <Text
                   fontSize={9}
                   fontFamily="monospace"
-                  color="#00FF00"
+                  color="var(--status-text-bright)"
                   textTransform="uppercase"
                 >
                   {gameState.isAlive ? gameState.mood : t("status.dead")}
                 </Text>
               </View>
               <View flexDirection="row" justifyContent="space-between">
-                <Text fontSize={9} fontFamily="monospace" color="#00AA00">
+                <Text fontSize={9} fontFamily="monospace" color="var(--status-text)">
                   {t("status.activityLabel")}
                 </Text>
                 <Text
                   fontSize={9}
                   fontFamily="monospace"
-                  color="#00FF00"
+                  color="var(--status-text-bright)"
                   textTransform="uppercase"
                 >
                   {gameState.animation}
@@ -446,7 +446,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
             <Text
               fontSize={10}
               fontFamily="monospace"
-              color="#00FF00"
+              color="var(--status-text-bright)"
               textAlign="center"
               marginBottom={8}
               textTransform="uppercase"
@@ -467,7 +467,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   backgroundColor: "var(--hover-green)",
                 }}
               >
-                <Text fontSize={9} fontFamily="monospace" color="#00FF00">
+                <Text fontSize={9} fontFamily="monospace" color="var(--status-text-bright)">
                   {t("actions.reset")}
                 </Text>
               </View>
@@ -517,27 +517,27 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           <View
             width={50}
             height={50}
-            backgroundColor="#8B4513"
+            backgroundColor="var(--btn-primary)"
             borderRadius={25}
             borderWidth={3}
-            borderColor="#654321"
+            borderColor="var(--btn-primary-hover)"
             alignItems="center"
             justifyContent="center"
             cursor="pointer"
             onPress={() => onNavigate(NavigationPage.STATS)}
             pressStyle={{
-              backgroundColor: "#654321",
+              backgroundColor: "var(--btn-primary-hover)",
               transform: "scale(0.95)",
             }}
             style={{
               boxShadow:
-                "0 4px 8px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.2)",
+                "0 4px 8px var(--shadow-dark), inset 0 2px 4px var(--shadow-light)",
             }}
           >
             <Text
               fontSize={8}
               fontFamily="monospace"
-              color="#FFE4B5"
+              color="var(--btn-text)"
               fontWeight="bold"
             >
               {t("status.stat")}
@@ -547,27 +547,27 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           <View
             width={50}
             height={50}
-            backgroundColor="#8B4513"
+            backgroundColor="var(--btn-primary)"
             borderRadius={25}
             borderWidth={3}
-            borderColor="#654321"
+            borderColor="var(--btn-primary-hover)"
             alignItems="center"
             justifyContent="center"
             cursor="pointer"
             onPress={() => onNavigate(NavigationPage.SETTINGS)}
             pressStyle={{
-              backgroundColor: "#654321",
+              backgroundColor: "var(--btn-primary-hover)",
               transform: "scale(0.95)",
             }}
             style={{
               boxShadow:
-                "0 4px 8px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.2)",
+                "0 4px 8px var(--shadow-dark), inset 0 2px 4px var(--shadow-light)",
             }}
           >
             <Text
               fontSize={8}
               fontFamily="monospace"
-              color="#FFE4B5"
+              color="var(--btn-text)"
               fontWeight="bold"
             >
               {t("actions.set")}
@@ -632,7 +632,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
             }}
             style={{
               boxShadow:
-                "0 3px 6px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.2)",
+                "0 3px 6px var(--shadow-dark), inset 0 1px 2px var(--shadow-light)",
             }}
           >
             <Text fontSize={16}>🎮</Text>
@@ -660,7 +660,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
             }}
             style={{
               boxShadow:
-                "0 3px 6px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.2)",
+                "0 3px 6px var(--shadow-dark), inset 0 1px 2px var(--shadow-light)",
             }}
           >
             <Text fontSize={16}>🧼</Text>
@@ -688,7 +688,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
             }}
             style={{
               boxShadow:
-                "0 3px 6px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.2)",
+                "0 3px 6px var(--shadow-dark), inset 0 1px 2px var(--shadow-light)",
             }}
           >
             <Text fontSize={16}>😴</Text>

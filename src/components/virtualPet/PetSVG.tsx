@@ -136,7 +136,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
             cy="10"
             rx="3"
             ry="2.5"
-            fill="#FFF"
+            fill="var(--pet-eye-white)"
             stroke="var(--pet-eye-pupil)"
             strokeWidth="0.8"
           />
@@ -145,14 +145,14 @@ const PetSVG: React.FC<PetSVGProps> = ({
             cy="10"
             rx="3"
             ry="2.5"
-            fill="#FFF"
+            fill="var(--pet-eye-white)"
             stroke="var(--pet-eye-pupil)"
             strokeWidth="0.8"
           />
           <circle cx="11" cy="10" r="1.5" fill="var(--pet-eye-pupil)" className="animate-pulse" />
           <circle cx="21" cy="10" r="1.5" fill="var(--pet-eye-pupil)" className="animate-pulse" />
-          <circle cx="10.5" cy="9" r="0.4" fill="var(--pet-eye-white)" />
-          <circle cx="20.5" cy="9" r="0.4" fill="var(--pet-eye-white)" />
+          <circle cx="10.5" cy="9" r="0.4" fill="var(--pet-eye-highlight)" />
+          <circle cx="20.5" cy="9" r="0.4" fill="var(--pet-eye-highlight)" />
         </>
       );
     }
@@ -166,7 +166,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
             cy="10"
             rx="2.5"
             ry="2"
-            fill="#FFF"
+            fill="var(--pet-eye-white)"
             stroke="var(--pet-eye-pupil)"
             strokeWidth="0.8"
           />
@@ -175,14 +175,14 @@ const PetSVG: React.FC<PetSVGProps> = ({
             cy="10"
             rx="2.5"
             ry="2"
-            fill="#FFF"
+            fill="var(--pet-eye-white)"
             stroke="var(--pet-eye-pupil)"
             strokeWidth="0.8"
           />
           <circle cx="10" cy="10" r="1.5" fill="var(--pet-eye-angry)" />
           <circle cx="22" cy="10" r="1.5" fill="var(--pet-eye-angry)" />
-          <circle cx="9.5" cy="9" r="0.4" fill="var(--pet-eye-white)" />
-          <circle cx="21.5" cy="9" r="0.4" fill="var(--pet-eye-white)" />
+          <circle cx="9.5" cy="9" r="0.4" fill="var(--pet-eye-highlight)" />
+          <circle cx="21.5" cy="9" r="0.4" fill="var(--pet-eye-highlight)" />
           {/* Angry eyebrows */}
           <path
             d="M6 6 L14 8"
@@ -192,7 +192,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
           />
           <path
             d="M26 6 L18 8"
-            stroke="#000"
+            stroke="var(--pet-eye-pupil)"
             strokeWidth="2"
             strokeLinecap="round"
           />
@@ -209,8 +209,8 @@ const PetSVG: React.FC<PetSVGProps> = ({
             cy="10"
             rx="2.5"
             ry="2"
-            fill="#FFF"
-            stroke="#000"
+            fill="var(--pet-eye-white)"
+            stroke="var(--pet-eye-pupil)"
             strokeWidth="0.8"
           />
           <ellipse
@@ -218,25 +218,25 @@ const PetSVG: React.FC<PetSVGProps> = ({
             cy="10"
             rx="2.5"
             ry="2"
-            fill="#FFF"
-            stroke="#000"
+            fill="var(--pet-eye-white)"
+            stroke="var(--pet-eye-pupil)"
             strokeWidth="0.8"
           />
           <circle cx="10" cy="10" r="1.5" fill="var(--pet-eye-pupil)" />
           <circle cx="22" cy="10" r="1.5" fill="var(--pet-eye-pupil)" />
-          <circle cx="9.5" cy="9" r="0.4" fill="var(--pet-eye-white)" />
-          <circle cx="21.5" cy="9" r="0.4" fill="var(--pet-eye-white)" />
+          <circle cx="9.5" cy="9" r="0.4" fill="var(--pet-eye-highlight)" />
+          <circle cx="21.5" cy="9" r="0.4" fill="var(--pet-eye-highlight)" />
           {/* Sad eyebrows */}
           <path
             d="M6 8 Q10 6 14 8"
-            stroke="#000"
+            stroke="var(--pet-eye-pupil)"
             strokeWidth="1.5"
             fill="none"
             strokeLinecap="round"
           />
           <path
             d="M18 8 Q22 6 26 8"
-            stroke="#000"
+            stroke="var(--pet-eye-pupil)"
             strokeWidth="1.5"
             fill="none"
             strokeLinecap="round"
@@ -271,8 +271,8 @@ const PetSVG: React.FC<PetSVGProps> = ({
           cy="10"
           rx="2.5"
           ry="2"
-          fill="#FFF"
-          stroke="#000"
+          fill="var(--pet-eye-white)"
+          stroke="var(--pet-eye-pupil)"
           strokeWidth="0.8"
         />
         <ellipse
@@ -280,26 +280,26 @@ const PetSVG: React.FC<PetSVGProps> = ({
           cy="10"
           rx="2.5"
           ry="2"
-          fill="#FFF"
-          stroke="#000"
+          fill="var(--pet-eye-white)"
+          stroke="var(--pet-eye-pupil)"
           strokeWidth="0.8"
         />
 
         {/* Pupils */}
-        <circle cx="10" cy="10" r="1.5" fill="#000" />
-        <circle cx="22" cy="10" r="1.5" fill="#000" />
+        <circle cx="10" cy="10" r="1.5" fill="var(--pet-eye-pupil)" />
+        <circle cx="22" cy="10" r="1.5" fill="var(--pet-eye-pupil)" />
 
         {/* Eye highlights */}
-        <circle cx="9.5" cy="9" r="0.6" fill="#FFF" />
-        <circle cx="21.5" cy="9" r="0.6" fill="#FFF" />
-        <circle cx="9" cy="9.5" r="0.3" fill="#FFF" />
-        <circle cx="21" cy="9.5" r="0.3" fill="#FFF" />
+        <circle cx="9.5" cy="9" r="0.6" fill="var(--pet-eye-highlight)" />
+        <circle cx="21.5" cy="9" r="0.6" fill="var(--pet-eye-highlight)" />
+        <circle cx="9" cy="9.5" r="0.3" fill="var(--pet-eye-highlight)" />
+        <circle cx="21" cy="9.5" r="0.3" fill="var(--pet-eye-highlight)" />
 
         {mood === VirtualPetMood.HAPPY && (
           <>
             {/* Extra sparkle for happy */}
-            <circle cx="11" cy="8.5" r="0.2" fill="#FFF" />
-            <circle cx="23" cy="8.5" r="0.2" fill="#FFF" />
+            <circle cx="11" cy="8.5" r="0.2" fill="var(--pet-eye-highlight)" />
+            <circle cx="23" cy="8.5" r="0.2" fill="var(--pet-eye-highlight)" />
           </>
         )}
       </>
@@ -311,7 +311,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
       return (
         <path
           d="M12 18 Q16 22 20 18"
-          stroke="#000"
+          stroke="var(--pet-eye-pupil)"
           strokeWidth="1.5"
           fill="none"
         />
@@ -329,7 +329,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
             stroke="#000"
             strokeWidth="1.5"
           />
-          <circle cx="16" cy="18" r="1" fill="#8B4513" />
+          <circle cx="16" cy="18" r="1" fill="var(--pet-dirt)" />
         </>
       );
     }
@@ -340,15 +340,15 @@ const PetSVG: React.FC<PetSVGProps> = ({
     ) {
       return (
         <>
-          <ellipse cx="16" cy="18" rx="2" ry="1" fill="#000" />
+          <ellipse cx="16" cy="18" rx="2" ry="1" fill="var(--pet-eye-pupil)" />
           {/* Z's for sleeping */}
-          <text x="24" y="8" fontSize="4" fill="#666">
+          <text x="24" y="8" fontSize="4" fill="var(--pet-sleep-z)">
             Z
           </text>
-          <text x="26" y="6" fontSize="3" fill="#999">
+          <text x="26" y="6" fontSize="3" fill="var(--pet-sleep-z-fade)">
             z
           </text>
-          <text x="28" y="4" fontSize="2" fill="#CCC">
+          <text x="28" y="4" fontSize="2" fill="var(--pet-sleep-z-light)">
             z
           </text>
         </>
@@ -378,7 +378,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
       return (
         <>
           {/* Concentrated expression */}
-          <ellipse cx="16" cy="18" rx="1.5" ry="0.8" fill="#000" />
+          <ellipse cx="16" cy="18" rx="1.5" ry="0.8" fill="var(--pet-eye-pupil)" />
         </>
       );
     }
@@ -387,7 +387,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
       return (
         <>
           {/* Curious small mouth */}
-          <circle cx="16" cy="18" r="1" fill="#000" />
+          <circle cx="16" cy="18" r="1" fill="var(--pet-eye-pupil)" />
         </>
       );
     }
@@ -445,7 +445,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
           />
           <path
             d="M14 18 Q16 20 18 18"
-            stroke="#FF69B4"
+            stroke="var(--pet-mouth-hungry)"
             strokeWidth="1"
             fill="none"
           />
@@ -476,13 +476,13 @@ const PetSVG: React.FC<PetSVGProps> = ({
       return (
         <>
           {/* Sparkles for playing */}
-          <g fill="#FFD700" className="animate-pulse">
+          <g fill="var(--pet-sparkle-gold)" className="animate-pulse">
             <polygon points="4,4 5,6 7,6 5.5,7.5 6,10 4,8.5 2,10 2.5,7.5 1,6 3,6" />
             <polygon points="26,4 27,6 29,6 27.5,7.5 28,10 26,8.5 24,10 24.5,7.5 23,6 25,6" />
             <polygon points="4,24 5,26 7,26 5.5,27.5 6,30 4,28.5 2,30 2.5,27.5 1,26 3,26" />
             <polygon points="26,24 27,26 29,26 27.5,27.5 28,30 26,28.5 24,30 24.5,27.5 23,26 25,26" />
           </g>
-          <g fill="#FF69B4" opacity="0.8" className="animate-bounce">
+          <g fill="var(--pet-sparkle-pink)" opacity="0.8" className="animate-bounce">
             <circle cx="8" cy="8" r="1" />
             <circle cx="24" cy="6" r="0.8" />
             <circle cx="6" cy="26" r="0.6" />
@@ -496,11 +496,11 @@ const PetSVG: React.FC<PetSVGProps> = ({
       return (
         <>
           {/* Bounce effects */}
-          <g fill="#87CEEB" opacity="0.6" className="animate-bounce">
+          <g fill="var(--pet-bounce-effect)" opacity="0.6" className="animate-bounce">
             <circle cx="12" cy="28" r="1.5" />
             <circle cx="20" cy="28" r="1.5" />
           </g>
-          <g fill="#FFD700" opacity="0.7">
+          <g fill="var(--pet-sparkle-gold)" opacity="0.7">
             <circle cx="16" cy="6" r="0.8" className="animate-ping" />
           </g>
         </>
@@ -511,7 +511,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
       return (
         <>
           {/* Wiggle motion lines */}
-          <g stroke="#FF69B4" strokeWidth="1" fill="none" opacity="0.5" className="animate-pulse">
+          <g stroke="var(--pet-wiggle-lines)" strokeWidth="1" fill="none" opacity="0.5" className="animate-pulse">
             <path d="M2 16 Q8 14 14 16 Q20 18 26 16 Q30 14 32 16" />
             <path d="M2 20 Q8 18 14 20 Q20 22 26 20 Q30 18 32 20" />
           </g>
@@ -523,7 +523,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
       return (
         <>
           {/* Stretch lines */}
-          <g stroke="#90EE90" strokeWidth="1.5" fill="none" opacity="0.6">
+          <g stroke="var(--pet-stretch-lines)" strokeWidth="1.5" fill="none" opacity="0.6">
             <path d="M16 4 L16 0" strokeLinecap="round" />
             <path d="M16 28 L16 32" strokeLinecap="round" />
             <path d="M4 16 L0 16" strokeLinecap="round" />
@@ -537,7 +537,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
       return (
         <>
           {/* Attention indicators */}
-          <g fill="#FFD700" opacity="0.8">
+          <g fill="var(--pet-attention-dots)" opacity="0.8">
             <circle cx="6" cy="6" r="0.5" className="animate-ping" />
             <circle cx="26" cy="6" r="0.5" className="animate-ping" style={{animationDelay: '0.5s'}} />
             <circle cx="6" cy="26" r="0.5" className="animate-ping" style={{animationDelay: '1s'}} />
@@ -551,10 +551,10 @@ const PetSVG: React.FC<PetSVGProps> = ({
       return (
         <>
           {/* Yawn effects */}
-          <g fill="#87CEEB" opacity="0.4">
+          <g fill="var(--pet-yawn-effect)" opacity="0.4">
             <ellipse cx="16" cy="18" rx="4" ry="2" className="animate-pulse" />
           </g>
-          <g fill="#DDD" opacity="0.6">
+          <g fill="var(--pet-yawn-bubbles)" opacity="0.6">
             <circle cx="20" cy="12" r="0.8" className="animate-bounce" />
             <circle cx="22" cy="10" r="0.6" className="animate-bounce" style={{animationDelay: '0.3s'}} />
             <circle cx="24" cy="8" r="0.4" className="animate-bounce" style={{animationDelay: '0.6s'}} />
@@ -567,7 +567,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
       return (
         <>
           {/* Dirt spots */}
-          <g fill="#654321" opacity="0.7">
+          <g fill="var(--pet-dirt)" opacity="0.7">
             <circle cx="8" cy="14" r="1.5" />
             <circle cx="24" cy="16" r="1" />
             <circle cx="12" cy="24" r="1.2" />
@@ -576,7 +576,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
           </g>
           {/* Stink lines */}
           <g
-            stroke="#8B4513"
+            stroke="var(--pet-stink-lines)"
             strokeWidth="1"
             fill="none"
             opacity="0.5"
@@ -595,7 +595,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
         <>
           {/* Sick swirls */}
           <g
-            stroke="#90EE90"
+            stroke="var(--pet-sick-swirls)"
             strokeWidth="1.5"
             fill="none"
             opacity="0.6"
@@ -612,7 +612,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
       return (
         <>
           {/* Food crumbs */}
-          <g fill="#8B4513" opacity="0.6">
+          <g fill="var(--pet-food-crumbs)" opacity="0.6">
             <circle cx="12" cy="22" r="0.5" />
             <circle cx="20" cy="24" r="0.3" />
             <circle cx="18" cy="21" r="0.4" />
@@ -694,7 +694,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
         </defs>
 
         {/* Body shadow */}
-        <ellipse cx="17" cy="21" rx="12" ry="10" fill="#00000020" />
+        <ellipse cx="17" cy="21" rx="12" ry="10" fill="var(--pet-shadow)" />
 
         {/* Body */}
         <ellipse
@@ -709,7 +709,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
         />
 
         {/* Head shadow */}
-        <circle cx="17" cy="13" r="8" fill="#00000020" />
+        <circle cx="17" cy="13" r="8" fill="var(--pet-shadow)" />
 
         {/* Head */}
         <circle
@@ -723,10 +723,10 @@ const PetSVG: React.FC<PetSVGProps> = ({
         />
 
         {/* Head highlight */}
-        <ellipse cx="13" cy="9" rx="3" ry="2" fill="#FFFFFF40" />
+        <ellipse cx="13" cy="9" rx="3" ry="2" fill="var(--pet-highlight-soft)" />
 
         {/* Body highlight */}
-        <ellipse cx="13" cy="17" rx="4" ry="3" fill="#FFFFFF30" />
+        <ellipse cx="13" cy="17" rx="4" ry="3" fill="var(--pet-highlight-subtle)" />
 
         {/* Eyes */}
         {getEyeState()}
@@ -745,7 +745,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
               cy="14"
               rx="2.5"
               ry="2"
-              fill="#FF69B4"
+              fill="var(--pet-cheek-happy)"
               opacity="0.4"
             />
             <ellipse
@@ -753,7 +753,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
               cy="14"
               rx="2.5"
               ry="2"
-              fill="#FF69B4"
+              fill="var(--pet-cheek-happy)"
               opacity="0.4"
             />
             <ellipse
@@ -761,7 +761,7 @@ const PetSVG: React.FC<PetSVGProps> = ({
               cy="13"
               rx="1.5"
               ry="1"
-              fill="#FFB6C1"
+              fill="var(--pet-cheek-highlight)"
               opacity="0.6"
             />
             <ellipse
@@ -769,14 +769,14 @@ const PetSVG: React.FC<PetSVGProps> = ({
               cy="13"
               rx="1.5"
               ry="1"
-              fill="#FFB6C1"
+              fill="var(--pet-cheek-highlight)"
               opacity="0.6"
             />
           </>
         )}
 
         {/* Belly spot */}
-        {isAlive && <ellipse cx="16" cy="22" rx="6" ry="4" fill="#FFFFFF20" />}
+        {isAlive && <ellipse cx="16" cy="22" rx="6" ry="4" fill="var(--pet-belly-spot)" />}
       </svg>
     </div>
   );

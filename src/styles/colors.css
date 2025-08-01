@@ -1,106 +1,130 @@
 :root {
   /* Device Colors */
-  --device-bg: #FFE4B5;
-  --device-border: #8B4513;
-  --device-border-inner: #DEB887;
-  --device-border-inner-2: #CD853F;
-  --device-gradient-start: #FFE4B5;
-  --device-gradient-end: #DEB887;
-  --device-text: #8B4513;
-  
+  --device-bg: #ffe4b5;
+  --device-border: #8b4513;
+  --device-border-inner: #deb887;
+  --device-border-inner-2: #cd853f;
+  --device-gradient-start: #ffe4b5;
+  --device-gradient-end: #deb887;
+  --device-text: #8b4513;
+
   /* Screen Colors */
-  --screen-bg: #2F4F2F;
-  --screen-bg-dark: #1C3A1C;
+  --screen-bg: #2f4f2f;
+  --screen-bg-dark: #1c3a1c;
   --screen-border: #000;
-  
+
   /* Status Colors */
-  --status-good: #00FF00;
-  --status-medium: #FFFF00;
-  --status-bad: #FF0000;
+  --status-good: #00ff00;
+  --status-medium: #ffff00;
+  --status-bad: #ff0000;
   --status-bg: #004400;
   --status-border: #002200;
-  --status-text: #00AA00;
-  --status-text-bright: #00FF00;
-  
+  --status-text: #00aa00;
+  --status-text-bright: #00ff00;
+
   /* Navigation Indicators */
-  --nav-active: #00FF00;
+  --nav-active: #00ff00;
   --nav-inactive: #004400;
-  
+
   /* Button Colors */
-  --btn-primary: #8B4513;
+  --btn-primary: #8b4513;
   --btn-primary-hover: #654321;
-  --btn-text: #FFE4B5;
-  
+  --btn-text: #ffe4b5;
+
   /* Action Button Colors */
-  --btn-feed: #FF6B6B;
-  --btn-feed-hover: #FF4444;
-  --btn-feed-border: #FF4444;
-  --btn-play: #4ECDC4;
-  --btn-play-hover: #26A69A;
-  --btn-play-border: #26A69A;
-  --btn-clean: #45B7D1;
-  --btn-clean-hover: #2196F3;
-  --btn-clean-border: #2196F3;
-  --btn-sleep: #96CEB4;
-  --btn-sleep-hover: #4CAF50;
-  --btn-sleep-border: #4CAF50;
+  --btn-feed: #ff6b6b;
+  --btn-feed-hover: #ff4444;
+  --btn-feed-border: #ff4444;
+  --btn-play: #4ecdc4;
+  --btn-play-hover: #26a69a;
+  --btn-play-border: #26a69a;
+  --btn-clean: #45b7d1;
+  --btn-clean-hover: #2196f3;
+  --btn-clean-border: #2196f3;
+  --btn-sleep: #96ceb4;
+  --btn-sleep-hover: #4caf50;
+  --btn-sleep-border: #4caf50;
   --btn-disabled: #999;
   --btn-disabled-border: #666;
-  
+
   /* Pet Body Colors */
-  --pet-happy: #FFE135;
-  --pet-happy-shade: #E6C200;
-  --pet-sad: #6BB6FF;
-  --pet-sad-shade: #5A9BD4;
-  --pet-angry: #FF4757;
-  --pet-angry-shade: #E63946;
-  --pet-sick: #7BED9F;
-  --pet-sick-shade: #70C085;
-  --pet-hungry: #FF9F43;
-  --pet-hungry-shade: #E6842A;
-  --pet-dirty: #A0522D;
-  --pet-dirty-shade: #8B4513;
-  --pet-sleeping: #C44569;
-  --pet-sleeping-shade: #A8385D;
+  --pet-happy: #ffe135;
+  --pet-happy-shade: #e6c200;
+  --pet-sad: #6bb6ff;
+  --pet-sad-shade: #5a9bd4;
+  --pet-angry: #ff4757;
+  --pet-angry-shade: #e63946;
+  --pet-sick: #7bed9f;
+  --pet-sick-shade: #70c085;
+  --pet-hungry: #ff9f43;
+  --pet-hungry-shade: #e6842a;
+  --pet-dirty: #a0522d;
+  --pet-dirty-shade: #8b4513;
+  --pet-sleeping: #c44569;
+  --pet-sleeping-shade: #a8385d;
   --pet-dead: #666666;
   --pet-dead-shade: #444444;
-  
+
   /* Pet Feature Colors */
-  --pet-eye-white: #FFF;
+  --pet-eye-white: #fff;
   --pet-eye-pupil: #000;
-  --pet-eye-angry: #FF0000;
-  --pet-eye-highlight: #FFF;
-  --pet-tear: #87CEEB;
+  --pet-eye-angry: #ff0000;
+  --pet-eye-highlight: #fff;
+  --pet-tear: #87ceeb;
   --pet-dirt: #654321;
-  
+  --pet-sleep-z: #666;
+  --pet-sleep-z-fade: #999;
+  --pet-sleep-z-light: #ccc;
+  --pet-mouth-line: #333;
+  --pet-mouth-hungry: #ff69b4;
+  --pet-sparkle-pink: #ff69b4;
+  --pet-sparkle-green: #90ee90;
+  --pet-sparkle-gold: #ffd700;
+  --pet-sparkle-blue: #87ceeb;
+  --pet-cheek-happy: #ff69b4;
+  --pet-cheek-highlight: #ffb6c1;
+  --pet-bounce-effect: #87ceeb;
+  --pet-wiggle-lines: #ff69b4;
+  --pet-stretch-lines: #90ee90;
+  --pet-attention-dots: #ffd700;
+  --pet-yawn-effect: #87ceeb;
+  --pet-yawn-bubbles: #ddd;
+  --pet-stink-lines: #8b4513;
+  --pet-sick-swirls: #90ee90;
+  --pet-food-crumbs: #8b4513;
+  --pet-belly-spot: rgba(255, 255, 255, 0.125);
+  --pet-shadow: rgba(0, 0, 0, 0.125);
+  --pet-highlight-soft: rgba(255, 255, 255, 0.25);
+  --pet-highlight-subtle: rgba(255, 255, 255, 0.1875);
+
   /* Background Colors */
   --bg-primary: #f0f0f0;
   --bg-pattern-1: #e8e8e8;
   --bg-pattern-2: #e0e0e0;
   --bg-pattern-3: #ddd;
   --bg-pattern-4: #eee;
-  --bg-overlay: rgba(255,255,255,0.8);
-  
+  --bg-overlay: rgba(255, 255, 255, 0.8);
+
   /* Border Colors */
   --border-primary: #333;
   --border-secondary: #ccc;
-  
+
   /* Text colors */
   --text-primary: #333;
   --text-secondary: #666;
   --text-white: #fff;
-  
+
   /* Special Colors */
   --dead-indicator: #ff0000;
   --transparent: transparent;
-  
+
   /* Shadow Colors */
-  --shadow-dark: rgba(0,0,0,0.3);
-  --shadow-light: rgba(255,255,255,0.2);
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --shadow-light: rgba(255, 255, 255, 0.2);
   --shadow-device: rgba(139, 69, 19, 0.4);
   --shadow-device-light: rgba(139, 69, 19, 0.3);
-  --shadow-inset: rgba(0,0,0,0.6);
-  
+  --shadow-inset: rgba(0, 0, 0, 0.6);
+
   /* Hover States */
   --hover-green: rgba(0, 255, 0, 0.1);
 }
