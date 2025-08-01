@@ -10,13 +10,4 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://kiwokochi.vercel.app/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwokochi.vercel.app/" />
   </url>
-  <url>
-    <loc>https://kiwokochi.vercel.app/other</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kiwokochi.vercel.app/other" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://kiwokochi.vercel.app/other" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kiwokochi.vercel.app/other" />
-  </url>
 </urlset>
