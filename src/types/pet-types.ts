@@ -24,7 +24,12 @@ export enum VirtualPetAnimation {
   SLEEPING = 'sleeping',
   PLAYING = 'playing',
   SICK = 'sick',
-  DEAD = 'dead'
+  DEAD = 'dead',
+  BOUNCING = 'bouncing',
+  WIGGLING = 'wiggling',
+  STRETCHING = 'stretching',
+  LOOKING_AROUND = 'looking_around',
+  YAWNING = 'yawning'
 }
 
 export enum VirtualPetMood {

@@ -1,5 +1,6 @@
 import React from "react";
 import { VirtualPetAnimation, VirtualPetMood } from "../../types/pet-types";
+import "./pet-animations.css";
 
 interface PetSVGProps {
   animation: VirtualPetAnimation;
@@ -94,6 +95,64 @@ const PetSVG: React.FC<PetSVGProps> = ({
             strokeWidth="1.5"
             fill="none"
           />
+        </>
+      );
+    }
+
+    if (animation === VirtualPetAnimation.YAWNING) {
+      return (
+        <>
+          {/* Half-closed sleepy eyes */}
+          <ellipse
+            cx="10"
+            cy="10"
+            rx="2.5"
+            ry="1"
+            fill="#FFF"
+            stroke="#000"
+            strokeWidth="0.8"
+          />
+          <ellipse
+            cx="22"
+            cy="10"
+            rx="2.5"
+            ry="1"
+            fill="#FFF"
+            stroke="#000"
+            strokeWidth="0.8"
+          />
+          <circle cx="10" cy="10" r="0.8" fill="#000" />
+          <circle cx="22" cy="10" r="0.8" fill="#000" />
+        </>
+      );
+    }
+
+    if (animation === VirtualPetAnimation.LOOKING_AROUND) {
+      return (
+        <>
+          {/* Wide alert eyes */}
+          <ellipse
+            cx="10"
+            cy="10"
+            rx="3"
+            ry="2.5"
+            fill="#FFF"
+            stroke="#000"
+            strokeWidth="0.8"
+          />
+          <ellipse
+            cx="22"
+            cy="10"
+            rx="3"
+            ry="2.5"
+            fill="#FFF"
+            stroke="#000"
+            strokeWidth="0.8"
+          />
+          <circle cx="11" cy="10" r="1.5" fill="#000" className="animate-pulse" />
+          <circle cx="21" cy="10" r="1.5" fill="#000" className="animate-pulse" />
+          <circle cx="10.5" cy="9" r="0.4" fill="#FFF" />
+          <circle cx="20.5" cy="9" r="0.4" fill="#FFF" />
         </>
       );
     }
@@ -296,6 +355,57 @@ const PetSVG: React.FC<PetSVGProps> = ({
       );
     }
 
+    if (animation === VirtualPetAnimation.YAWNING) {
+      return (
+        <>
+          {/* Wide open yawning mouth */}
+          <ellipse
+            cx="16"
+            cy="19"
+            rx="3"
+            ry="4"
+            fill="#000"
+            stroke="#333"
+            strokeWidth="1"
+            className="animate-pulse"
+          />
+          <ellipse cx="16" cy="18" rx="2" ry="2" fill="#333" />
+        </>
+      );
+    }
+
+    if (animation === VirtualPetAnimation.STRETCHING) {
+      return (
+        <>
+          {/* Concentrated expression */}
+          <ellipse cx="16" cy="18" rx="1.5" ry="0.8" fill="#000" />
+        </>
+      );
+    }
+
+    if (animation === VirtualPetAnimation.LOOKING_AROUND) {
+      return (
+        <>
+          {/* Curious small mouth */}
+          <circle cx="16" cy="18" r="1" fill="#000" />
+        </>
+      );
+    }
+
+    if (animation === VirtualPetAnimation.BOUNCING || animation === VirtualPetAnimation.WIGGLING) {
+      return (
+        <>
+          {/* Excited smile */}
+          <path
+            d="M12 16 Q16 20 20 16"
+            stroke="#000"
+            strokeWidth="1.5"
+            fill="none"
+          />
+        </>
+      );
+    }
+
     if (mood === VirtualPetMood.HAPPY) {
       return (
         <path
@@ -382,6 +492,77 @@ const PetSVG: React.FC<PetSVGProps> = ({
       );
     }
 
+    if (animation === VirtualPetAnimation.BOUNCING) {
+      return (
+        <>
+          {/* Bounce effects */}
+          <g fill="#87CEEB" opacity="0.6" className="animate-bounce">
+            <circle cx="12" cy="28" r="1.5" />
+            <circle cx="20" cy="28" r="1.5" />
+          </g>
+          <g fill="#FFD700" opacity="0.7">
+            <circle cx="16" cy="6" r="0.8" className="animate-ping" />
+          </g>
+        </>
+      );
+    }
+
+    if (animation === VirtualPetAnimation.WIGGLING) {
+      return (
+        <>
+          {/* Wiggle motion lines */}
+          <g stroke="#FF69B4" strokeWidth="1" fill="none" opacity="0.5" className="animate-pulse">
+            <path d="M2 16 Q8 14 14 16 Q20 18 26 16 Q30 14 32 16" />
+            <path d="M2 20 Q8 18 14 20 Q20 22 26 20 Q30 18 32 20" />
+          </g>
+        </>
+      );
+    }
+
+    if (animation === VirtualPetAnimation.STRETCHING) {
+      return (
+        <>
+          {/* Stretch lines */}
+          <g stroke="#90EE90" strokeWidth="1.5" fill="none" opacity="0.6">
+            <path d="M16 4 L16 0" strokeLinecap="round" />
+            <path d="M16 28 L16 32" strokeLinecap="round" />
+            <path d="M4 16 L0 16" strokeLinecap="round" />
+            <path d="28 16 L32 16" strokeLinecap="round" />
+          </g>
+        </>
+      );
+    }
+
+    if (animation === VirtualPetAnimation.LOOKING_AROUND) {
+      return (
+        <>
+          {/* Attention indicators */}
+          <g fill="#FFD700" opacity="0.8">
+            <circle cx="6" cy="6" r="0.5" className="animate-ping" />
+            <circle cx="26" cy="6" r="0.5" className="animate-ping" style={{animationDelay: '0.5s'}} />
+            <circle cx="6" cy="26" r="0.5" className="animate-ping" style={{animationDelay: '1s'}} />
+            <circle cx="26" cy="26" r="0.5" className="animate-ping" style={{animationDelay: '1.5s'}} />
+          </g>
+        </>
+      );
+    }
+
+    if (animation === VirtualPetAnimation.YAWNING) {
+      return (
+        <>
+          {/* Yawn effects */}
+          <g fill="#87CEEB" opacity="0.4">
+            <ellipse cx="16" cy="18" rx="4" ry="2" className="animate-pulse" />
+          </g>
+          <g fill="#DDD" opacity="0.6">
+            <circle cx="20" cy="12" r="0.8" className="animate-bounce" />
+            <circle cx="22" cy="10" r="0.6" className="animate-bounce" style={{animationDelay: '0.3s'}} />
+            <circle cx="24" cy="8" r="0.4" className="animate-bounce" style={{animationDelay: '0.6s'}} />
+          </g>
+        </>
+      );
+    }
+
     if (mood === VirtualPetMood.DIRTY) {
       return (
         <>
@@ -446,18 +627,45 @@ const PetSVG: React.FC<PetSVGProps> = ({
   const getAnimationClass = (): string => {
     switch (animation) {
       case VirtualPetAnimation.WALKING:
-        return "animate-bounce";
+        return "animate-bounce pet-smooth-transition";
       case VirtualPetAnimation.EATING:
-        return "animate-pulse";
+        return "animate-pulse pet-smooth-transition";
       case VirtualPetAnimation.PLAYING:
-        return "animate-spin";
+        return "animate-spin pet-excited";
+      case VirtualPetAnimation.BOUNCING:
+        return "pet-float-bounce pet-smooth-transition";
+      case VirtualPetAnimation.WIGGLING:
+        return "pet-wiggle pet-smooth-transition";
+      case VirtualPetAnimation.STRETCHING:
+        return "pet-stretch pet-smooth-transition";
+      case VirtualPetAnimation.LOOKING_AROUND:
+        return "pet-look-around pet-smooth-transition";
+      case VirtualPetAnimation.YAWNING:
+        return "pet-yawn pet-sleepy";
+      case VirtualPetAnimation.IDLE:
+        return mood === VirtualPetMood.HAPPY ? "pet-happy-idle pet-smooth-transition" : "pet-gentle-float pet-smooth-transition";
+      default:
+        return "pet-smooth-transition";
+    }
+  };
+
+  const getMoodClass = (): string => {
+    if (!isAlive) return "";
+    
+    switch (mood) {
+      case VirtualPetMood.HAPPY:
+        return "pet-mood-happy";
+      case VirtualPetMood.SAD:
+        return "pet-mood-sad";
+      case VirtualPetMood.SLEEPING:
+        return "pet-mood-sleepy";
       default:
         return "";
     }
   };
 
   return (
-    <div className={getAnimationClass()}>
+    <div className={`${getAnimationClass()} ${getMoodClass()} pet-interactive`}>
       <svg
         width={size}
         height={size}

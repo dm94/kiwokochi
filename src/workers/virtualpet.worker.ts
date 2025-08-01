@@ -62,19 +62,66 @@ const updateStats = (deltaTime: number): void => {
 const updatePosition = (): void => {
   if (gameState.animation === VirtualPetAnimation.SLEEPING || gameState.animation === VirtualPetAnimation.DEAD) {return;}
   
-  const moveChance = Math.random();
-  if (moveChance < 0.3) {
-    const newX = Math.max(16, Math.min(184, gameState.position.x + (Math.random() - 0.5) * 40));
-    const newY = Math.max(16, Math.min(134, gameState.position.y + (Math.random() - 0.5) * 40));
+  const actionChance = Math.random();
+  
+  // Increased chance for movement and idle animations
+  if (actionChance < 0.6) {
+    const randomAction = Math.random();
     
-    gameState.position = { x: newX, y: newY };
-    gameState.animation = VirtualPetAnimation.WALKING;
-    
-    setTimeout(() => {
-      if (gameState.animation === VirtualPetAnimation.WALKING) {
-        gameState.animation = VirtualPetAnimation.IDLE;
-      }
-    }, 1000);
+    if (randomAction < 0.4) {
+      // Movement
+      const newX = Math.max(16, Math.min(184, gameState.position.x + (Math.random() - 0.5) * 50));
+      const newY = Math.max(16, Math.min(134, gameState.position.y + (Math.random() - 0.5) * 50));
+      
+      gameState.position = { x: newX, y: newY };
+      gameState.animation = VirtualPetAnimation.WALKING;
+      
+      setTimeout(() => {
+        if (gameState.animation === VirtualPetAnimation.WALKING) {
+          gameState.animation = VirtualPetAnimation.IDLE;
+        }
+      }, 1200);
+    } else if (randomAction < 0.55) {
+      // Bouncing in place
+      gameState.animation = VirtualPetAnimation.BOUNCING;
+      setTimeout(() => {
+        if (gameState.animation === VirtualPetAnimation.BOUNCING) {
+          gameState.animation = VirtualPetAnimation.IDLE;
+        }
+      }, 1500);
+    } else if (randomAction < 0.7) {
+      // Wiggling
+      gameState.animation = VirtualPetAnimation.WIGGLING;
+      setTimeout(() => {
+        if (gameState.animation === VirtualPetAnimation.WIGGLING) {
+          gameState.animation = VirtualPetAnimation.IDLE;
+        }
+      }, 1800);
+    } else if (randomAction < 0.8) {
+      // Stretching
+      gameState.animation = VirtualPetAnimation.STRETCHING;
+      setTimeout(() => {
+        if (gameState.animation === VirtualPetAnimation.STRETCHING) {
+          gameState.animation = VirtualPetAnimation.IDLE;
+        }
+      }, 2000);
+    } else if (randomAction < 0.9) {
+      // Looking around
+      gameState.animation = VirtualPetAnimation.LOOKING_AROUND;
+      setTimeout(() => {
+        if (gameState.animation === VirtualPetAnimation.LOOKING_AROUND) {
+          gameState.animation = VirtualPetAnimation.IDLE;
+        }
+      }, 2500);
+    } else {
+      // Yawning
+      gameState.animation = VirtualPetAnimation.YAWNING;
+      setTimeout(() => {
+        if (gameState.animation === VirtualPetAnimation.YAWNING) {
+          gameState.animation = VirtualPetAnimation.IDLE;
+        }
+      }, 2200);
+    }
   }
 };
 
@@ -138,7 +185,7 @@ self.onmessage = (event) => {
       }
       
       if (gameInterval) clearInterval(gameInterval);
-      gameInterval = setInterval(gameLoop, 30000);
+      gameInterval = setInterval(gameLoop, 8000); // Reduced from 30s to 8s for more frequent animations
       
       self.postMessage({
         type: 'gameStateUpdate',

@@ -1,0 +1,137 @@
+/* Animaciones personalizadas para la mascota virtual */
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg) translateX(-2px); }
+  75% { transform: rotate(3deg) translateX(2px); }
+}
+
+@keyframes stretch {
+  0%, 100% { transform: scaleY(1) scaleX(1); }
+  50% { transform: scaleY(1.1) scaleX(0.95); }
+}
+
+@keyframes lookAround {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+@keyframes yawn {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.3; }
+}
+
+/* Clases de utilidad para las animaciones */
+.pet-wiggle {
+  animation: wiggle 1.5s ease-in-out infinite;
+}
+
+.pet-stretch {
+  animation: stretch 2s ease-in-out infinite;
+}
+
+.pet-look-around {
+  animation: lookAround 2.5s ease-in-out infinite;
+}
+
+.pet-yawn {
+  animation: yawn 2.2s ease-in-out infinite;
+}
+
+.pet-float-bounce {
+  animation: floatBounce 1.5s ease-in-out infinite;
+}
+
+.pet-gentle-float {
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.pet-sparkle {
+  animation: sparkle 1s ease-in-out infinite;
+}
+
+.pet-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Animaciones combinadas para efectos más complejos */
+.pet-happy-idle {
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.pet-excited {
+  animation: floatBounce 1s ease-in-out infinite, wiggle 1.5s ease-in-out infinite;
+}
+
+.pet-sleepy {
+  animation: yawn 3s ease-in-out infinite;
+}
+
+/* Efectos de partículas */
+.pet-particle {
+  position: absolute;
+  pointer-events: none;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.pet-particle:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.pet-particle:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.pet-particle:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+/* Transiciones suaves */
+.pet-smooth-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Efectos de hover para interactividad */
+.pet-interactive:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Animaciones de estado de ánimo */
+.pet-mood-happy {
+  filter: brightness(1.1) saturate(1.2);
+}
+
+.pet-mood-sad {
+  filter: brightness(0.8) saturate(0.7);
+}
+
+.pet-mood-excited {
+  filter: brightness(1.2) saturate(1.3) hue-rotate(10deg);
+}
+
+.pet-mood-sleepy {
+  filter: brightness(0.9) saturate(0.8) blur(0.5px);
+}

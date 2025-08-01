@@ -21,6 +21,16 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
         return "animate-pulse";
       case VirtualPetAnimation.PLAYING:
         return "animate-spin";
+      case VirtualPetAnimation.BOUNCING:
+        return "animate-bounce";
+      case VirtualPetAnimation.WIGGLING:
+        return "animate-pulse";
+      case VirtualPetAnimation.STRETCHING:
+        return "animate-pulse";
+      case VirtualPetAnimation.LOOKING_AROUND:
+        return "";
+      case VirtualPetAnimation.YAWNING:
+        return "animate-pulse";
       default:
         return "";
     }
