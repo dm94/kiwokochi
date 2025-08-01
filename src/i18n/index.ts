@@ -4,6 +4,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import en from './locales/en.json';
 import es from './locales/es.json';
+import { DEFAULT_LANGUAGE } from '@/config';
 
 const resources = {
   en: {
@@ -19,7 +20,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'en',
+    fallbackLng: DEFAULT_LANGUAGE,
     debug: false,
     interpolation: {
       escapeValue: false,

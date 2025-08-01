@@ -1,12 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "@/pages/Home";
+import { usePageTracking } from "@/utils/page-tracking";
 
 export default function App() {
+  usePageTracking();
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/other" element={<div className="text-center text-xl">Other Page - Coming Soon</div>} />
+        <Route
+          path="/other"
+          element={
+            <div className="text-center text-xl">Other Page - Coming Soon</div>
+          }
+        />
       </Routes>
     </Router>
   );
