@@ -454,7 +454,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
             >
               {t("status.settings")}
             </Text>
-            <View width="100%" gap={8} flex={1} justifyContent="center">
+            <View width="100%" gap={8}>
               <View
                 padding={8}
                 backgroundColor="transparent"
@@ -469,26 +469,6 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
               >
                 <Text fontSize={9} fontFamily="monospace" color="#00FF00">
                   {t("actions.reset")}
-                </Text>
-              </View>
-
-              <View backgroundColor="transparent" padding={6}>
-                <Text
-                  fontSize={8}
-                  fontFamily="monospace"
-                  color="#00AA00"
-                  textAlign="center"
-                  marginBottom={2}
-                >
-                  {t("instructions.keyboardControls")}
-                </Text>
-                <Text
-                  fontSize={8}
-                  fontFamily="monospace"
-                  color="#00FF00"
-                  textAlign="center"
-                >
-                  {t("instructions.controls")}
                 </Text>
               </View>
             </View>

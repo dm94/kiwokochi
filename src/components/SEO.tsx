@@ -27,7 +27,7 @@ const SEO: React.FC<SEOProps> = ({
   const fullTitle = title
     ? `${title} | ${defaultTitle}`
     : `${defaultTitle} - Virtual Pet Game | Your Digital Companion`;
-  const metaDescription = description || defaultDescription;
+  const metaDescription = description ?? defaultDescription;
   const metaKeywords =
     keywords ||
     "virtual pet, digital pet, pet game, browser game, virtual companion, pet simulator, online pet, retro game, nostalgic game";

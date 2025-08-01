@@ -3,7 +3,7 @@ import { View, Text } from "@tamagui/core";
 import { useVirtualPet } from "@/hooks/virtualPet/useVirtualPet";
 import VirtualPetDevice from "@/components/virtualPet/VirtualPetDevice";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import SEO from "@/components/SEO";
+import Seo from "@/components/SEO";
 import { useTranslation } from "@/hooks/useTranslation";
 import { NavigationPage } from "@/types/pet-types";
 
@@ -56,7 +56,7 @@ export default function Home() {
 
   return (
     <>
-      <SEO
+      <Seo
         description={t("app.subtitle") + " - " + t("instructions.description")}
         keywords="virtual pet, digital pet, pet game, browser game, virtual companion, pet simulator, online pet, retro game, nostalgic game, mascota virtual, juego de mascotas"
       />
