@@ -13,7 +13,8 @@
     "clean": "LIMPIAR",
     "play": "JUGAR",
     "reset": "🔄 REINICIAR MASCOTA",
-    "set": "CONFIGURAR"
+    "set": "CONFIGURAR",
+    "main": "PRINCIPAL"
   },
   "status": {
     "title": "ESTADO",

@@ -510,7 +510,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
               color="#FFE4B5"
               fontWeight="bold"
             >
-              MAIN
+              {t('actions.main')}
             </Text>
           </View>
 
@@ -576,8 +576,10 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
         </View>
         <View
           flexDirection="row"
+          flexWrap="wrap"
           justifyContent="space-between"
           paddingHorizontal={10}
+          gap={2}
           width="100%"
         >
           <View

@@ -13,7 +13,8 @@
     "clean": "CLEAN",
     "play": "PLAY",
     "reset": "🔄 RESET PET",
-    "set": "SET"
+    "set": "SET",
+    "main": "MAIN"
   },
   "status": {
     "title": "STATUS",
