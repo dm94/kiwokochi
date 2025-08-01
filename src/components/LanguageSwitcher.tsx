@@ -22,7 +22,7 @@ const LanguageSwitcher: React.FC = () => {
     >
       <Text
         fontSize={10}
-        fontFamily="monospace"
+        fontFamily="var(--font-monospace)"
         color="var(--text-secondary)"
         textTransform="uppercase"
         marginRight={4}
@@ -39,7 +39,7 @@ const LanguageSwitcher: React.FC = () => {
       >
         <Text
           fontSize={10}
-          fontFamily="monospace"
+          fontFamily="var(--font-monospace)"
           color={currentLanguage === 'en' ? 'var(--text-white)' : 'var(--text-primary)'}
           textTransform="uppercase"
         >
@@ -56,7 +56,7 @@ const LanguageSwitcher: React.FC = () => {
       >
         <Text
           fontSize={10}
-          fontFamily="monospace"
+          fontFamily="var(--font-monospace)"
           color={currentLanguage === 'es' ? 'var(--text-white)' : 'var(--text-primary)'}
           textTransform="uppercase"
         >

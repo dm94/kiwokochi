@@ -34,7 +34,7 @@ export default function Home() {
           />
           <Text
             fontSize={16}
-            fontFamily="monospace"
+            fontFamily="var(--font-monospace)"
             color="var(--text-primary)"
             textTransform="uppercase"
             letterSpacing={2}
@@ -43,7 +43,7 @@ export default function Home() {
           </Text>
           <Text
             fontSize={12}
-            fontFamily="monospace"
+            fontFamily="var(--font-monospace)"
             color="var(--text-secondary)"
             textAlign="center"
           >
@@ -93,7 +93,7 @@ export default function Home() {
         >
           <Text
             fontSize={12}
-            fontFamily="monospace"
+            fontFamily="var(--font-monospace)"
             color="var(--text-primary)"
             textAlign="center"
             marginBottom={8}
@@ -103,7 +103,7 @@ export default function Home() {
           </Text>
           <Text
             fontSize={10}
-            fontFamily="monospace"
+            fontFamily="var(--font-monospace)"
             color="var(--text-secondary)"
             textAlign="center"
             lineHeight={14}

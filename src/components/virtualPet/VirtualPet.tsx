@@ -90,7 +90,7 @@ const VirtualPet: React.FC<VirtualPetProps> = ({ gameState }) => {
           paddingVertical={2}
           borderRadius={2}
         >
-          <Text fontSize={8} color="var(--text-white)" fontFamily="monospace">
+          <Text fontSize={8} color="var(--text-white)" fontFamily="var(--font-monospace)">
             RIP
           </Text>
         </View>

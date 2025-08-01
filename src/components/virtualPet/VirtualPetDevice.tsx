@@ -47,7 +47,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
       <View alignItems="center" marginTop={10}>
         <Text
           fontSize={12}
-          fontFamily="monospace"
+          fontFamily="var(--font-monospace)"
           color="var(--device-text)"
           fontWeight="bold"
           letterSpacing={2}
@@ -123,7 +123,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 <View alignItems="center" flex={1}>
                   <Text
                     fontSize={6}
-                    fontFamily="monospace"
+                    fontFamily="var(--font-monospace)"
                     color="var(--status-text)"
                     marginBottom={1}
                   >
@@ -152,7 +152,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   </View>
                   <Text
                     fontSize={5}
-                    fontFamily="monospace"
+                    fontFamily="var(--font-monospace)"
                     color="var(--status-text-bright)"
                     marginTop={1}
                   >
@@ -163,7 +163,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 <View alignItems="center" flex={1}>
                   <Text
                     fontSize={6}
-                    fontFamily="monospace"
+                    fontFamily="var(--font-monospace)"
                     color="var(--status-text)"
                     marginBottom={1}
                   >
@@ -191,19 +191,19 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                     />
                   </View>
                   <Text
-                    fontSize={5}
-                    fontFamily="monospace"
-                    color="var(--status-text-bright)"
-                    marginTop={1}
-                  >
-                    {Math.round(gameState.stats.happiness)}%
-                  </Text>
+                      fontSize={5}
+                      fontFamily="var(--font-monospace)"
+                      color="var(--status-text-bright)"
+                      marginTop={1}
+                    >
+                      {Math.round(gameState.stats.health)}%
+                    </Text>
                 </View>
 
                 <View alignItems="center" flex={1}>
                   <Text
                     fontSize={6}
-                    fontFamily="monospace"
+                    fontFamily="var(--font-monospace)"
                     color="var(--status-text)"
                     marginBottom={1}
                   >
@@ -231,13 +231,13 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                     />
                   </View>
                   <Text
-                    fontSize={5}
-                    fontFamily="monospace"
-                    color="var(--status-text-bright)"
-                    marginTop={1}
-                  >
-                    {Math.round(gameState.stats.health)}%
-                  </Text>
+                      fontSize={5}
+                      fontFamily="var(--font-monospace)"
+                      color="var(--status-text-bright)"
+                      marginTop={1}
+                    >
+                      {Math.round(gameState.stats.happiness)}%
+                    </Text>
                 </View>
               </View>
               <View
@@ -248,13 +248,13 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
               >
                 <View alignItems="center" flex={1}>
                   <Text
-                    fontSize={6}
-                    fontFamily="monospace"
-                    color="var(--status-text)"
-                    marginBottom={1}
-                  >
-                    {t("status.energyShort")}
-                  </Text>
+                     fontSize={6}
+                     fontFamily="var(--font-monospace)"
+                     color="var(--status-text)"
+                     marginBottom={1}
+                   >
+                     {t("status.energyShort")}
+                   </Text>
                   <View
                     width="100%"
                     height={4}
@@ -277,20 +277,20 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                     />
                   </View>
                   <Text
-                    fontSize={5}
-                    fontFamily="monospace"
-                    color="var(--status-text-bright)"
-                    marginTop={1}
-                  >
-                    {Math.round(gameState.stats.energy)}%
-                  </Text>
+                     fontSize={5}
+                     fontFamily="var(--font-monospace)"
+                     color="var(--status-text-bright)"
+                     marginTop={1}
+                   >
+                     {Math.round(gameState.stats.energy)}%
+                   </Text>
                 </View>
 
                 <View alignItems="center" flex={1}>
                   <Text
                     fontSize={6}
-                    fontFamily="monospace"
-                    color="#00AA00"
+                    fontFamily="var(--font-monospace)"
+                    color="var(--status-text)"
                     marginBottom={1}
                   >
                     {t("status.cleanShort")}
@@ -318,8 +318,8 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   </View>
                   <Text
                     fontSize={5}
-                    fontFamily="monospace"
-                    color="#00FF00"
+                    fontFamily="var(--font-monospace)"
+                    color="var(--status-text-bright)"
                     marginTop={1}
                   >
                     {Math.round(gameState.stats.cleanliness)}%
@@ -329,8 +329,8 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 <View alignItems="center" flex={1}>
                   <Text
                     fontSize={6}
-                    fontFamily="monospace"
-                    color="#00AA00"
+                    fontFamily="var(--font-monospace)"
+                    color="var(--status-text)"
                     marginBottom={1}
                   >
                     {t("status.ageShort")}
@@ -345,13 +345,13 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                     justifyContent="center"
                     alignItems="center"
                   >
-                    <Text fontSize={5} fontFamily="monospace" color="var(--status-text-bright)">
+                    <Text fontSize={5} fontFamily="var(--font-monospace)" color="var(--status-text-bright)">
                       {Math.floor(gameState.stats.age)}h
                     </Text>
                   </View>
                   <Text
                     fontSize={5}
-                    fontFamily="monospace"
+                    fontFamily="var(--font-monospace)"
                     color="var(--status-text)"
                     marginTop={1}
                   >
@@ -367,7 +367,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           <View alignItems="center" flex={1}>
             <Text
               fontSize={10}
-              fontFamily="monospace"
+              fontFamily="var(--font-monospace)"
               color="var(--status-text-bright)"
               textAlign="center"
               marginBottom={8}
@@ -387,10 +387,10 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 justifyContent="space-between"
                 marginBottom={6}
               >
-                <Text fontSize={9} fontFamily="monospace" color="var(--status-text)">
+                <Text fontSize={9} fontFamily="var(--font-monospace)" color="var(--status-text)">
                   {t("status.ageLabel")}
                 </Text>
-                <Text fontSize={9} fontFamily="monospace" color="var(--status-text-bright)">
+                <Text fontSize={9} fontFamily="var(--font-monospace)" color="var(--status-text-bright)">
                   {Math.floor(gameState.stats.age)}h{" "}
                   {Math.floor((gameState.stats.age % 1) * 60)}m
                 </Text>
@@ -400,10 +400,10 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 justifyContent="space-between"
                 marginBottom={6}
               >
-                <Text fontSize={9} fontFamily="monospace" color="var(--status-text)">
+                <Text fontSize={9} fontFamily="var(--font-monospace)" color="var(--status-text)">
                   {t("status.weightLabel")}
                 </Text>
-                <Text fontSize={9} fontFamily="monospace" color="var(--status-text-bright)">
+                <Text fontSize={9} fontFamily="var(--font-monospace)" color="var(--status-text-bright)">
                   {Math.round(gameState.stats.weight)}g
                 </Text>
               </View>
@@ -412,12 +412,12 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 justifyContent="space-between"
                 marginBottom={6}
               >
-                <Text fontSize={9} fontFamily="monospace" color="var(--status-text)">
+                <Text fontSize={9} fontFamily="var(--font-monospace)" color="var(--status-text)">
                   {t("status.statusLabel")}
                 </Text>
                 <Text
                   fontSize={9}
-                  fontFamily="monospace"
+                  fontFamily="var(--font-monospace)"
                   color="var(--status-text-bright)"
                   textTransform="uppercase"
                 >
@@ -425,12 +425,12 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                 </Text>
               </View>
               <View flexDirection="row" justifyContent="space-between">
-                <Text fontSize={9} fontFamily="monospace" color="var(--status-text)">
+                <Text fontSize={9} fontFamily="var(--font-monospace)" color="var(--status-text)">
                   {t("status.activityLabel")}
                 </Text>
                 <Text
                   fontSize={9}
-                  fontFamily="monospace"
+                  fontFamily="var(--font-monospace)"
                   color="var(--status-text-bright)"
                   textTransform="uppercase"
                 >
@@ -445,7 +445,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           <View alignItems="center" flex={1}>
             <Text
               fontSize={10}
-              fontFamily="monospace"
+              fontFamily="var(--font-monospace)"
               color="var(--status-text-bright)"
               textAlign="center"
               marginBottom={8}
@@ -467,7 +467,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
                   backgroundColor: "var(--hover-green)",
                 }}
               >
-                <Text fontSize={9} fontFamily="monospace" color="var(--status-text-bright)">
+                <Text fontSize={9} fontFamily="var(--font-monospace)" color="var(--status-text-bright)">
                   {t("actions.reset")}
                 </Text>
               </View>
@@ -506,7 +506,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           >
             <Text
               fontSize={8}
-              fontFamily="monospace"
+              fontFamily="var(--font-monospace)"
               color="var(--btn-text)"
               fontWeight="bold"
             >
@@ -536,7 +536,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           >
             <Text
               fontSize={8}
-              fontFamily="monospace"
+              fontFamily="var(--font-monospace)"
               color="var(--btn-text)"
               fontWeight="bold"
             >
@@ -566,7 +566,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           >
             <Text
               fontSize={8}
-              fontFamily="monospace"
+              fontFamily="var(--font-monospace)"
               color="var(--btn-text)"
               fontWeight="bold"
             >
