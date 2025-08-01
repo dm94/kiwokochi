@@ -1,6 +1,6 @@
 {
-  "name": "Tama Web - Virtual Pet Game",
-  "short_name": "Tama Web",
+  "name": "Kiwokochi - Virtual Pet Game",
+  "short_name": "Kiwokochi",
   "description": "Take care of your virtual pet companion in this nostalgic console-style web game. Feed, clean, play and watch your digital pet grow.",
   "start_url": "/",
   "display": "standalone",
@@ -27,15 +27,6 @@
       "src": "/favicon.svg",
       "sizes": "512x512",
       "type": "image/svg+xml"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/og-image.svg",
-      "sizes": "1200x630",
-      "type": "image/svg+xml",
-      "form_factor": "wide",
-      "label": "Tama Web Virtual Pet Game"
     }
   ],
   "shortcuts": [

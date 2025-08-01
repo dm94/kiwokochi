@@ -52,7 +52,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
           fontWeight="bold"
           letterSpacing={2}
         >
-          TAMA WEB
+          Kiwokochi
         </Text>
         <View
           width={60}
@@ -255,7 +255,7 @@ const VirtualPetDevice: React.FC<VirtualPetDeviceProps> = ({
               textTransform="uppercase"
               letterSpacing={1}
             >
-              {t('status.detailedStats')}
+              {t("status.detailedStats")}
             </Text>
             <View
               backgroundColor="transparent"

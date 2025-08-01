@@ -1,4 +1,4 @@
-# Tama Web 🐾
+# Kiwokochi 🐾
 
 > Your Virtual Pet Companion - A nostalgic virtual pet style web game
 
@@ -45,50 +45,6 @@ This project includes comprehensive SEO optimizations:
 - `vercel.json` - Vercel deployment configuration
 - `src/components/SEO.tsx` - Dynamic SEO component
 
-## 🛠️ Development
-
-### Prerequisites
-
-- Node.js 18+
-- pnpm (recommended) or npm
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/tamaweb.git
-cd tamaweb
-
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
-```
-
-### Build & Deploy
-
-```bash
-# Build for production
-pnpm build
-
-# Preview production build
-pnpm preview
-
-# Analyze bundle size
-pnpm build:analyze
-```
-
-### SEO Testing
-
-```bash
-# Validate SEO implementation
-pnpm seo:validate
-
-# Run Lighthouse audit
-pnpm lighthouse
-```
-
 ## 🎮 How to Play
 
 1. **Feed your pet** (F key or Feed button) when hunger is low
@@ -98,13 +54,9 @@ pnpm lighthouse
 5. **Monitor the status bars** and respond to your pet's needs
 6. **Keep your pet healthy** - if health reaches 0, your pet will die!
 
-## 🌐 Live Demo
-
-Visit the live application: [https://tamaweb.vercel.app/](https://tamaweb.vercel.app/)
-
 ## 📱 Progressive Web App
 
-Tama Web can be installed as a PWA on your device:
+Kiwokochi can be installed as a PWA on your device:
 
 - **Desktop**: Click the install button in your browser's address bar
 - **Mobile**: Use "Add to Home Screen" option in your browser menu
