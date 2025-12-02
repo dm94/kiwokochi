@@ -1,9 +1,7 @@
 @import "./styles/colors.css";
 @import "./styles/generic.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   font-family: var(--font-primary);

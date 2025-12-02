@@ -1,17 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
   define: {
-    'process.env': {},
+    "process.env": {},
   },
   build: {
-    sourcemap: 'hidden',
+    sourcemap: "hidden",
   },
-  plugins: [
-    react(),
-    tsconfigPaths()
-  ],
-})
+  plugins: [react(), tsconfigPaths(), tailwindcss()],
+});
