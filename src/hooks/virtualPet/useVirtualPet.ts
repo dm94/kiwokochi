@@ -19,6 +19,32 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
   const [isLoading, setIsLoading] = useState(true);
   const workerRef = useRef<Worker | null>(null);
 
+  const loadSavedState = (): VirtualPetState | null => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsedState = JSON.parse(saved) as VirtualPetState;
+        
+        const now = Date.now();
+        const timeDiff = now - parsedState.lastUpdate;
+        const hoursDiff = timeDiff / (1000 * 60 * 60);
+        
+        if (hoursDiff > 24) {
+          console.log('Estado guardado muy antiguo, iniciando nuevo juego');
+          localStorage.removeItem(STORAGE_KEY);
+          return null;
+        }
+        
+        return parsedState;
+      }
+    } catch (error) {
+      console.error('Error al cargar estado guardado:', error);
+      localStorage.removeItem(STORAGE_KEY);
+    }
+    
+    return null;
+  };
+
   useEffect(() => {
     workerRef.current = new Worker(
       new URL('../../workers/virtualpet.worker.ts', import.meta.url),
@@ -106,32 +132,6 @@ export const useVirtualPet = (): UseVirtualPetReturn => {
       });
     }
   }, []);
-
-  const loadSavedState = (): VirtualPetState | null => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsedState = JSON.parse(saved) as VirtualPetState;
-        
-        const now = Date.now();
-        const timeDiff = now - parsedState.lastUpdate;
-        const hoursDiff = timeDiff / (1000 * 60 * 60);
-        
-        if (hoursDiff > 24) {
-          console.log('Estado guardado muy antiguo, iniciando nuevo juego');
-          localStorage.removeItem(STORAGE_KEY);
-          return null;
-        }
-        
-        return parsedState;
-      }
-    } catch (error) {
-      console.error('Error al cargar estado guardado:', error);
-      localStorage.removeItem(STORAGE_KEY);
-    }
-    
-    return null;
-  };
 
   useEffect(() => {
     if (workerRef.current && isLoading) {
